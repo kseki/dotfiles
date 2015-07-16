@@ -8,3 +8,7 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 setopt print_eight_bit
+
+plugins~(git ruby osx bundler brew rails emoji-clock)
+
+fpath=(/usr/local/share/zsh-completions $fpath)
