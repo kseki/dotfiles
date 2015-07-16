@@ -1,4 +1,4 @@
-syntax enable
+syntax on
 set nocompatible
 
 set number
@@ -16,7 +16,6 @@ set shiftwidth=2
 set autoindent
 set smartindent
 
-
 if 0 | endif
 
 if has('vim_starting')
@@ -25,11 +24,11 @@ if has('vim_starting')
   endif
 
   " Required:
-  set runtimepath+=/Users/kotaseki/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('/Users/kotaseki/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
