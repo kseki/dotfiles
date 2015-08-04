@@ -1,4 +1,4 @@
-syntax on
+syntax enable
 set nocompatible
 
 set number
@@ -40,6 +40,23 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'scrooloose/nerdtree'
+
+" complete
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'marcus/rsense'
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+  \     'mac' : 'make -f make_mac.mak',
+  \     'unix' : 'make -f make_unix.mak',
+  \    },
+  \ }
+NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
+  \ 'insert' : 1,
+  \ 'filetypes': 'ruby',
+  \ }}
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -53,4 +70,24 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+"Rsense
+let g:rsenseHome = "/usr/local/Cellar/rsense/0.3/libexec"
+let g:rsenseUseOmniFunc = 1
+setlocal completefunc=RSenseComplete
+
+" noecomplete.vim
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+
+" unite.vim
+noremap <C-P> :Unite buffer<CR>
+noremap <C-N> :Unite -buffer-name=file file<CR>
+noremap <C-Z> :Unite file_mru<CR>
+noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
 
