@@ -7,6 +7,9 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
+setopt extended_glob
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
 setopt print_eight_bit
 
 # for zsh-completions
