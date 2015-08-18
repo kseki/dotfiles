@@ -15,3 +15,5 @@ setopt print_eight_bit
 # for zsh-completions
 plugins=(git ruby osx bundler brew rails emoji-clock)
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+eval "(rbenv init - zsh)"
