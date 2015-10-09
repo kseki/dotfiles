@@ -46,7 +46,15 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'wakatime/vim-wakatime'
 " NeoBundle 'rhysd/vim-color-splatoon'
+
+" html
+NeoBundle 'hail2u/vim-css3-syntax'
+" NeoBundle 'taichouchou2/html5.vim'
+" JavaScript
+" NeoBundle 'taichouchou2/vim-javascript'
+" NeoBundle 'kchmck/vim-coffee-script'
 
 " indent
 NeoBundle 'nathanaelkane/vim-indent-guides'

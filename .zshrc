@@ -16,4 +16,6 @@ setopt print_eight_bit
 plugins=(git ruby osx bundler brew rails emoji-clock)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-eval "(rbenv init - zsh)"
+# export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init - zsh)"
+export PATH="$HOME/.gem/ruby/2.2.0/bin:$PATH"
