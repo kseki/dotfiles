@@ -3,16 +3,16 @@
 DOTPATH=~/.dotfiles
 GITHUB_URL=git@github.com:kota718/dotfiles.git
 
-if has "git"; then
+if hash "git"; then
   git clone --recursive "$GITHUB_URL" "$DOTPATH"
 
-elif has "curl" || has "wget"; then
+elif hash "curl" || hash "wget"; then
   tarball "https://github.com/kota718/dotfiles/archive/master.tar.gz"
   
-  if has "curl"; then
+  if hash "curl"; then
     curl -L "&tarball"
 
-  elif has "wget"; then
+  elif hash "wget"; then
     wget -o - "$tarball" 
   
   fi | tar xv -
