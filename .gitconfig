@@ -3,3 +3,5 @@
 	email = kota.yt@gmail.com
 [color]
 	ui = auto
+[core]
+	excludesfile = .global_ignore
