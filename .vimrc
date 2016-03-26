@@ -56,6 +56,13 @@ NeoBundle 'hail2u/vim-css3-syntax'
 " NeoBundle 'taichouchou2/vim-javascript'
 " NeoBundle 'kchmck/vim-coffee-script'
 
+" Markdown
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+
+au BufRead,BufNewFile *.md set filetype=markdown
+
 " indent
 NeoBundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
@@ -106,4 +113,5 @@ noremap <C-P> :Unite buffer<CR>
 noremap <C-N> :Unite -buffer-name=file file<CR>
 noremap <C-Z> :Unite file_mru<CR>
 noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
+
 
