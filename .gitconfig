@@ -5,3 +5,11 @@
 	ui = auto
 [core]
 	excludesfile = ~/.global_ignore
+	editor = vim
+[alias]
+	delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+	st = status
+	co = checkout
+	cm = commit
+[gc]
+	auto = 0
