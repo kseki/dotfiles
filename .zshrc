@@ -1,21 +1,33 @@
-export LANG=ja_JP.UTF-8
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-autoload -Uz compinit
-compinit
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
+# Customize to your needs...
+ export PATH=$PATH:~/.local/bin
+
+# コメンド履歴
 HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=100000
+SAVEHIST=100000
 
-setopt extended_glob
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt print_eight_bit
+setopt hist_ignore_dups # 重複は除外
+setopt share_history    # 履歴を共有する
 
-# for zsh-completions
-plugins=(git ruby osx bundler brew rails emoji-clock)
-fpath=(/usr/local/share/zsh-completions $fpath)
+setopt extended_glob    # 高機能なワイルドカード展開を使用する
 
-# export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init - zsh)"
-export PATH="$HOME/.gem/ruby/2.2.0/bin:$PATH"
+# ==== color =====
+autoload -Uz colors
+colors
+
+
+# =====  alias =====
+alias vim='nvim'
+alias vi='vim'
