@@ -2,24 +2,13 @@
 repo = 'Shougo/dein.vim'
 
 # ===== color =====
-# [[plugins]]
-# repo = 'dracula/vim'
-
-# [[plugins]]
-# repo = 'arcticicestudio/nord-vim'
-
-# [[plugins]]
-# repo = 'vim-scripts/Wombat'
-
-# [[plugins]]
-# repo = 'nanotech/jellybeans.vim'
-
 [[plugins]]
-repo = 'altercation/vim-colors-solarized'
+repo = 'dracula/vim'
 
 # ===== basic =====
+# カーソル位置のコンテキストのftを判定するライブラリ
 [[plugins]]
-repos = 'scrooloose/nerdtree'
+repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'scrooloose/nerdcommenter'
@@ -29,29 +18,18 @@ nmap <C-c> <plug>NERDCommenterToggle
 vmap <C-c> <Plug>NERDCommenterToggle
 '''
 
-[[plugins]]
-repo = 'Xuyuanp/nerdtree-git-plugin'
-
-[[plugins]]
-repo = 'osyo-manga/vim-anzu'
-hook_add = '''
-nmap n <Plug>(anzu-n)
-nmap N <Plug>(anzu-N)
-nmap * <Plug>(anzu-star)
-nmap # <Plug>(anzu-sharp)
-
-set statusline=%{anzu#search_status()}
-'''
+#[[plugins]]
+#repo = 'Xuyuanp/nerdtree-git-plugin'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
-  let g:indent_guides_enable_on_vim_startup = 1
-  let g:indent_guides_start_level=2
-  let g:indent_guides_auto_colors=0
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
-  let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level=2
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
+let g:indent_guides_guide_size = 1
 '''
 
 # ===== filer ======
@@ -84,7 +62,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 repo = 'vim-airline/vim-airline-themes'
 depends = 'vim-airline'
 hook_add = '''
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'dracula'
 '''
 
 [[plugins]]

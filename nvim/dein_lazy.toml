@@ -3,34 +3,37 @@ repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-if = 'has("nvim")'
+depends = 'context_filetype.vim'
+if = "has('nvim')"
 on_i = 1
-hook_add = '''
+hook_source = '''
 let g:deoplete#enable_at_startup = 1
 '''
 
 [[plugins]]
-repo = 'Shougo/neocomplcache'
+repo = 'zchee/deoplete-jedi'
+depends = 'deoplete.nvim'
+if = "has('nvim')"
+on_ft = 'python'
 
 [[plugins]]
-repo = 'Shougo/neocomplete'
-on_i = 1
-hook_add = '''
-  let g:neocomplete#enable_at_startup = 1
-'''
+repo = 'zchee/deoplete-go'
+depends = 'deoplete.nvim'
+if = "has('nvim')"
+on_ft = 'go'
+build = 'make'
 
 [[plugins]]
-repo = 'Shougo/neosnippet'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'ujihisa/neco-look'
+on_source = ['neocomplete.vim', 'deoplete.nvim']
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
 on_ft = ['vim', 'html', 'toml']
 
-# lang
+
+# =====  lang =====
 [[plugins]]
 repo = 'Shougo/neco-vim'
 on_ft = 'vim'
@@ -44,8 +47,8 @@ repo = 'plasticboy/vim-markdown'
 on_ft = 'md'
 
 [[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = 'python'
+repo = 'fatih/vim-go'
+on_ft = 'go'
 
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
@@ -67,7 +70,14 @@ on_ft = 'ruby'
 repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 
-# Rails
 [[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = 'ruby'
+
+[[plugins]]
+repo = 'dag/vim-fish'
+on_ft = 'fish'
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = 'vue'

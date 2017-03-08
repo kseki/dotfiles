@@ -11,7 +11,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
- export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin
+
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
+
 
 # コメンド履歴
 HISTFILE=~/.zsh_history

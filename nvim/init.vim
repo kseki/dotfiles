@@ -2,6 +2,14 @@ if &compatible
   set nocompatible
 endif
 
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
+let g:python3_host_prog = $HOME. '/.anyenv/envs/pyenv/shims/python3'
+let g:python_host_prog = $HOME. '/.anyenv/envs/pyenv/shims/python'
+set rtp+=/usr/local/share/nvim/runtime/
+
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
 " dein.vim 本体
@@ -25,8 +33,8 @@ if dein#load_state(s:dein_dir)
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
   " TOML を読み込み、キャッシュしておく
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#load_toml(s:toml,      {'lazy' : 0})
+  call dein#load_toml(s:lazy_toml, {'lazy' : 1})
 
   " 設定終了
   call dein#end()
@@ -84,9 +92,9 @@ set incsearch
 
 
 " color
-syntax enable
+syntax on
 set background=dark
-colorscheme solarized
+colorscheme dracula
 
 " ===== alias =====
 "vertical size adjust '<' '>'
@@ -95,5 +103,4 @@ nnoremap <silent>> <C-w>>
 "horizonal size adjust '+' '-'
 noremap <silent>+ <C-w>+
 noremap <silent>- <C-w>-
-
 
