@@ -5,10 +5,22 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
 if = "has('nvim')"
-on_i = 1
+on_event = 'InsertCharPre'
 hook_source = '''
-let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 0
+  let g:deoplete#auto_complete_start_length = 1
+  let g:deoplete#enable_camel_case = 0
+  let g:deoplete#enable_ignore_case = 0
+  let g:deoplete#enable_refresh_always = 0
+  let g:deoplete#enable_smart_case = 1
+  let g:deoplete#file#enable_buffer_path = 1
+  let g:deoplete#max_list = 10000
+  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+        \ neosnippet#expandable_or_jumpable() ?
+        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 '''
+on_i = 1
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
@@ -27,10 +39,10 @@ build = 'make'
 repo = 'ujihisa/neco-look'
 on_source = ['neocomplete.vim', 'deoplete.nvim']
 
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = 'context_filetype.vim'
-on_ft = ['vim', 'html', 'toml']
+#[[plugins]]
+#repo = 'osyo-manga/vim-precious'
+#depends = 'context_filetype.vim'
+#on_ft = ['vim', 'html', 'toml']
 
 
 # =====  lang =====
@@ -53,6 +65,10 @@ on_ft = 'go'
 [[plugins]]
 repo = 'hynek/vim-python-pep8-indent'
 on_ft = 'python'
+
+[[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+on_ft = 'javascript'
 
 [[plugins]]
 repo = 'elzr/vim-json'

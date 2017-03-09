@@ -6,21 +6,6 @@ repo = 'Shougo/dein.vim'
 repo = 'dracula/vim'
 
 # ===== basic =====
-# カーソル位置のコンテキストのftを判定するライブラリ
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-
-[[plugins]]
-repo = 'scrooloose/nerdcommenter'
-hook_add = '''
-let g:NERDCreateDefaultMappings = 0
-nmap <C-c> <plug>NERDCommenterToggle
-vmap <C-c> <Plug>NERDCommenterToggle
-'''
-
-#[[plugins]]
-#repo = 'Xuyuanp/nerdtree-git-plugin'
-
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
@@ -36,11 +21,6 @@ let g:indent_guides_guide_size = 1
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = '''
-let NERDTreeShowHidden = 1
-'''
 
 # ===== powerline =====
 [[plugins]]
