@@ -79,6 +79,19 @@ on_source = ['neocomplete.vim', 'deoplete.nvim']
 #depends = 'context_filetype.vim'
 #on_ft = ['vim', 'html', 'toml']
 
+[[plugins]]
+repo = 'Shougo/neosnippet'
+hook_source = '''
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+  if has('conceal')
+    set conceallevel=2 concealcursor=niv
+  endif
+'''
+on_i  = 1
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']
 
 # =====  lang =====
 [[plugins]]
