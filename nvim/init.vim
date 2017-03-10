@@ -96,11 +96,5 @@ syntax on
 set background=dark
 colorscheme dracula
 
-" ===== alias =====
-"vertical size adjust '<' '>'
-nnoremap <silent>< <C-w><
-nnoremap <silent>> <C-w>>
-"horizonal size adjust '+' '-'
-noremap <silent>+ <C-w>+
-noremap <silent>- <C-w>-
+runtime! keymap.rc.vim
 
