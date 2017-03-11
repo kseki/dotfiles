@@ -3,7 +3,9 @@ repo = 'Shougo/dein.vim'
 
 # ===== color =====
 [[plugins]]
-repo = 'dracula/vim'
+#repo = 'dracula/vim'
+repo = 'sdemura/dracula-vim'
+rev = 'fix_pmenu_colors'
 
 # ===== basic =====
 [[plugins]]
