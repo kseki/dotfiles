@@ -8,16 +8,19 @@ repo = 'sdemura/dracula-vim'
 rev = 'fix_pmenu_colors'
 
 # ===== basic =====
+#[[plugins]]
+#repo = 'nathanaelkane/vim-indent-guides'
+#hook_add = '''
+#let g:indent_guides_enable_on_vim_startup = 1
+#let g:indent_guides_start_level=2
+#let g:indent_guides_auto_colors=0
+#autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black
+#autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
+#let g:indent_guides_guide_size = 1
+#'''
+
 [[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
-hook_add = '''
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level=2
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
-let g:indent_guides_guide_size = 1
-'''
+repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -38,8 +41,6 @@ repo = 'vim-airline/vim-airline'
 depends = ['tagbar', 'vim-fugitive']
 hook_add = '''
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' ' 
-let g:airline#extensions#tabline#left_alt_sep = '|'
 '''
 
 [[plugins]]
@@ -49,9 +50,9 @@ hook_add = '''
 let g:airline_theme = 'dracula'
 '''
 
-[[plugins]]
-repo = 'edkolev/tmuxline.vim'
-on_cmd = 'Tmuxline'
+#[[plugins]]
+#repo = 'edkolev/tmuxline.vim'
+#on_cmd = 'Tmuxline'
 
 # ===== terminal =====
 [[plugins]]
