@@ -33,7 +33,6 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt' \
   'git' \
   'homebrew' \
   'tmux' \
@@ -41,7 +40,8 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'archive' \
   'fasd' \
-  'syntax-highlighting'
+  'syntax-highlighting' \
+  'prompt' 
 
 #
 # Autosuggestions
@@ -82,10 +82,11 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 zstyle ':prezto:module:history-substring-search:color' found ''
 
 # Set the query not found color.
-# zstyle ':prezto:module:history-substring-search:color' not-found ''
+zstyle ':prezto:module:history-substring-search:color' not-found ''
+ 
 
 # Set the search globbing flags.
-# zstyle ':prezto:module:history-substring-search' globbing-flags ''
+zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
 #
 # Pacman
@@ -133,14 +134,14 @@ zstyle ':prezto:module:prompt' theme 'pure'
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
-# zstyle ':prezto:module:syntax-highlighting' highlighters \
-#   'main' \
-#   'brackets' \
-#   'pattern' \
-#   'line' \
-#   'cursor' \
-#   'root'
-#
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'line' \
+  'cursor' \
+  'root'
+
 # Set syntax highlighting styles.
 # zstyle ':prezto:module:syntax-highlighting' styles \
 #   'builtin' 'bg=blue' \
