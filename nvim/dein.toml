@@ -22,6 +22,9 @@ if = '!has("nvim")'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
 # ===== filer ======
 [[plugins]]
 repo = 'tpope/vim-rails'
