@@ -17,6 +17,7 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
+nnoremap <ESC><ESC> :nohlsearch<CR>
 
 if 0 | endif
 
