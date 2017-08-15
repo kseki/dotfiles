@@ -66,8 +66,3 @@ let g:airline_theme = 'dracula'
 [[plugins]]
 repo = 'kassio/neoterm'
 if = "has('nvim')"
-
-# lang
-[[plugins]]
-repo = 'slim-template/vim-slim'
-on_ft = 'slim'
