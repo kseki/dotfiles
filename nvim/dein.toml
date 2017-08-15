@@ -27,6 +27,13 @@ repo = 'cohama/lexima.vim'
 
 # ===== filer ======
 [[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+'''
+on_i = 1
+
+[[plugins]]
 repo = 'tpope/vim-rails'
 
 # ===== powerline =====
