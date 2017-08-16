@@ -136,6 +136,10 @@ repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 
 [[plugins]]
+repo = 'vim-scripts/ruby-matchit'
+on_ft = 'ruby'
+
+[[plugins]]
 repo = 'dag/vim-fish'
 on_ft = 'fish'
 
