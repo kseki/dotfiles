@@ -4,7 +4,7 @@
 [color]
 	ui = auto
 [core]
-	excludesfile = ~/.global_ignore
+	excludesfile = ~/.gitignore_global
 	editor = vim
 [alias]
 	delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
