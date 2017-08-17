@@ -8,6 +8,7 @@ build = 'env PY3=ON ./install.sh'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 depends = ['neomru.vim']
+if = "has('python3')"
 on_event = 'BufRead'
 hook_add = '''
 nnoremap [denite] <Nop>
