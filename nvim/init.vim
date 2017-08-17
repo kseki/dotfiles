@@ -94,8 +94,6 @@ set incsearch
 
 " color
 syntax on
-set background=dark
-colorscheme dracula
 
 " disable default plugins
 
