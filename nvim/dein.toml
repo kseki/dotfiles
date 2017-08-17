@@ -73,3 +73,7 @@ let g:airline_theme = 'dracula'
 [[plugins]]
 repo = 'kassio/neoterm'
 if = "has('nvim')"
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+
