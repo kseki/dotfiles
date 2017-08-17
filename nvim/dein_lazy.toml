@@ -72,13 +72,18 @@ on_ft = 'go'
 build = 'make'
 
 [[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+depends = 'deoplete.nvim'
+if = "has('nvim')"
+on_ft = 'ruby'
+[[plugins]]
 repo = 'ujihisa/neco-look'
 on_source = ['neocomplete.vim', 'deoplete.nvim']
 
-#[[plugins]]
-#repo = 'osyo-manga/vim-precious'
-#depends = 'context_filetype.vim'
-#on_ft = ['vim', 'html', 'toml']
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = 'context_filetype.vim'
+on_ft = ['vim', 'html', 'toml']
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -91,7 +96,7 @@ hook_source = '''
   endif
 '''
 on_event = 'InsertCharPre'
-on_ft = ['snippet']
+on_ft = 'snippet'
 depends = ['neosnippet-snippets']
 
 # =====  lang =====
@@ -129,10 +134,6 @@ on_ft = 'css'
 
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
-on_ft = 'ruby'
-
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
 on_ft = 'ruby'
 
 [[plugins]]
