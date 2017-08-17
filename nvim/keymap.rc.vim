@@ -10,4 +10,4 @@ nnoremap <silent>> <C-w>>
 noremap <silent>+ <C-w>+
 noremap <silent>- <C-w>-
 
-nnoremap <ESC><ESC>:nohlsearch<CR>
+nnoremap <ESC><ESC> :nohl<CR>
