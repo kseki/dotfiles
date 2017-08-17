@@ -68,6 +68,7 @@ set expandtab
 " 表示
 " 行番号の表示
 set number
+set numberwidth=5
 " 編集中のファイル名を表示
 set title
 " カーソル行をハイライト
