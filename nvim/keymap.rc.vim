@@ -10,4 +10,10 @@ nnoremap <silent>> <C-w>>
 noremap <silent>+ <C-w>+
 noremap <silent>- <C-w>-
 
+" tab
+nnoremap <silent> tt  :<C-u>tabnew<CR>
+nnoremap <silent> tq  :<C-u>tabclose<CR>
+nnoremap <C-p>  gT
+nnoremap <C-n>  gt
+
 nnoremap <ESC><ESC> :nohl<CR>
