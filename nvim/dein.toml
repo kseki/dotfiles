@@ -36,9 +36,8 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+  nnoremap <silent><C-e> :NERDTreeToggle<CR>
 '''
-on_i = 1
 
 [[plugins]]
 repo = 'tpope/vim-rails'
@@ -54,15 +53,15 @@ repo = 'tpope/vim-fugitive'
 repo = 'vim-airline/vim-airline'
 depends = ['tagbar', 'vim-fugitive']
 hook_add = '''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline_powerline_fonts = 1
 '''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 depends = 'vim-airline'
 hook_add = '''
-let g:airline_theme = 'dracula'
+  let g:airline_theme = 'dracula'
 '''
 
 #[[plugins]]

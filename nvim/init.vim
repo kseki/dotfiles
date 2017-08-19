@@ -1,6 +1,27 @@
-if &compatible
-  set nocompatible
-endif
+scriptencoding utf-8
+
+" disable default plugins
+let g:loaded_2html_plugin      = 1
+let g:loaded_LogiPat           = 1
+let g:loaded_getscript         = 1
+let g:loaded_getscriptPlugin   = 1
+let g:loaded_gzip              = 1
+let g:loaded_logipat           = 1
+let g:loaded_man               = 1
+let g:loaded_matchit           = 1
+let g:loaded_netrw             = 1
+let g:loaded_netrwFileHandlers = 1
+let g:loaded_netrwPlugin       = 1
+let g:loaded_netrwSettings     = 1
+let g:loaded_rrhelper          = 1
+let g:loaded_spellfile_plugin  = 1
+let g:loaded_tar               = 1
+let g:loaded_tarPlugin         = 1
+let g:loaded_tutor_mode_plugin = 1
+let g:loaded_vimball           = 1
+let g:loaded_vimballPlugin     = 1
+let g:loaded_zip               = 1
+let g:loaded_zipPlugin         = 1
 
 augroup MyAutoCmd
   autocmd!
@@ -48,77 +69,10 @@ endif
 
 filetype plugin indent on
 
-" 基本設定
-" スワップファイルを生成しない
-set noswapfile
-" 変更中に他ファイルを開く
-set hidden
-" マウスを有効にする
-set mouse=a
-" OS側のクリップボードを利用する
-set clipboard+=unnamedplus
-" ヤンクはクリップボードを利用する
-set clipboard=unnamed
-" 更新時に自動リロード
-set autoread
-" バックスペースでなんでも消せるように
-set backspace=indent,eol,start
-set expandtab
-
-" 表示
-" 行番号の表示
-set number
-set numberwidth=5
-" 編集中のファイル名を表示
-set title
-" カーソル行をハイライト
-set cursorline
-set cursorcolumn
-" タブはスペース2
-set tabstop=2
-" 自動タブ幅もスペース2
-set shiftwidth=2
-" 自動インデント
-set smartindent
-" ルーラーを表示する
-set ruler
-set showcmd
-" 対応する括弧をハイライト表示する
-set showmatch
-set nowrap
-
-" 検索
-" インクリメンタルサーチを有効にする
-set incsearch
-
-
 " color
 syntax on
 
-" disable default plugins
+source ~/.dotfiles/nvim/options.rc.vim
 
-let g:loaded_gzip              = 1
-let g:loaded_tar               = 1
-let g:loaded_tarPlugin         = 1
-let g:loaded_zip               = 1
-let g:loaded_zipPlugin         = 1
-let g:loaded_rrhelper          = 1
-let g:loaded_2html_plugin      = 1
-let g:loaded_vimball           = 1
-let g:loaded_vimballPlugin     = 1
-let g:loaded_getscript         = 1
-let g:loaded_getscriptPlugin   = 1
-let g:loaded_netrw             = 1
-let g:loaded_netrwPlugin       = 1
-let g:loaded_netrwSettings     = 1
-let g:loaded_netrwFileHandlers = 1
-"let g:loaded_matchparen        = 1
-let g:loaded_LogiPat           = 1
-let g:loaded_logipat           = 1
-let g:loaded_tutor_mode_plugin = 1
-let g:loaded_spellfile_plugin  = 1
-let g:loaded_man               = 1
-let g:loaded_matchit           = 1
-
-runtime! keymap.rc.vim
+source ~/.dotfiles/nvim/keymap.rc.vim
 
