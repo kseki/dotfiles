@@ -95,6 +95,9 @@ on_ft = ['vim', 'html', 'toml']
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
+hook_add = '''
+  let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/honza/vim-snippets/snippets/'
+'''
 hook_source = '''
   imap <C-k> <Plug>(neosnippet_expand_or_jump)
   smap <C-k> <Plug>(neosnippet_expand_or_jump)
