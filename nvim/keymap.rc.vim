@@ -30,3 +30,4 @@ nnoremap tq  :<C-u>tabclose<CR>
 nnoremap s] gt
 nnoremap s[ gT
 
+nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
