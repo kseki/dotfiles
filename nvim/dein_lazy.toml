@@ -164,6 +164,14 @@ repo = 'posva/vim-vue'
 on_ft = 'vue'
 
 [[plugins]]
+repo = 'elixir-lang/vim-elixir'
+on_ft = 'elixir'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = 'terraform'
+
+[[plugins]]
 repo = 'slim-template/vim-slim'
 on_ft = 'slim'
 
