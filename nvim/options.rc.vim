@@ -1,8 +1,6 @@
 set autoread
 set backspace=indent,eol,start
 set clipboard=unnamed,unnamedplus
-set cursorcolumn
-set cursorline
 set expandtab
 set helpheight=999
 set hidden
