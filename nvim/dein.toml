@@ -76,7 +76,12 @@ hook_add = '''
 [[plugins]]
 repo = 'kassio/neoterm'
 if = "has('nvim')"
+hook_add = '''
+  let g:neoterm_autoinsert = 1
+'''
+hook_source = '''
+  nnoremap <silent> <Space>t :Ttoggle<CR>
+'''
 
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
-
