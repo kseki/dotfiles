@@ -124,6 +124,19 @@ repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
 
 [[plugins]]
+repo = 'kannokanno/previm'
+on_ft = 'markdown'
+hook_add = '''
+  let g:previm_open_cmd = 'open'
+'''
+hook_source = '''
+  nnoremap [previm] <Nop>
+  nmap <Space>p [previm]
+  nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
+  nnoremap <silent> [previm]r :call previm#refresh()<CR>
+'''
+
+[[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
 
