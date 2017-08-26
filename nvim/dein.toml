@@ -15,9 +15,9 @@ hook_add = '''
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
-[[plugins]]
-repo = 'neomake/neomake'
-if = 'has("nvim")'
+#[[plugins]]
+#repo = 'neomake/neomake'
+#if = 'has("nvim")'
 
 [[plugins]]
 repo = 'scrooloose/syntastic'
@@ -61,12 +61,12 @@ hook_add = '''
   let g:airline_powerline_fonts = 1
 '''
 
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-depends = 'vim-airline'
-hook_add = '''
-  let g:airline_theme = 'dracula'
-'''
+#[[plugins]]
+#repo = 'vim-airline/vim-airline-themes'
+#depends = 'vim-airline'
+#hook_add = '''
+#  let g:airline_theme = 'dracula'
+#'''
 
 #[[plugins]]
 #repo = 'edkolev/tmuxline.vim'
