@@ -31,3 +31,8 @@ nnoremap s] gt
 nnoremap s[ gT
 
 nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
+
+nnoremap <silent> <Space>q :q<CR>
+nnoremap <silent> <Space>qa :qa<CR>
+nnoremap <silent> <Space>w :w<CR>
+nnoremap <silent> <Space>wq :wq<CR>
