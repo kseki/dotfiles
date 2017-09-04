@@ -16,7 +16,7 @@ set number
 set numberwidth=5
 set pumheight=15
 set ruler
-set scrolloff=8
+set scrolloff=999
 set shiftwidth=2
 set showcmd
 set showmatch
