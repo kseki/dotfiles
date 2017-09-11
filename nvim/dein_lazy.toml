@@ -95,7 +95,7 @@ on_ft = ['vim', 'html', 'toml']
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
-hook_add = '''
+hook_source = '''
   let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/honza/vim-snippets/snippets/'
 '''
 hook_source = '''
@@ -122,7 +122,7 @@ on_ft = 'toml'
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
-hook_add = '''
+hook_source = '''
   let g:vim_markdown_folding_disabled = 1
 '''
 
