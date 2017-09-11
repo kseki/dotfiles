@@ -17,7 +17,7 @@ export PATH=$PATH:~/.local/bin
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
-
+export EDITOR=vim
 
 # コメンド履歴
 HISTFILE=~/.zsh_history
