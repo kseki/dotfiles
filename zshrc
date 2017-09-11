@@ -10,6 +10,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Soruce Zsh functions.
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
 # Customize to your needs...
 export PATH=$PATH:~/.local/bin
 
