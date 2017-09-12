@@ -1,7 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# ===== color =====
 [[plugins]]
 #repo = 'dracula/vim'
 repo = 'kota718/dracula-vim'
@@ -10,7 +9,6 @@ hook_add = '''
   au MyAutoCmd VimEnter * nested colorscheme dracula
 '''
 
-# ===== basic =====
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
@@ -35,7 +33,6 @@ repo = 'cohama/lexima.vim'
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-# ===== filer ======
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
@@ -46,10 +43,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'tpope/vim-rails'
-
-# ===== powerline =====
-[[plugins]]
-repo = 'majutsushi/tagbar'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -62,7 +55,6 @@ hook_add = '''
   nnoremap <Space>gC :<C-u>Git commit --amend<CR>
   nnoremap <Space>gb :<C-u>Gblame<CR>
 '''
-
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -83,7 +75,6 @@ hook_add = '''
 #repo = 'edkolev/tmuxline.vim'
 #on_cmd = 'Tmuxline'
 
-# ===== terminal =====
 [[plugins]]
 repo = 'kassio/neoterm'
 if = "has('nvim')"
