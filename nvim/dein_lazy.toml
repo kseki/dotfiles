@@ -124,18 +124,17 @@ hook_source = '''
   let g:vim_markdown_folding_disabled = 1
 '''
 
-#[[plugins]]
-#repo = 'kannokanno/previm'
-#on_ft = 'markdown'
-#hook_add = '''
-#  let g:previm_open_cmd = 'open'
-#'''
-#hook_source = '''
-#  nnoremap [previm] <Nop>
-#  nmap <Leader>p [previm]
-#  nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
-#  nnoremap <silent> [previm]r :call previm#refresh()<CR>
-#'''
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = 'markdown'
+hook_source = '''
+  let g:previm_open_cmd = 'open'
+
+  nnoremap [previm] <Nop>
+  nmap <Leader>p [previm]
+  nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
+  nnoremap <silent> [previm]r :call previm#refresh()<CR>
+'''
 
 [[plugins]]
 repo = 'fatih/vim-go'
