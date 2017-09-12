@@ -4,10 +4,9 @@ repo = 'Shougo/dein.vim'
 # ===== color =====
 [[plugins]]
 #repo = 'dracula/vim'
-repo = 'sdemura/dracula-vim'
-rev = 'fix_pmenu_colors'
+repo = 'kota718/dracula-vim'
+rev = 'develop'
 hook_add = '''
-  set background=dark
   au MyAutoCmd VimEnter * nested colorscheme dracula
 '''
 
