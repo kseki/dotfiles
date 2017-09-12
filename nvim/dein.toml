@@ -91,6 +91,8 @@ repo = 'kassio/neoterm'
 if = "has('nvim')"
 hook_add = '''
   let g:neoterm_autoinsert = 1
+  let g:neoterm_size = 28
+
   nnoremap <silent> <Space>t :Ttoggle<CR>
   tnoremap <silent> <ESC> <C-\><C-n>
 '''
