@@ -39,6 +39,8 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
+  let NERDTreeShowHidden = 1
+
   nnoremap <silent> <Space>e :NERDTreeToggle<CR>
 '''
 
