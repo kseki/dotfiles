@@ -34,7 +34,7 @@ hook_source = '''
   call denite#custom#option('default', 'prompt', '>')
 
   nnoremap [denite] <Nop>
-  nmap <Space>u [denite]
+  nmap <Leader>u [denite]
 
   nmap <silent> [denite]f :<C-u>Denite file_rec -highlight-mode-insert=PmenuSel<CR>
   nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=PmenuSel<CR>
@@ -132,7 +132,7 @@ hook_source = '''
 #'''
 #hook_source = '''
 #  nnoremap [previm] <Nop>
-#  nmap <Space>p [previm]
+#  nmap <Leader>p [previm]
 #  nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
 #  nnoremap <silent> [previm]r :call previm#refresh()<CR>
 #'''

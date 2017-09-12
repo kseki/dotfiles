@@ -38,7 +38,7 @@ repo = 'scrooloose/nerdtree'
 hook_add = '''
   let NERDTreeShowHidden = 1
 
-  nnoremap <silent> <Space>e :NERDTreeToggle<CR>
+  nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
 '''
 
 [[plugins]]
@@ -47,13 +47,15 @@ repo = 'tpope/vim-rails'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
-  nnoremap <Space>gd :<C-u>Gdiff<CR>
-  nnoremap <Space>gs :<C-u>Gstatus<CR>
-  nnoremap <Space>gl :<C-u>Glog<CR>
-  nnoremap <Space>ga :<C-u>Gwrite<CR>
-  nnoremap <Space>gc :<C-u>Gcommit<CR>
-  nnoremap <Space>gC :<C-u>Git commit --amend<CR>
-  nnoremap <Space>gb :<C-u>Gblame<CR>
+  nnoremap [fugitive] <Nop>
+  nmap <Leader>g [fugitive]
+  nnoremap [fugitive]d :<C-u>Gdiff<CR>
+  nnoremap [fugitive]s :<C-u>Gstatus<CR>
+  nnoremap [fugitive]l :<C-u>Glog<CR>
+  nnoremap [fugitive]a :<C-u>Gwrite<CR>
+  nnoremap [fugitive]c :<C-u>Gcommit<CR>
+  nnoremap [fugitive]C :<C-u>Git commit --amend<CR>
+  nnoremap [fugitive]b :<C-u>Gblame<CR>
 '''
 
 [[plugins]]

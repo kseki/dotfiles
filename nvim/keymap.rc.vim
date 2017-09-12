@@ -32,7 +32,10 @@ nnoremap s[ gT
 
 nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
 
-nnoremap <silent> <Space>q :q<CR>
-nnoremap <silent> <Space>qa :qa<CR>
-nnoremap <silent> <Space>w :w<CR>
-nnoremap <silent> <Space>wq :wq<CR>
+nnoremap <Leader>q :<C-u>q<CR>
+nnoremap <Leader>qa :<C-u>qa<CR>
+nnoremap <Leader>w :<C-u>w<CR>
+nnoremap <Leader>wq :<C-u>wq<CR>
+
+map <Leader>i gg=<S-g><C-o><C-o>zz
+noremap <Leader>s :%s/
