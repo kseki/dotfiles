@@ -49,6 +49,18 @@ hook_source = '''
 '''
 
 [[plugins]]
+repo = 'scrooloose/nerdtree'
+on_event = 'VimEnter'
+hook_source = '''
+  let NERDTreeShowHidden = 1
+
+  nnoremap [nerdtree] <Nop>
+  nmap <Leader>e [nerdtree]
+  nnoremap <silent> [nerdtree]t :NERDTreeToggle<CR>
+  nnoremap <silent> [nerdtree]f :NERDTreeFocus<CR>
+'''
+
+[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
@@ -90,6 +102,11 @@ on_source = ['neocomplete.vim', 'deoplete.nvim']
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
 on_ft = ['vim', 'html', 'toml']
+hook_add = '''
+ let g:precious_enable_switch_CursorMoved = { '*': 0, 'help': 1 }
+ autocmd MyAutoCmd InsertEnter * :PreciousSwitch
+ autocmd MyAutoCmd InsertLeave * :PreciousReset"}
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
