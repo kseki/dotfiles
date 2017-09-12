@@ -34,6 +34,12 @@ repo = 'cohama/lexima.vim'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
+repo = 'scrooloose/nerdcommenter'
+hook_add = '''
+  let g:NERDSpaceDelims = 1
+'''
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
   let NERDTreeShowHidden = 1
