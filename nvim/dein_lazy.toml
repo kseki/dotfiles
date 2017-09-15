@@ -78,13 +78,13 @@ on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
-depends = 'deoplete.nvim'
+depends = ['deoplete.nvim']
 if = "has('nvim')"
 on_ft = 'python'
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
-depends = 'deoplete.nvim'
+depends = ['deoplete.nvim']
 if = "has('nvim')"
 on_ft = 'go'
 build = 'make'
@@ -92,8 +92,12 @@ build = 'make'
 [[plugins]]
 repo = 'fishbullet/deoplete-ruby'
 depends = 'deoplete.nvim'
-if = "has('nvim')"
 on_ft = 'ruby'
+hook_source = '''
+  let g:deoplete#sources#omni#input_patterns = {
+  \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+  \}
+'''
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
@@ -174,9 +178,9 @@ on_ft = 'json'
 repo = 'hail2u/vim-css3-syntax'
 on_ft = 'css'
 
-[[plugins]]
-repo = 'vim-ruby/vim-ruby'
-on_ft = 'ruby'
+#[[plugins]]
+#repo = 'vim-ruby/vim-ruby'
+#on_ft = 'ruby'
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
