@@ -94,6 +94,7 @@ repo = 'fishbullet/deoplete-ruby'
 depends = 'deoplete.nvim'
 if = "has('nvim')"
 on_ft = 'ruby'
+
 [[plugins]]
 repo = 'ujihisa/neco-look'
 on_source = ['neocomplete.vim', 'deoplete.nvim']
