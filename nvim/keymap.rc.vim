@@ -39,3 +39,8 @@ nnoremap <Leader>wq :<C-u>wq<CR>
 
 map <Leader>i gg=<S-g><C-o><C-o>zz
 noremap <Leader>s :%s/
+
+nnoremap <Leader>s. :<C-u>source $MYVIMRC<CR>
+nnoremap <Leader>m  :<C-u>marks<CR>
+nnoremap <Leader>r  :<C-u>registers<CR>
+
