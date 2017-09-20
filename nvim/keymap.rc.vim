@@ -4,6 +4,9 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
+nnoremap <S-h> ^
+nnoremap <S-l> $
+
 " 入力モードでのカーソル移動
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
