@@ -28,7 +28,6 @@ set tabstop=2
 set title
 set whichwrap=b,s,h,l,<,>,[,]
 set wrapscan
-set noequalalways
 
 set updatetime=2000
 
