@@ -65,3 +65,9 @@ augroup vimrc-auto-cursorline
     endif
   endfunction
 augroup END
+
+" ファイルの自動再読込
+augroup vimrc-checktime
+  autocmd!
+  autocmd WinEnter * checktime
+augroup END
