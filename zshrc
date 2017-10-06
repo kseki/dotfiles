@@ -15,6 +15,9 @@ for function in ~/.zsh/functions/*; do
   source $function
 done
 
+# completion alias
+compdef g=git
+
 # Customize to your needs...
 export PATH=$PATH:~/.local/bin
 
@@ -48,7 +51,6 @@ bindkey "^S" history-incremental-search-forward
 # ==== color =====
 autoload -Uz colors
 colors
-
 
 # =====  alias =====
 alias vim='nvim'
