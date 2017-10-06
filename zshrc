@@ -15,8 +15,8 @@ for function in ~/.zsh/functions/*; do
   source $function
 done
 
-# completion alias
-compdef g=git
+# completion
+fpath=(~/.zsh/completions $fpath)
 
 # Customize to your needs...
 export PATH=$PATH:~/.local/bin
