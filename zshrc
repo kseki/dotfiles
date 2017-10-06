@@ -53,5 +53,4 @@ autoload -Uz colors
 colors
 
 # =====  alias =====
-alias vim='nvim'
-alias vi='vim'
+alias v='nvim'
