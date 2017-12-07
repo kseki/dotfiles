@@ -9,7 +9,7 @@ build = 'env PY3=ON ./install.sh'
 repo = 'Shougo/denite.nvim'
 depends = ['neomru.vim']
 if = "has('python3')"
-on_event = 'BufRead'
+on_event = 'VimEnter'
 hook_source = '''
   call denite#custom#map('insert', '<esc>', '<denite:enter_mode:normal>', 'noremap')
   call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
