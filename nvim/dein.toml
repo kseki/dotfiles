@@ -13,18 +13,6 @@ hook_add = '''
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
-repo = 'neomake/neomake'
-if = 'has("nvim")'
-hook_add = '''
-  autocmd! BufWritePost * Neomake
-
-  let g:neomake_open_list = 2
-  let g:neomake_error_sign = {'text': 'E>', 'texthl': 'Error'}
-  let g:neomake_warning_sign = {'text': 'W>', 'texthl': 'WarningMsg',}
-  let g:neomake_info_sign = {'text': 'I>', 'texthl': 'PmenuSel'}
-'''
-
-[[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
@@ -56,20 +44,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'tpope/vim-rails'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-hook_add = '''
-  nnoremap [fugitive] <Nop>
-  nmap <Leader>g [fugitive]
-  nnoremap [fugitive]d :<C-u>Gdiff<CR>
-  nnoremap [fugitive]s :<C-u>Gstatus<CR>
-  nnoremap [fugitive]l :<C-u>Glog<CR>
-  nnoremap [fugitive]a :<C-u>Gwrite<CR>
-  nnoremap [fugitive]c :<C-u>Gcommit<CR>
-  nnoremap [fugitive]C :<C-u>Git commit --amend<CR>
-  nnoremap [fugitive]b :<C-u>Gblame<CR>
-'''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
