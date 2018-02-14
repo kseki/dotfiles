@@ -111,10 +111,10 @@ hook_source = '''
         \ ])
   call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
 
-       let g:deoplete#omni#input_patterns = {}
+  let g:deoplete#omni#input_patterns = {}
   let g:deoplete#sources#omni#input_patterns = {
-  \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-  \}
+        \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+        \}
 '''
 on_event = 'InsertEnter'
 
@@ -221,6 +221,10 @@ on_ft = 'javascript'
 [[plugins]]
 repo = 'elzr/vim-json'
 on_ft = 'json'
+hook_source = '''
+  set conceallevel=0
+  let g:vim_json_syntax_conceal = 0
+'''
 
 [[plugins]]
 repo = 'hail2u/vim-css3-syntax'

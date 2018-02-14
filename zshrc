@@ -54,3 +54,4 @@ colors
 
 # =====  alias =====
 alias v='nvim'
+alias dc='docker-compose'
