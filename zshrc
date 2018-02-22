@@ -16,7 +16,10 @@ for function in ~/.zsh/functions/*; do
 done
 
 # completion
-fpath=(~/.zsh/completions $fpath)
+fpath=(~/.zsh/completion $fpath)
+
+autoload -U compinit
+compinit
 
 # Customize to your needs...
 export PATH=$PATH:~/.local/bin
