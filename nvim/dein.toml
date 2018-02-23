@@ -12,6 +12,18 @@ hook_add = '''
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
+#[[plugins]]
+#repo = 'neomake/neomake'
+#if = 'has("nvim")'
+#hook_add = '''
+#  autocmd! BufWritePost * Neomake
+#
+#  let g:neomake_open_list = 2
+#  let g:neomake_error_sign = {'text': 'E>', 'texthl': 'Error'}
+#  let g:neomake_warning_sign = {'text': 'W>', 'texthl': 'WarningMsg',}
+#  let g:neomake_info_sign = {'text': 'I>', 'texthl': 'PmenuSel'}
+#'''
+
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 

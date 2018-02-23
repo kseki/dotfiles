@@ -3,3 +3,5 @@
 /vender/bundle
 /bandle_bin
 .ruby-version
+.node-version
+tags

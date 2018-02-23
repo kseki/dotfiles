@@ -21,6 +21,9 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit
 
+# tmuxinator
+source ~/.tmuxinator/tmuxinator.zsh
+
 # Customize to your needs...
 export PATH=$PATH:~/.local/bin
 
@@ -57,4 +60,8 @@ colors
 
 # =====  alias =====
 alias v='nvim'
+alias vim='nvim'
 alias dc='docker-compose'
+alias update_submodule='git submodule update --init --recursive'
+
+export PGDATA=/usr/local/var/postgres
