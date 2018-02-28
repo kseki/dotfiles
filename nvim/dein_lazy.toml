@@ -163,22 +163,22 @@ if = "has('nvim')"
 on_ft = 'go'
 build = 'make'
 
-[[plugins]]
-repo = 'osyo-manga/vim-monster'
-on_ft = 'ruby'
-hook_source = '''
-let g:monster#completion#rcodetools#backend = "async_rct_complete"
-'''
+# [[plugins]]
+# repo = 'osyo-manga/vim-monster'
+# on_ft = 'ruby'
+# hook_source = '''
+# let g:monster#completion#rcodetools#backend = "async_rct_complete"
+# '''
 
 [[plugins]]
-repo = 'Shougo/deoplete-rct'
+repo = 'uplus/deoplete-solargraph'
 depends = 'deoplete.nvim'
 on_ft = 'ruby'
 
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-depends = 'deoplete.nvim'
-on_ft = 'ruby'
+# [[plugins]]
+# repo = 'fishbullet/deoplete-ruby'
+# depends = 'deoplete.nvim'
+# on_ft = 'ruby'
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
@@ -262,13 +262,13 @@ hook_source = '''
 repo = 'hail2u/vim-css3-syntax'
 on_ft = 'css'
 
-[[plugins]]
-repo = 'vim-ruby/vim-ruby'
-on_ft = 'ruby'
-hook_source = '''
-  let g:ruby_indent_access_modifier_style = 'indent'
-  let g:ruby_indent_block_style = 'do'
-'''
+# [[plugins]]
+# repo = 'vim-ruby/vim-ruby'
+# on_ft = 'ruby'
+# hook_source = '''
+#   let g:ruby_indent_access_modifier_style = 'indent'
+#   let g:ruby_indent_block_style = 'do'
+# '''
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
