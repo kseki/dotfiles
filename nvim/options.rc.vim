@@ -28,6 +28,9 @@ set tabstop=2
 set title
 set whichwrap=b,s,h,l,<,>,[,]
 set wrapscan
+set inccommand=split
+" set spell
+" set spelllang=en,cjk
 
 set updatetime=2000
 
