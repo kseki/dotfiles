@@ -30,7 +30,7 @@ hook_source = '''
           \ ['--vimgrep', '--no-heading'])
   else
     call denite#custom#var('file_rec', 'command',
-        \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+        \ ['rg', '--follow', '--nocolor', '--nogroup', '-g', ''])
   endif
 
   call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
