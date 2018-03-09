@@ -4,7 +4,7 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'dracula/vim'
 #repo = 'kota718/dracula-vim'
-rev = 'develop'
+# rev = 'develop'
 hook_add = '''
   au MyAutoCmd VimEnter * nested colorscheme dracula
 '''
@@ -85,6 +85,7 @@ hook_add = '''
 
   nnoremap <silent> <Space>t :Ttoggle<CR>
   tnoremap <silent> <ESC> <C-\><C-n>
+  nnoremap <silent> tig :T tig<CR>
 '''
 
 [[plugins]]
