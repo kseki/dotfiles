@@ -2,8 +2,8 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-#repo = 'dracula/vim'
-repo = 'kota718/dracula-vim'
+repo = 'dracula/vim'
+#repo = 'kota718/dracula-vim'
 rev = 'develop'
 hook_add = '''
   au MyAutoCmd VimEnter * nested colorscheme dracula
