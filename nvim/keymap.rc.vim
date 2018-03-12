@@ -4,8 +4,8 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-nnoremap <S-h> ^
-nnoremap <S-l> $
+nnoremap H ^
+nnoremap L $
 
 " 入力モードでのカーソル移動
 inoremap <C-j> <Down>
@@ -28,10 +28,13 @@ nnoremap <silent>+ <C-w>+
 nnoremap <silent>- <C-w>-
 
 " tab
-nnoremap tt  :<C-u>tabnew<CR>
-nnoremap tq  :<C-u>tabclose<CR>
-nnoremap s] gt
-nnoremap s[ gT
+nnoremap <C-t>  <Nop>
+nnoremap <C-t>n  :<C-u>tabnew<CR>
+nnoremap <C-t>c  :<C-u>tabclose<CR>
+nnoremap <C-t>o  :<C-u>tabonly<CR>
+nnoremap <C-t>j  :<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
+nnoremap <C-t>k  gT
+
 
 nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
 
