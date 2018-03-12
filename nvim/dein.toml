@@ -106,3 +106,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
