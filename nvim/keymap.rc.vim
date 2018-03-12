@@ -7,6 +7,9 @@ nnoremap gk k
 nnoremap H ^
 nnoremap L $
 
+nnoremap Y y$
+
+
 " 入力モードでのカーソル移動
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -43,3 +46,7 @@ nnoremap <Leader>s. :<C-u>source $MYVIMRC<CR>
 nnoremap <Leader>m  :<C-u>marks<CR>
 nnoremap <Leader>r  :<C-u>registers<CR>
 
+
+" Toggle options
+nnoremap <silent> <Space>os :<C-u>setlocal spell! spell?<CR>
+nnoremap <silent> <Space>op :<C-u>set paste! paste?<CR>
