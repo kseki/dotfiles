@@ -50,9 +50,7 @@ setopt inc_append_history
 
 setopt extended_glob        # 高機能なワイルドカード展開を使用する
 
-bindkey "^R" history-incremental-search-backward
-bindkey "^S" history-incremental-search-forward
-
+bindkey -v
 
 # ==== color =====
 autoload -Uz colors
