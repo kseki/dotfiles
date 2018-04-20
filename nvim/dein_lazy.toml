@@ -5,66 +5,90 @@ repo = 'Shougo/neomru.vim'
 repo = 'nixprime/cpsm'
 build = 'env PY3=ON ./install.sh'
 
+#[[plugins]]
+#repo = 'Shougo/denite.nvim'
+#depends = ['neomru.vim']
+#if = "has('python3')"
+#on_event = 'VimEnter'
+#hook_source = '''
+#   call denite#custom#map('insert', '<esc>', '<denite:enter_mode:normal>', 'noremap')
+#   call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
+#   call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
+#   call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>')
+#   call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>')
+#   call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>')
+#   call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>')
+#
+#  if executable('rg')
+#    call denite#custom#var('file_rec', 'command',
+#          \ ['rg', '--files', '--glob', '!.git'])
+#    call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
+#    call denite#custom#var('grep', 'recursive_opts', [])
+#    call denite#custom#var('grep', 'final_opts', [])
+#    call denite#custom#var('grep', 'separator', ['--'])
+#    call denite#custom#var('grep', 'default_opts',
+#          \ ['--vimgrep', '--no-heading'])
+#  else
+#    call denite#custom#var('file_rec', 'command',
+#        \ ['rg', '--follow', '--nocolor', '--nogroup', '-g', ''])
+#  endif
+#
+#  call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
+#  call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+#        \ [ '.git/', '.ropeproject/', '__pycache__/',
+#        \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+#  call denite#custom#option('default', 'prompt', '>')
+#
+#  call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+#  call denite#custom#var('file_rec/git', 'command',
+#        \ ['git', 'ls-files', '-co', '--exclude-standard'])
+#
+#  call denite#custom#option('default', {
+#      \ 'auto_accel': v:true,
+#      \ 'prompt': '>',
+#      \ 'source_names': 'short',
+#      \ })
+#'''
+#hook_add = '''
+#  nnoremap [denite] <Nop>
+#  nmap <Leader>u [denite]
+#
+#  nnoremap <silent> [denite]f :<C-u>Denite file_rec -highlight-mode-insert=PmenuSel<CR>
+#  nnoremap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=PmenuSel<CR>
+#  nnoremap <silent> [denite]r :<C-u>Denite register -highlight-mode-insert=PmenuSel<CR>
+#  nnoremap <silent> [denite]l :<C-u>Denite line -highlight-mode-insert=PmenuSel<CR>
+#  nnoremap <silent> [denite]g :<C-u>Denite grep -highlight-mode-insert=PmenuSel<CR>
+#  nnoremap <silent> [denite]cg :<C-u>DeniteCursorWord grep -highlight-mode-insert=PmenuSel<CR>
+#  nnoremap <silent> [denite]fm :<C-u>Denite file_mru -highlight-mode-insert=PmenuSel<CR>
+#  nnoremap <silent> [denite]u :<C-u>Denite menu <CR>
+#
+#  nnoremap <silent> [denite]<Space> :<C-u>Denite -resume<CR>
+#  nnoremap <silent> [denite]n :<C-u>Denite -resume -immediately -select=+1<CR>
+#  nnoremap <silent> [denite]p :<C-u>Denite -resume -immediately -select=-1<CR>
+#'''
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-depends = ['neomru.vim']
-if = "has('python3')"
+repo = 'junegunn/fzf'
+on_event = 'VimEnter'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
 on_event = 'VimEnter'
 hook_source = '''
-   call denite#custom#map('insert', '<esc>', '<denite:enter_mode:normal>', 'noremap')
-   call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
-   call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
-   call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>')
-   call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>')
-   call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>')
-   call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>')
+  nnoremap [fzf] <Nop>
+  nmap <Leader>f [fzf]
 
-  if executable('rg')
-    call denite#custom#var('file_rec', 'command',
-          \ ['rg', '--files', '--glob', '!.git'])
-    call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'final_opts', [])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'default_opts',
-          \ ['--vimgrep', '--no-heading'])
-  else
-    call denite#custom#var('file_rec', 'command',
-        \ ['rg', '--follow', '--nocolor', '--nogroup', '-g', ''])
-  endif
+  nnoremap <silent> [fzf]f :<C-u>GFiles<CR>
+  nnoremap <silent> [fzf]b :<C-u>Buffers<CR>
+  nnoremap <silent> [fzf]x :<C-u>Commnads<CR>
+  nnoremap <silent> [fzf]a :<C-u>Ag
 
-  call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
-  call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-        \ [ '.git/', '.ropeproject/', '__pycache__/',
-        \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-  call denite#custom#option('default', 'prompt', '>')
+  let g:fzf_action = {
+    \ 'ctrl-q': function('s:build_quickfix_list'),
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-x': 'split',
+    \ 'ctrl-v': 'vsplit' }
 
-  call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-  call denite#custom#var('file_rec/git', 'command',
-        \ ['git', 'ls-files', '-co', '--exclude-standard'])
-
-  call denite#custom#option('default', {
-      \ 'auto_accel': v:true,
-      \ 'prompt': '>',
-      \ 'source_names': 'short',
-      \ })
-'''
-hook_add = '''
-  nnoremap [denite] <Nop>
-  nmap <Leader>u [denite]
-
-  nnoremap <silent> [denite]f :<C-u>Denite file_rec -highlight-mode-insert=PmenuSel<CR>
-  nnoremap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=PmenuSel<CR>
-  nnoremap <silent> [denite]r :<C-u>Denite register -highlight-mode-insert=PmenuSel<CR>
-  nnoremap <silent> [denite]l :<C-u>Denite line -highlight-mode-insert=PmenuSel<CR>
-  nnoremap <silent> [denite]g :<C-u>Denite grep -highlight-mode-insert=PmenuSel<CR>
-  nnoremap <silent> [denite]cg :<C-u>DeniteCursorWord grep -highlight-mode-insert=PmenuSel<CR>
-  nnoremap <silent> [denite]fm :<C-u>Denite file_mru -highlight-mode-insert=PmenuSel<CR>
-  nnoremap <silent> [denite]u :<C-u>Denite menu <CR>
-
-  nnoremap <silent> [denite]<Space> :<C-u>Denite -resume<CR>
-  nnoremap <silent> [denite]n :<C-u>Denite -resume -immediately -select=+1<CR>
-  nnoremap <silent> [denite]p :<C-u>Denite -resume -immediately -select=-1<CR>
+  call fzf#run({'options': '--select-1 --exit-0'})
 '''
 
 [[plugins]]
