@@ -31,6 +31,10 @@ nnoremap <C-t>o  :<C-u>tabonly<CR>
 nnoremap <C-t>j  :<C-u>execute 'tabnext' 1 + (tabpagenr() + v:count1 - 1) % tabpagenr('$')<CR>
 nnoremap <C-t>k  gT
 
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
 
