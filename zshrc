@@ -33,8 +33,6 @@ eval "$(anyenv init -)"
 
 export EDITOR=vim
 
-export EDITOR=vim
-
 # History settings.
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000
@@ -57,9 +55,23 @@ autoload -Uz colors
 colors
 
 # =====  alias =====
-alias v='nvim'
-alias vim='nvim'
 alias dc='docker-compose'
+alias t='tmux'
 alias update_submodule='git submodule update --init --recursive'
+alias v='nvim'
+#alias vim='nvim'
 
 export PGDATA=/usr/local/var/postgres
+
+# fzf
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+function fzf-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | fzf`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+
+zle -N fzf-history-selection
+bindkey '^R' fzf-history-selection
+
