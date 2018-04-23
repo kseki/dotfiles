@@ -1,118 +1,207 @@
-syntax enable
-set t_Co=256
-colorscheme molokai
+set encoding=UTF-8
 set nocompatible
+filetype off
 
-set number
-set cursorline 
-set cursorcolumn
-set laststatus=2
-set cmdheight=2
-set showmatch
-set helpheight=999
-set list
-set hlsearch
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set autoindent
-set smartindent
-nnoremap <ESC><ESC> :nohlsearch<CR>
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-if 0 | endif
+" plugin manager
+Plugin 'VundleVim/Vundle.vim'
 
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
+" doc
+Plugin 'vim-jp/vimdoc-ja'
 
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+" git
+Plugin 'airblade/vim-gitgutter'
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle'))
+" display
+Plugin 'kota718/dracula-vim' " 'dracula/vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'vim-airline/vim-airline'
+Plugin 'ryanoasis/vim-devicons'
+ 
+" Plugin 'edkolev/tmuxline.vim'
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+" languege
+Plugin 'sheerun/vim-polyglot'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-endwise'
+Plugin 'docunext/closetag.vim'
 
-" Add or remove your Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'wakatime/vim-wakatime'
-" NeoBundle 'rhysd/vim-color-splatoon'
+" text object
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'cohama/lexima.vim'
 
-" html
-NeoBundle 'hail2u/vim-css3-syntax'
-" NeoBundle 'taichouchou2/html5.vim'
-" JavaScript
-" NeoBundle 'taichouchou2/vim-javascript'
-" NeoBundle 'kchmck/vim-coffee-script'
+" filer
+Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+Plugin 'mileszs/ack.vim'
 
-" Markdown
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
+call vundle#end()
 
-au BufRead,BufNewFile *.md set filetype=markdown
-
-" indent
-NeoBundle 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup = 1
-
-" complete
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'marcus/rsense'
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-  \     'mac' : 'make -f make_mac.mak',
-  \     'unix' : 'make -f make_unix.mak',
-  \    },
-  \ }
-NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
-  \ 'insert' : 1,
-  \ 'filetypes': 'ruby',
-  \ }}
-
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-
-" Required:
-call neobundle#end()
-
-" Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+let g:indentLine_enabled = 1
 
-"Rsense
-let g:rsenseHome = "/usr/local/Cellar/rsense/0.3/libexec"
-let g:rsenseUseOmniFunc = 1
-setlocal completefunc=RSenseComplete
+" 行番号の表示
+set number
+set numberwidth=4
+" カーソル位置の表示
+set ruler
 
-" noecomplete.vim
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+" 画面分割の設定
+set splitbelow
+set splitright
 
-" unite.vim
-noremap <C-P> :Unite buffer<CR>
-noremap <C-N> :Unite -buffer-name=file file<CR>
-noremap <C-Z> :Unite file_mru<CR>
-noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
+" 未保存でもバッファーの切り替えを可能にする
+set hidden
+" カーソル下に表示する最低行数
+set scrolloff=999
+" 入力中のコマンドを表示
+set showcmd
+" 長文を折り返して表示
+set display=lastline
 
+" ファイルの自動読み込み
+set autoread
+" バックスペースを有効化
+set backspace=indent,eol,start
+" 対応するカッコに一瞬カーソル表示する
+set showmatch
+set matchtime=1
 
+" タブ幅の設定
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+
+"" === 検索 ===
+" 大文字と小文字を無視する
+set ignorecase
+" 大文字と小文字を無視しない
+set noignorecase
+" 検索パターンが大文字を含んでいたら'ignorecase'を上書きする。('ignorecase'オンのときのみ使われる)
+set smartcase
+" 'ignorecase'を上書きしない
+set nosmartcase
+" 行末まで検索したら行頭へ
+set wrapscan
+" 検索対象をハイライト
+set hlsearch
+
+" ヘルプ画面の高さ
+set helpheight=999
+" カーソル下の単語のヘルプを開く
+set keywordprg=:help
+set title
+
+" シンタックスハイライトを有効化
+syntax on
+
+" バックアップの間隔変更 
+set updatetime=2000
+
+" カーソルラインの表示
+augroup vimrc-auto-cursorline
+  autocmd!
+  autocmd CursorMoved,CursorMovedI * call s:auto_cursorline('CursorMoved')
+  autocmd CursorHold,CursorHoldI * call s:auto_cursorline('CursorHold')
+  autocmd WinEnter * call s:auto_cursorline('WinEnter')
+  autocmd WinLeave * call s:auto_cursorline('WinLeave')
+
+  let s:cursorline_lock = 0
+  function! s:auto_cursorline(event)
+    if a:event ==# 'WinEnter'
+      setlocal cursorline
+      setlocal cursorcolumn
+      let s:cursorline_lock = 2
+    elseif a:event ==# 'WinLeave'
+      setlocal nocursorline
+      setlocal nocursorcolumn
+    elseif a:event ==# 'CursorMoved'
+      if s:cursorline_lock
+        if 1 < s:cursorline_lock
+          let s:cursorline_lock = 1
+        else
+          setlocal nocursorline
+          setlocal nocursorcolumn
+          let s:cursorline_lock = 0
+        endif
+      endif
+    elseif a:event ==# 'CursorHold'
+      setlocal cursorline
+      setlocal cursorcolumn
+      let s:cursorline_lock = 1
+    endif
+  endfunction
+augroup END
+
+" ファイルの自動再読込
+augroup vimrc-checktime
+  autocmd!
+  autocmd WinEnter * checktime
+augroup END
+
+colorscheme Dracula
+
+" === 検索 ===
+nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
+noremap <Space>s :%s/
+
+" === カーソル移動 ===
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+nnoremap H ^
+nnoremap L $
+
+" === ウィンドウ移動 ===
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" === スペルチェック ===
+nnoremap <silent> <Space>os :<C-u>setlocal spell! spell?<CR>
+nnoremap <silent> <Space>op :<C-u>set paste! paste?<CR>
+
+" === Others ===
+nnoremap s. :<C-u>source $MYVIMRC<CR>
+map <Space>i gg=<S-g><C-o><C-o>zz
+
+nnoremap Y y$
+
+nnoremap <Space>q :<C-u>q<CR>
+nnoremap <Space>qa :<C-u>qa<CR>
+nnoremap <Space>w :<C-u>w<CR>
+nnoremap <Space>wq :<C-u>wq<CR>
+
+nnoremap + <C-a>
+nnoremap - <C-x>
+
+" Vundle
+nnoremap <Space>I :PluginInstall
+nnoremap <Space>U :PluginUpdate
+
+" Aireline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" NERDTree
+let g:nerdtree_tabs_focus_on_files = 1
+let NERDTreeShowHidden = 1
+
+nnoremap [nerdtree] <Nop>
+nmap <Space>e [nerdtree]
+nnoremap <silent> [nerdtree]t :NERDTreeToggle<CR>
+nnoremap <silent> [nerdtree]f :NERDTreeFocus<CR>
+
+" Fzf
+nnoremap <Space>b :Buffers
+nnoremap <Space>t :Tags
+nnoremap <Space>a :Ag
