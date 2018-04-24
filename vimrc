@@ -1,49 +1,74 @@
 set encoding=UTF-8
 set nocompatible
 filetype off
+set pyxversion=3
+let g:python3_host_prog='/Users/uu094589/.anyenv/envs/pyenv/shims/python3'
+let mapleader = "\<Space>"
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 " plugin manager
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 " doc
-Plugin 'vim-jp/vimdoc-ja'
+Plug 'vim-jp/vimdoc-ja'
 
 " git
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " display
-Plugin 'kota718/dracula-vim' " 'dracula/vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'vim-airline/vim-airline'
-Plugin 'ryanoasis/vim-devicons'
- 
-" Plugin 'edkolev/tmuxline.vim'
+Plug 'kota718/dracula-vim', { 'branch': 'develop' } " 'dracula/vim'
+Plug 'Yggdroot/indentLine'
+Plug 'vim-airline/vim-airline'
+Plug 'ryanoasis/vim-devicons'
+
+" Plug 'edkolev/tmuxline.vim'
 
 " languege
-Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-endwise'
-Plugin 'docunext/closetag.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
+Plug 'docunext/closetag.vim'
+Plug 'slim-template/vim-slim'
 
 " text object
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'cohama/lexima.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'cohama/lexima.vim'
+Plug 'bronson/vim-trailing-whitespace'
 
 " filer
-Plugin 'scrooloose/nerdtree'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 
-call vundle#end()
+" completion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/neco-vim'
+Plug 'Shougo/neco-syntax'
+Plug 'ujihisa/neco-look'
+
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
+Plug 'scrooloose/nerdcommenter'
+
+call plug#end()
 
 filetype plugin indent on
 
 let g:indentLine_enabled = 1
+autocmd FileType *
+      \   if &l:omnifunc == ''
+      \ |   setlocal omnifunc=syntaxcomplete#Complete
+      \ | endif
 
 " 行番号の表示
 set number
@@ -97,11 +122,14 @@ set helpheight=999
 " カーソル下の単語のヘルプを開く
 set keywordprg=:help
 set title
+set completeopt+=noinsert
+set ambiwidth=double
+
 
 " シンタックスハイライトを有効化
 syntax on
 
-" バックアップの間隔変更 
+" バックアップの間隔変更
 set updatetime=2000
 
 " カーソルラインの表示
@@ -185,8 +213,8 @@ nnoremap + <C-a>
 nnoremap - <C-x>
 
 " Vundle
-nnoremap <Space>I :PluginInstall
-nnoremap <Space>U :PluginUpdate
+nnoremap <Space>I :PlugInstall
+nnoremap <Space>U :PlugUpdate
 
 " Aireline
 let g:airline#extensions#tabline#enabled = 1
@@ -196,12 +224,65 @@ let g:airline_powerline_fonts = 1
 let g:nerdtree_tabs_focus_on_files = 1
 let NERDTreeShowHidden = 1
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_start_length = 1
+inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+      \ neosnippet#expandable_or_jumpable() ?
+      \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+call deoplete#custom#source('_', 'converters', [
+      \ 'converter_remove_paren',
+      \ 'converter_remove_overlap',
+      \ 'converter_truncate_abbr',
+      \ 'converter_truncate_menu',
+      \ 'converter_auto_delimiter',
+      \ ])
+call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
+
+" neosnippet
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
 nnoremap [nerdtree] <Nop>
 nmap <Space>e [nerdtree]
 nnoremap <silent> [nerdtree]t :NERDTreeToggle<CR>
 nnoremap <silent> [nerdtree]f :NERDTreeFocus<CR>
 
 " Fzf
-nnoremap <Space>b :Buffers
-nnoremap <Space>t :Tags
-nnoremap <Space>a :Ag
+nnoremap <Space>f :GFiles<CR>
+nnoremap <Space>s :GFiles?<CR>
+nnoremap <Space>b :Buffers<CR>
+nnoremap <Space>t :Tags<CR>
+nnoremap <Space>a :Ag<Space>
+
+" vim-trailing-whitespace
+autocmd BufWritePre * :FixWhitespace
+let g:airline_powerline_fonts = 1
+
+set guifont=Cica:h14
+" loading the plugin
+let g:webdevicons_enable = 1
+" adding the flags to NERDTree
+let g:webdevicons_enable_nerdtree = 1
+" adding to vim-airline's tabline
+let g:webdevicons_enable_airline_tabline = 1
+" adding to vim-airline's statusline
+let g:webdevicons_enable_airline_statusline = 1
+" turn on/off file node glyph decorations (not particularly useful)
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
+" use double-width(1) or single-width(0) glyphs
+" only manipulates padding, has no effect on terminal or set(guifont) font
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+" whether or not to show the nerdtree brackets around flags
+let g:webdevicons_conceal_nerdtree_brackets = 1
+" the amount of space to use after the glyph character (default ' ')
+"let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+" Force extra padding in NERDTree so that the filetype icons line up vertically
+"let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+" Adding the custom source to denite
+let g:webdevicons_enable_denite = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
