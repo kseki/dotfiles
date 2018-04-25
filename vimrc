@@ -55,10 +55,14 @@ Plug 'Shougo/neco-vim'
 Plug 'Shougo/neco-syntax'
 Plug 'ujihisa/neco-look'
 
+" snippets
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
+" otherr
 Plug 'scrooloose/nerdcommenter'
+Plug 'w0rp/ale'
+Plug 'thinca/vim-localrc'
 
 call plug#end()
 
@@ -286,3 +290,6 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 " Adding the custom source to denite
 let g:webdevicons_enable_denite = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
+set signcolumn=yes
+let g:gitgutter_sign_column_always=1
