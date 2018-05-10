@@ -26,10 +26,15 @@ source ~/.tmuxinator/tmuxinator.zsh
 
 # Customize to your needs...
 export PATH=$PATH:~/.local/bin
+export PATH="/usr/local/bin:$PATH"
 
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
+for D in `ls $HOME/.anyenv/envs`
+do
+    export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+done
 
 export EDITOR=vim
 

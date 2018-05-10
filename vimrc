@@ -2,7 +2,7 @@ set encoding=UTF-8
 set nocompatible
 filetype off
 set pyxversion=3
-let g:python3_host_prog='/Users/uu094589/.anyenv/envs/pyenv/shims/python3'
+"let g:python3_host_prog='/Users/uu094589/.anyenv/envs/pyenv/shims/python3'
 let mapleader = "\<Space>"
 
 call plug#begin('~/.vim/plugged')
@@ -126,7 +126,7 @@ set helpheight=999
 " カーソル下の単語のヘルプを開く
 set keywordprg=:help
 set title
-set completeopt+=noinsert
+"set completeopt+=noinsert
 set ambiwidth=double
 
 
@@ -234,6 +234,13 @@ let g:deoplete#auto_complete_start_length = 1
 inoremap <expr><tab> pumvisible() ? "\<C-n>" :
       \ neosnippet#expandable_or_jumpable() ?
       \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
+" <CR>: close popup and save indent.
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function() abort
+"  return deoplete#close_popup() . "\<CR>"
+"endfunction
+
 call deoplete#custom#source('_', 'converters', [
       \ 'converter_remove_paren',
       \ 'converter_remove_overlap',
@@ -270,26 +277,29 @@ let g:airline_powerline_fonts = 1
 set guifont=Cica:h14
 " loading the plugin
 let g:webdevicons_enable = 1
-" adding the flags to NERDTree
+"" adding the flags to NERDTree
 let g:webdevicons_enable_nerdtree = 1
-" adding to vim-airline's tabline
+"" adding to vim-airline's tabline
 let g:webdevicons_enable_airline_tabline = 1
-" adding to vim-airline's statusline
+"" adding to vim-airline's statusline
 let g:webdevicons_enable_airline_statusline = 1
-" turn on/off file node glyph decorations (not particularly useful)
+"" turn on/off file node glyph decorations (not particularly useful)
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
-" use double-width(1) or single-width(0) glyphs
-" only manipulates padding, has no effect on terminal or set(guifont) font
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
-" whether or not to show the nerdtree brackets around flags
-let g:webdevicons_conceal_nerdtree_brackets = 1
-" the amount of space to use after the glyph character (default ' ')
-"let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-" Force extra padding in NERDTree so that the filetype icons line up vertically
-"let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-" Adding the custom source to denite
-let g:webdevicons_enable_denite = 1
+"" use double-width(1) or single-width(0) glyphs
+"" only manipulates padding, has no effect on terminal or set(guifont) font
+"let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+"" whether or not to show the nerdtree brackets around flags
+"let g:webdevicons_conceal_nerdtree_brackets = 1
+"" the amount of space to use after the glyph character (default ' ')
+""let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+"" Force extra padding in NERDTree so that the filetype icons line up vertically
+""let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+"" Adding the custom source to denite
+"let g:webdevicons_enable_denite = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
-set signcolumn=yes
-let g:gitgutter_sign_column_always=1
+if exists('&signcolumn')  " Vim 7.4.2201
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
