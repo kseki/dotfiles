@@ -213,8 +213,8 @@ nnoremap <Space>qa :<C-u>qa<CR>
 nnoremap <Space>w :<C-u>w<CR>
 nnoremap <Space>wq :<C-u>wq<CR>
 
-nnoremap + <C-a>
-nnoremap - <C-x>
+nnoremap - <C-a>
+nnoremap + <C-x>
 
 " Vundle
 nnoremap <Space>I :PlugInstall
