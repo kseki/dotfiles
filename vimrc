@@ -18,8 +18,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " display
-Plug 'kota718/dracula-vim', { 'branch': 'develop' } " 'dracula/vim'
-" Plug 'dracula/vim', { 'tag': 'v1.3.2' }
+"Plug 'kota718/dracula-vim', { 'branch': 'develop' } " 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
@@ -163,6 +163,9 @@ set ambiwidth=double
 " シンタックスハイライトを有効化
 syntax on
 
+let g:dracula_italic = 0
+color dracula
+
 " バックアップの間隔変更
 set updatetime=2000
 
@@ -207,7 +210,7 @@ augroup vimrc-checktime
   autocmd WinEnter * checktime
 augroup END
 
-colorscheme Dracula
+"colorscheme Dracula
 
 " === 検索 ===
 nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
@@ -296,56 +299,56 @@ let g:lsp_signs_warning = {'text': '‼'}
 
 if executable('solargraph')
   au User lsp_setup call lsp#register_server({
-      \ 'name': 'solargraph',
-      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-      \ 'initialization_options': {"diagnostics": "true"},
-      \ 'whitelist': ['ruby'],
-      \ })
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
 endif
 
 if executable('css-languageserver')
   au User lsp_setup call lsp#register_server({
-      \ 'name': 'css-languageserver',
-      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
-      \ 'whitelist': ['css', 'less', 'sass'],
-      \ })
+        \ 'name': 'css-languageserver',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
+        \ 'whitelist': ['css', 'less', 'sass'],
+        \ })
 endif
 
 if executable('typescript-language-server')
   au User lsp_setup call lsp#register_server({
-      \ 'name': 'typescript-language-server',
-      \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-      \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx']
-      \ })
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+        \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx']
+        \ })
 endif
 
 call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-    \ 'name': 'omni',
-    \ 'whitelist': ['*'],
-    \ 'blacklist': ['c', 'cpp', 'html'],
-    \ 'completor': function('asyncomplete#sources#omni#completor')
-    \  }))
+      \ 'name': 'omni',
+      \ 'whitelist': ['*'],
+      \ 'blacklist': ['c', 'cpp', 'html'],
+      \ 'completor': function('asyncomplete#sources#omni#completor')
+      \  }))
 
 au User asyncomplete_setup call  asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-    \ 'name': 'file',
-    \ 'whitelist': ['*'],
-    \ 'priority': 10,
-    \ 'completor': function('asyncomplete#sources#file#completor')
-    \ }))
+      \ 'name': 'file',
+      \ 'whitelist': ['*'],
+      \ 'priority': 10,
+      \ 'completor': function('asyncomplete#sources#file#completor')
+      \ }))
 
 call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-    \ 'name': 'buffer',
-    \ 'whitelist': ['*'],
-    \ 'blacklist': ['go'],
-    \ 'completor': function('asyncomplete#sources#buffer#completor'),
-    \ }))
+      \ 'name': 'buffer',
+      \ 'whitelist': ['*'],
+      \ 'blacklist': ['go'],
+      \ 'completor': function('asyncomplete#sources#buffer#completor'),
+      \ }))
 
 call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
-    \ 'name': 'neosnippet',
-    \ 'whitelist': ['*'],
-    \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
-    \ }))
+      \ 'name': 'neosnippet',
+      \ 'whitelist': ['*'],
+      \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
+      \ }))
 
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
