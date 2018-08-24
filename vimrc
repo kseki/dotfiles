@@ -88,6 +88,7 @@ Plug 'slim-template/vim-slim'
 
 " Javascript
 Plug 'posva/vim-vue'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 " markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
