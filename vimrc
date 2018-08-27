@@ -378,6 +378,7 @@ nnoremap <Space>s :GFiles?<CR>
 nnoremap <Space>b :Buffers<CR>
 nnoremap <Space>t :Tags<CR>
 nnoremap <Space>a :Ag<Space>
+nnoremap <Space>aw :Ag<Space><C-r><C-w>
 
 " vim-trailing-whitespace
 autocmd BufWritePre * :FixWhitespace
