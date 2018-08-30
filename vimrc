@@ -377,6 +377,8 @@ nnoremap <Space>f :GFiles<CR>
 nnoremap <Space>s :GFiles?<CR>
 nnoremap <Space>b :Buffers<CR>
 nnoremap <Space>t :Tags<CR>
+nnoremap <space>x :Commands<CR>
+nnoremap <Space>l :Lines<Space>
 nnoremap <Space>a :Ag<Space>
 nnoremap <Space>aw :Ag<Space><C-r><C-w>
 
