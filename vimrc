@@ -87,6 +87,7 @@ Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
 
 " Javascript
+Plug 'leafgarland/typescript-vim'
 Plug 'posva/vim-vue'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'elzr/vim-json', { 'for': 'json' }
