@@ -89,6 +89,7 @@ Plug 'slim-template/vim-slim'
 " Javascript
 Plug 'posva/vim-vue'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'elzr/vim-json', { 'for': 'json' }
 
 " markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -159,7 +160,6 @@ set keywordprg=:help
 set title
 "set completeopt+=noinsert
 set ambiwidth=double
-
 
 " シンタックスハイライトを有効化
 syntax on
@@ -436,3 +436,6 @@ nnoremap <silent> [previm]r :call previm#refresh()<CR>
 
 " operator-camelize
 map <leader>c <plug>(operator-camelize-toggle)
+
+" vim-json
+let g:vim_json_syntax_conceal = 0
