@@ -22,7 +22,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 
 " Plug 'edkolev/tmuxline.vim'
 
@@ -389,15 +389,15 @@ let g:airline_powerline_fonts = 1
 
 set guifont=Cica:h14
 " loading the plugin
-let g:webdevicons_enable = 1
+"let g:webdevicons_enable = 1
 "" adding the flags to NERDTree
-let g:webdevicons_enable_nerdtree = 1
+"let g:webdevicons_enable_nerdtree = 1
 "" adding to vim-airline's tabline
-let g:webdevicons_enable_airline_tabline = 1
+"let g:webdevicons_enable_airline_tabline = 1
 "" adding to vim-airline's statusline
-let g:webdevicons_enable_airline_statusline = 1
+"let g:webdevicons_enable_airline_statusline = 1
 "" turn on/off file node glyph decorations (not particularly useful)
-let g:WebDevIconsUnicodeDecorateFileNodes = 1
+"let g:WebDevIconsUnicodeDecorateFileNodes = 1
 "" use double-width(1) or single-width(0) glyphs
 "" only manipulates padding, has no effect on terminal or set(guifont) font
 "let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
@@ -425,6 +425,9 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
@@ -440,3 +443,26 @@ map <leader>c <plug>(operator-camelize-toggle)
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
+
+function! ProfileCursorMove() abort
+  let profile_file = expand('~/log/vim-profile.log')
+  if filereadable(profile_file)
+    call delete(profile_file)
+  endif
+
+  normal! gg
+  normal! zR
+
+  execute 'profile start ' . profile_file
+  profile func *
+  profile file *
+
+  augroup ProfileCursorMove
+    autocmd!
+    autocmd CursorHold <buffer> profile pause | q
+  augroup END
+
+  for i in range(100)
+    call feedkeys('j')
+  endfor
+ endfunction
