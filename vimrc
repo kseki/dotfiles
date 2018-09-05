@@ -352,9 +352,9 @@ call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_opt
       \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
       \ }))
 
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " neosnippet
 "imap <C-k> <Plug>(neosnippet_expand_or_jump)
