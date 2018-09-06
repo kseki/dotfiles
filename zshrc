@@ -4,7 +4,6 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -72,9 +71,9 @@ export PGDATA=/usr/local/var/postgres
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 function fzf-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | fzf`
-    CURSOR=$#BUFFER
-    zle reset-prompt
+  BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | fzf`
+  CURSOR=$#BUFFER
+  zle reset-prompt
 }
 
 zle -N fzf-history-selection
