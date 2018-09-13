@@ -44,6 +44,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
+Plug 'junegunn/vim-peekaboo'
 
 " completion
 Plug 'prabirshrestha/async.vim'
@@ -54,7 +55,6 @@ Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'yami-beta/asyncomplete-omni.vim'
-
 
 "if has('nvim')
 "  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
