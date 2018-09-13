@@ -55,6 +55,7 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'yami-beta/asyncomplete-omni.vim'
 
+
 "if has('nvim')
 "  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "else
@@ -87,10 +88,16 @@ Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
 
 " Javascript
-Plug 'leafgarland/typescript-vim'
 Plug 'posva/vim-vue'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'elzr/vim-json', { 'for': 'json' }
+
+" TypeScript
+Plug 'leafgarland/typescript-vim'
+Plug 'ryanolsonx/vim-lsp-typescript'
+Plug 'runoshun/tscompletejob'
+Plug 'prabirshrestha/asyncomplete-tscompletejob.vim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -316,14 +323,20 @@ if executable('css-languageserver')
         \ })
 endif
 
+" TypeScript
 if executable('typescript-language-server')
   au User lsp_setup call lsp#register_server({
         \ 'name': 'typescript-language-server',
-        \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-        \ 'whitelist': ['typescript', 'javascript', 'javascript.jsx']
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript'],
         \ })
 endif
+call asyncomplete#register_source(asyncomplete#sources#tscompletejob#get_source_options({
+      \ 'name': 'tscompletejob',
+      \ 'whitelist': ['typescript'],
+      \ 'completor': function('asyncomplete#sources#tscompletejob#completor'),
+      \ }))
 
 call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
       \ 'name': 'omni',
@@ -465,4 +478,4 @@ function! ProfileCursorMove() abort
   for i in range(100)
     call feedkeys('j')
   endfor
- endfunction
+endfunction
