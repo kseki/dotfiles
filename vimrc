@@ -396,6 +396,11 @@ nnoremap <Space>l :Lines<Space>
 nnoremap <Space>a :Ag<Space>
 nnoremap <Space>aw :Ag<Space><C-r><C-w>
 
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
 " vim-trailing-whitespace
 autocmd BufWritePre * :FixWhitespace
 let g:airline_powerline_fonts = 1
@@ -436,11 +441,12 @@ autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 " fugitive
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>ga :Gwrite<CR>
-nnoremap <Leader>gr :Gread<CR>
-nnoremap <Leader>grm :Gremove<CR>
+nnoremap <Leader>gr :Gread
+nnoremap <Leader>grm :Gremove
 nnoremap <Leader>gco :Gcommit<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>ge :Gedit
 
 " ale
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
