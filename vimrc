@@ -387,14 +387,21 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('down:40%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
 nnoremap <Space>f :GFiles<CR>
 nnoremap <Space>s :GFiles?<CR>
 nnoremap <Space>b :Buffers<CR>
 nnoremap <Space>t :Tags<CR>
 nnoremap <space>x :Commands<CR>
 nnoremap <Space>l :Lines<Space>
-nnoremap <Space>a :Ag<Space>
-nnoremap <Space>aw :Ag<Space><C-r><C-w>
+nnoremap <Space>a :Rg<Space>
+nnoremap <Space>aw :Rg<Space><C-r><C-w>
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
