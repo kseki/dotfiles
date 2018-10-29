@@ -1,0 +1,7 @@
+# tmuxのbufferとxのclipboardを連携させる
+# xselが存在するか確認
+%if #{!=:3,#(which xsel | awk '{print NF}')}
+    bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xsel -ib"
+    bind-key -T copy-mode-vi Y send-keys -X copy-pipe "xsel -ib"
+    bind-key -T prefix ] run-shell "xsel -ob | head -1 | xargs -0 tmux set-buffer && tmux paste-buffer"
+%endif
