@@ -104,6 +104,9 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'kannokanno/previm', { 'for': 'markdown' }
 Plug 'suzuki-hoge/table-converter', { 'for': 'markdown' }
 
+" fish script
+Plug 'dag/vim-fish', { 'for': 'fish' }
+
 call plug#end()
 
 filetype plugin indent on
