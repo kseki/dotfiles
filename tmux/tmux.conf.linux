@@ -1,3 +1,5 @@
+set-option -g default-shell /home/linuxbrew/.linuxbrew/bin/fish
+
 # tmuxのbufferとxのclipboardを連携させる
 # xselが存在するか確認
 %if #{!=:3,#(which xsel | awk '{print NF}')}
