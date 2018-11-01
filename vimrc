@@ -80,7 +80,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
 Plug 'thinca/vim-localrc'
 Plug 'wakatime/vim-wakatime'
-Plug 'chrisbra/Recover.vim'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
