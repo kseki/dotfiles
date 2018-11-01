@@ -75,11 +75,12 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'kana/vim-operator-user'
 Plug 'tyru/operator-camelize.vim'
 
-" otherr
+" other
 Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
 Plug 'thinca/vim-localrc'
 Plug 'wakatime/vim-wakatime'
+Plug 'chrisbra/Recover.vim'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
