@@ -23,6 +23,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
 "Plug 'ryanoasis/vim-devicons'
+Plug 'majutsushi/tagbar'
 
 " Plug 'edkolev/tmuxline.vim'
 
@@ -504,3 +505,6 @@ function! ProfileCursorMove() abort
     call feedkeys('j')
   endfor
 endfunction
+
+" tagbar
+noremap <F8> :TagbarToggle<CR>
