@@ -101,8 +101,8 @@ Plug 'prabirshrestha/asyncomplete-tscompletejob.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " markdown
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'kannokanno/previm', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'previm/previm', { 'for': 'markdown' }
 Plug 'suzuki-hoge/table-converter', { 'for': 'markdown' }
 
 " fish script
@@ -471,7 +471,7 @@ let g:ale_lint_on_text_changed = 0
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 " previm
-let g:previm_open_cmd = 'open'
+let g:previm_open_cmd = 'gnome-www-browser'
 nnoremap [previm] <Nop>
 nmap <Leader>p [previm]
 nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
