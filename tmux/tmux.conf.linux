@@ -1,4 +1,4 @@
-set-option -g default-shell /home/linuxbrew/.linuxbrew/bin/fish
+set-option -g default-shell /usr/bin/fish
 
 # tmuxのbufferとxのclipboardを連携させる
 # xselが存在するか確認
