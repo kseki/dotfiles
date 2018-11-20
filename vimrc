@@ -22,8 +22,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'Yggdroot/indentLine'
 Plug 'vim-airline/vim-airline'
-"Plug 'ryanoasis/vim-devicons'
-Plug 'majutsushi/tagbar'
+Plug 'ryanoasis/vim-devicons'
+"Plug 'majutsushi/tagbar'
 
 " Plug 'edkolev/tmuxline.vim'
 
@@ -101,8 +101,8 @@ Plug 'prabirshrestha/asyncomplete-tscompletejob.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " markdown
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'kannokanno/previm', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'previm/previm', { 'for': 'markdown' }
 Plug 'suzuki-hoge/table-converter', { 'for': 'markdown' }
 
 " fish script
@@ -123,6 +123,8 @@ set number
 set numberwidth=4
 " カーソル位置の表示
 set ruler
+
+set completeopt=menuone
 
 " 画面分割の設定
 set splitbelow
@@ -336,6 +338,10 @@ if executable('typescript-language-server')
         \ 'whitelist': ['typescript'],
         \ })
 endif
+
+" asyncomplete
+let g:asyncomplete_remove_duplicates = 1
+
 call asyncomplete#register_source(asyncomplete#sources#tscompletejob#get_source_options({
       \ 'name': 'tscompletejob',
       \ 'whitelist': ['typescript'],
@@ -418,18 +424,18 @@ let g:airline_powerline_fonts = 1
 
 set guifont=Cica:h14
 " loading the plugin
-"let g:webdevicons_enable = 1
+let g:webdevicons_enable = 1
 "" adding the flags to NERDTree
-"let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_nerdtree = 1
 "" adding to vim-airline's tabline
-"let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_tabline = 1
 "" adding to vim-airline's statusline
-"let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_airline_statusline = 1
 "" turn on/off file node glyph decorations (not particularly useful)
-"let g:WebDevIconsUnicodeDecorateFileNodes = 1
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
 "" use double-width(1) or single-width(0) glyphs
 "" only manipulates padding, has no effect on terminal or set(guifont) font
-"let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 "" whether or not to show the nerdtree brackets around flags
 "let g:webdevicons_conceal_nerdtree_brackets = 1
 "" the amount of space to use after the glyph character (default ' ')
@@ -438,7 +444,7 @@ set guifont=Cica:h14
 ""let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 "" Adding the custom source to denite
 "let g:webdevicons_enable_denite = 1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 if exists('&signcolumn')  " Vim 7.4.2201
   set signcolumn=yes
@@ -471,7 +477,7 @@ let g:ale_lint_on_text_changed = 0
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 " previm
-let g:previm_open_cmd = 'open'
+let g:previm_open_cmd = 'gnome-www-browser'
 nnoremap [previm] <Nop>
 nmap <Leader>p [previm]
 nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
@@ -507,4 +513,4 @@ function! ProfileCursorMove() abort
 endfunction
 
 " tagbar
-noremap <F8> :TagbarToggle<CR>
+" noremap <F8> :TagbarToggle<CR>
