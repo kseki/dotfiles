@@ -2,7 +2,7 @@ set encoding=UTF-8
 set nocompatible
 filetype off
 set pyxversion=3
-let g:python3_host_prog='/Users/uu094589/.anyenv/envs/pyenv/shims/python3'
+"let g:python3_host_prog='/Users/uu094589/.anyenv/envs/pyenv/shims/python3'
 let mapleader = "\<Space>"
 
 call plug#begin('~/.vim/plugged')
