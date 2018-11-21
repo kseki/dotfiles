@@ -15,6 +15,7 @@ set --export FZF_FIND_FILE_COMMAND $FZF_DEFAULT_COMMAND
 # alias
 alias pbcopy 'xsel --clipboard --input'
 alias gco 'git branch | fzf | xargs git checkout'
+alias open 'gnome-www-browser'
 
 # 端末間でヒストリーを共有
 function history-merge --on-event fish_preexec
