@@ -87,6 +87,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'bronson/vim-ruby-block-conv'
 Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
+Plug 'ecomba/vim-ruby-refactoring'
 
 " Javascript
 Plug 'posva/vim-vue'

@@ -1,5 +1,6 @@
 set --export EDITOR vim
 set --export MANPATH /usr/share/man $MANPATH
+set --export TERM 'xterm-256color'
 
 # vi mode
 set -U fish_key_bindings fish_vi_key_bindings
