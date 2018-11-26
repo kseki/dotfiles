@@ -167,6 +167,8 @@ set nosmartcase
 set wrapscan
 " 検索対象をハイライト
 set hlsearch
+" コマンドの補完メニュー
+set wildmenu
 
 " ヘルプ画面の高さ
 set helpheight=999
