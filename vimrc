@@ -455,6 +455,11 @@ else
   let g:gitgutter_sign_column_always = 1
 endif
 
+nnoremap ]c <Plug>GitGutterNextHunk
+nnoremap [c <Plug>GitGutterPrevHunk
+nnoremap <Leader>hs <Plug>GitGutterStageHunk
+nnoremap <Leader>hu <Plug>GitGutterUndoHunk
+
 autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
