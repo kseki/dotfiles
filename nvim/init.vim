@@ -8,7 +8,6 @@ let g:loaded_getscriptPlugin   = 1
 let g:loaded_gzip              = 1
 let g:loaded_logipat           = 1
 let g:loaded_man               = 1
-let g:loaded_matchit           = 1
 let g:loaded_netrw             = 1
 let g:loaded_netrwFileHandlers = 1
 let g:loaded_netrwPlugin       = 1
@@ -23,15 +22,15 @@ let g:loaded_vimballPlugin     = 1
 let g:loaded_zip               = 1
 let g:loaded_zipPlugin         = 1
 
-let mapleader = "\<Space>"
 
 augroup MyAutoCmd
   autocmd!
 augroup END
 
+let mapleader = "\<Space>"
+
 let g:python3_host_prog = $HOME. '/.anyenv/envs/pyenv/shims/python3'
 let g:python_host_prog = $HOME. '/.anyenv/envs/pyenv/shims/python'
-set rtp+=/usr/local/share/nvim/runtime/
 
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')

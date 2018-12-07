@@ -1,10 +1,12 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
+hook_add = '''
+  nnoremap <silent> <Space>I :call dein#install()<CR>
+  nnoremap <silent> <Space>U :call dein#update()<CR>
+'''
 
 [[plugins]]
 repo = 'dracula/vim'
-#repo = 'kota718/dracula-vim'
-# rev = 'develop'
 hook_add = '''
   au MyAutoCmd VimEnter * nested colorscheme dracula
 '''
@@ -25,10 +27,18 @@ repo = 'Yggdroot/indentLine'
 #'''
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'w0rp/ale'
+hook_add = '''
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+  let g:ale_echo_msg_error_str = 'E'
+  let g:ale_echo_msg_warning_str = 'W'
+  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+  let g:ale_lint_on_save = 1
+  let g:ale_lint_on_text_changed = 0
 
-[[plugins]]
-repo = 'honza/vim-snippets'
+  " vim-airline
+  let g:airline#extensions#ale#enabled = 1
+'''
 
 
 [[plugins]]
@@ -38,36 +48,15 @@ repo = 'cohama/lexima.vim'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+hook_add = '''
+  autocmd BufWritePre * :FixWhitespace
+'''
+
+[[plugins]]
 repo = 'scrooloose/nerdcommenter'
 hook_add = '''
   let g:NERDSpaceDelims = 1
-'''
-
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = '''
-  let g:nerdtree_tabs_focus_on_files = 1
-  let NERDTreeShowHidden = 1
-
-  nnoremap [nerdtree] <Nop>
-  nmap <Leader>e [nerdtree]
-  nnoremap <silent> [nerdtree]t :NERDTreeToggle<CR>
-  nnoremap <silent> [nerdtree]f :NERDTreeFocus<CR>
-'''
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-hook_add = '''
-  nnoremap [fugitive] <Nop>
-  nmap <Leader>g [fugitive]
-
-  nnoremap [fugitive]d :<C-u>Gdiff<CR>
-  nnoremap [fugitive]s :<C-u>Gstatus<CR>
-  nnoremap [fugitive]l :<C-u>Glog<CR>
-  nnoremap [fugitive]a :<C-u>Gwrite<CR>
-  nnoremap [fugitive]c :<C-u>Gcommit<CR>
-  nnoremap [fugitive]C :<C-u>Git commit --amend<CR>
-  nnoremap [fugitive]b :<C-u>Gblame<CR>
 '''
 
 [[plugins]]
@@ -75,10 +64,17 @@ repo = 'tpope/vim-rails'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
-depends = ['tagbar', 'vim-fugitive']
 hook_add = '''
+  " タブラインの表示
   let g:airline#extensions#tabline#enabled = 1
+  " （タブが一個の場合）バッファのリストをタブラインに表示する機能をオフ
+  let g:airline#extensions#tabline#show_buffers = 0
+  " 0でそのタブで開いてるウィンドウ数、1で左のタブから連番
+  let g:airline#extensions#tabline#tab_nr_type = 1
+  " パワーラインフォントの使用
   let g:airline_powerline_fonts = 1
+  " 複数ウィンドウのときもステータスラインを分割しない
+  let g:airline_inactive_collapse = 1
 '''
 
 #[[plugins]]
@@ -102,6 +98,15 @@ hook_add = '''
   nnoremap <silent> <Space>t :Ttoggle<CR>
   tnoremap <silent> <ESC> <C-\><C-n>
   nnoremap <silent> tig :T tig<CR>
+'''
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
+hook_add = '''
+ let g:airline#extensions#tagbar#enabled = 1
+ let g:airline_inactive_collapse = 0
+
+ nnoremap <silent> <F8> :TagbarToggle<CR>
 '''
 
 [[plugins]]

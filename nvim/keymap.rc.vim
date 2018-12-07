@@ -44,12 +44,13 @@ nnoremap <Leader>w :<C-u>w<CR>
 nnoremap <Leader>wq :<C-u>wq<CR>
 
 map <Leader>i gg=<S-g><C-o><C-o>zz
-noremap <Leader>s :%s/
 
 nnoremap <Leader>s. :<C-u>source $MYVIMRC<CR>
 nnoremap <Leader>m  :<C-u>marks<CR>
 nnoremap <Leader>r  :<C-u>registers<CR>
 
+" Help
+nnoremap <silent> <Space>h :help <C-r><C-w>
 
 " Toggle options
 nnoremap <silent> <Space>os :<C-u>setlocal spell! spell?<CR>

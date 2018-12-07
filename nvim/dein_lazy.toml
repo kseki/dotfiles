@@ -1,111 +1,127 @@
+############################################
+# Git
+############################################
 [[plugins]]
-repo = 'Shougo/neomru.vim'
+repo = 'tpope/vim-fugitive'
+on_event = 'VimEnter'
+hook_add = '''
+  nnoremap [fugitive] <Nop>
+  nmap <Leader>g [fugitive]
+
+  nnoremap [fugitive]d :<C-u>Gdiff<CR>
+  nnoremap [fugitive]s :<C-u>Gstatus<CR>
+  nnoremap [fugitive]l :<C-u>Glog<CR>
+  nnoremap [fugitive]a :<C-u>Gwrite<CR>
+  nnoremap [fugitive]c :<C-u>Gcommit<CR>
+  nnoremap [fugitive]C :<C-u>Git commit --amend<CR>
+  nnoremap [fugitive]b :<C-u>Gblame<CR>
+'''
 
 [[plugins]]
-repo = 'nixprime/cpsm'
-build = 'env PY3=ON ./install.sh'
+repo = 'airblade/vim-gitgutter'
+on_event = 'VimEnter'
+hook_add = '''
+  nnoremap <C-]> :GitGutterNextHunk<CR>
+  nnoremap <C-[> :GitGutterPrevHunk<CR>
+  nnoremap <C-s> :GitGutterStageHunk<CR>
+  nnoremap <C-r> :GitGutterUndoHunk<CR>
+'''
 
-#[[plugins]]
-#repo = 'Shougo/denite.nvim'
-#depends = ['neomru.vim']
-#if = "has('python3')"
-#on_event = 'VimEnter'
-#hook_source = '''
-#   call denite#custom#map('insert', '<esc>', '<denite:enter_mode:normal>', 'noremap')
-#   call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
-#   call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
-#   call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>')
-#   call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>')
-#   call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>')
-#   call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>')
-#
-#  if executable('rg')
-#    call denite#custom#var('file_rec', 'command',
-#          \ ['rg', '--files', '--glob', '!.git'])
-#    call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
-#    call denite#custom#var('grep', 'recursive_opts', [])
-#    call denite#custom#var('grep', 'final_opts', [])
-#    call denite#custom#var('grep', 'separator', ['--'])
-#    call denite#custom#var('grep', 'default_opts',
-#          \ ['--vimgrep', '--no-heading'])
-#  else
-#    call denite#custom#var('file_rec', 'command',
-#        \ ['rg', '--follow', '--nocolor', '--nogroup', '-g', ''])
-#  endif
-#
-#  call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
-#  call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-#        \ [ '.git/', '.ropeproject/', '__pycache__/',
-#        \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-#  call denite#custom#option('default', 'prompt', '>')
-#
-#  call denite#custom#alias('source', 'file_rec/git', 'file_rec')
-#  call denite#custom#var('file_rec/git', 'command',
-#        \ ['git', 'ls-files', '-co', '--exclude-standard'])
-#
-#  call denite#custom#option('default', {
-#      \ 'auto_accel': v:true,
-#      \ 'prompt': '>',
-#      \ 'source_names': 'short',
-#      \ })
-#'''
-#hook_add = '''
-#  nnoremap [denite] <Nop>
-#  nmap <Leader>u [denite]
-#
-#  nnoremap <silent> [denite]f :<C-u>Denite file_rec -highlight-mode-insert=PmenuSel<CR>
-#  nnoremap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=PmenuSel<CR>
-#  nnoremap <silent> [denite]r :<C-u>Denite register -highlight-mode-insert=PmenuSel<CR>
-#  nnoremap <silent> [denite]l :<C-u>Denite line -highlight-mode-insert=PmenuSel<CR>
-#  nnoremap <silent> [denite]g :<C-u>Denite grep -highlight-mode-insert=PmenuSel<CR>
-#  nnoremap <silent> [denite]cg :<C-u>DeniteCursorWord grep -highlight-mode-insert=PmenuSel<CR>
-#  nnoremap <silent> [denite]fm :<C-u>Denite file_mru -highlight-mode-insert=PmenuSel<CR>
-#  nnoremap <silent> [denite]u :<C-u>Denite menu <CR>
-#
-#  nnoremap <silent> [denite]<Space> :<C-u>Denite -resume<CR>
-#  nnoremap <silent> [denite]n :<C-u>Denite -resume -immediately -select=+1<CR>
-#  nnoremap <silent> [denite]p :<C-u>Denite -resume -immediately -select=-1<CR>
-#'''
+############################################
+# Filer
+############################################
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  let g:NERDTreeShowHidden = 1
+  let g:NERDTreeChDirMode=2
+  let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+  let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+  let g:NERDTreeShowBookmarks=1
+  let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+  let g:NERDTreeWinSize = 50
+  let g:NERDTreeQuitOnOpen = 1
+
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+
+  nnoremap <silent> <F2> :NERDTreeFocus<CR>
+  nnoremap <silent> <F3> :NERDTreeToggle<CR>
+'''
+
 [[plugins]]
 repo = 'junegunn/fzf'
-on_event = 'VimEnter'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 on_event = 'VimEnter'
+depends = ['fzf']
 hook_source = '''
-  nnoremap [fzf] <Nop>
-  nmap <Leader>f [fzf]
-
-  nnoremap <silent> [fzf]f :<C-u>GFiles<CR>
-  nnoremap <silent> [fzf]b :<C-u>Buffers<CR>
-  nnoremap <silent> [fzf]x :<C-u>Commnads<CR>
-  nnoremap <silent> [fzf]a :<C-u>Ag
-
   let g:fzf_action = {
-    \ 'ctrl-q': function('s:build_quickfix_list'),
-    \ 'ctrl-t': 'tab split',
-    \ 'ctrl-x': 'split',
-    \ 'ctrl-v': 'vsplit' }
+        \ 'ctrl-s': 'split',
+        \ 'ctrl-v': 'vsplit' }
 
-  call fzf#run({'options': '--select-1 --exit-0'})
-'''
+  set wildmode=list:longest,list:full
+  set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+  let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+  let $FZF_DEFAULT_OPTS = "--reverse"
 
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-on_event = 'VimEnter'
-hook_source = '''
-  let NERDTreeShowHidden = 1
+  " The Silver Searcher
+  if executable('ag')
+    let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+    set grepprg=ag\ --nogroup\ --nocolor
 
-  nnoremap [nerdtree] <Nop>
-  nmap <Leader>e [nerdtree]
-  nnoremap <silent> [nerdtree]t :NERDTreeToggle<CR>
-  nnoremap <silent> [nerdtree]f :NERDTreeFocus<CR>
+    nnoremap <Space>a :Ag<Space>
+    nnoremap <Space>aw :Ag<Space><C-r><C-w>
+  endif
+
+  " ripgrep
+  if executable('rg')
+    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+    set grepprg=rg\ --vimgrep
+    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
+    nnoremap <Space>a :Rg<Space>
+    nnoremap <Space>aw :Rg<Space><C-r><C-w>
+  endif
+
+  cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+  nnoremap <Space>f :FZF<CR>
+  nnoremap <Space>s :GFiles?<CR>
+  nnoremap <Space>b :Buffers<CR>
+  nnoremap <Space>t :Tags<CR>
+  nnoremap <space>x :Commands<CR>
+  nnoremap <Space>l :Lines<Space>
+
+  " Mapping selecting mappings
+  nmap <leader><tab> <plug>(fzf-maps-n)
+  xmap <leader><tab> <plug>(fzf-maps-x)
+  omap <leader><tab> <plug>(fzf-maps-o)
 '''
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = 'context_filetype.vim'
+on_ft = ['vim', 'html', 'toml']
+hook_add = '''
+ let g:precious_enable_switch_CursorMoved = { '*': 0, 'help': 1 }
+ let g:precious_enable_switchers = {
+    \ "*" : {
+    \   "setfiletype" : 0
+    \ },
+    \ "toml" : {
+    \   "setfiletype" : 1
+    \ },
+    \}
+ autocmd MyAutoCmd InsertEnter * :PreciousSwitch
+ autocmd MyAutoCmd InsertLeave * :PreciousReset"}
+'''
+
+############################################
+# Completion
+############################################
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
@@ -133,46 +149,6 @@ hook_source = '''
 on_event = 'InsertEnter'
 
 [[plugins]]
-repo = 'zchee/deoplete-jedi'
-depends = ['deoplete.nvim']
-if = "has('nvim')"
-on_ft = 'python'
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-depends = ['deoplete.nvim']
-if = "has('nvim')"
-on_ft = 'go'
-build = 'make'
-
-[[plugins]]
-repo = 'osyo-manga/vim-monster'
-on_ft = 'ruby'
-hook_source = '''
-  let g:monster#completion#rcodetools#backend = "async_rct_complete"
-  let g:monster#completion#backend = 'solargraph'
-'''
-
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-depends = 'deoplete.nvim'
-on_ft = 'ruby'
-
-[[plugins]]
-repo = 'ujihisa/neco-look'
-on_source = ['neocomplete.vim', 'deoplete.nvim']
-
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = 'context_filetype.vim'
-on_ft = ['vim', 'html', 'toml']
-hook_add = '''
- let g:precious_enable_switch_CursorMoved = { '*': 0, 'help': 1 }
- autocmd MyAutoCmd InsertEnter * :PreciousSwitch
- autocmd MyAutoCmd InsertLeave * :PreciousReset"}
-'''
-
-[[plugins]]
 repo = 'Shougo/neosnippet'
 hook_source = '''
   let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/honza/vim-snippets/snippets/'
@@ -184,19 +160,82 @@ hook_source = '''
     set conceallevel=2 concealcursor=niv
   endif
 '''
-on_event = 'InsertCharPre'
-on_ft = 'snippet'
+on_source = ['deoplete.nvim']
 depends = ['neosnippet-snippets']
 
-# =====  lang =====
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+on_source = ['deoplete.nvim']
+
+############################################
+# Ruby
+############################################
+[[plugins]]
+repo = 'osyo-manga/vim-monster'
+on_ft = 'ruby'
+hook_source = '''
+  let g:monster#completion#rcodetools#backend = "async_rct_complete"
+  let g:monster#completion#backend = 'solargraph'
+'''
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'vim-scripts/ruby-matchit'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = 'slim'
+
+############################################
+# Python
+############################################
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+depends = ['deoplete.nvim']
+if = "has('nvim')"
+on_ft = 'python'
+
+[[plugins]]
+repo = 'hynek/vim-python-pep8-indent'
+on_ft = 'python'
+
+############################################
+# Go
+############################################
+[[plugins]]
+repo = 'zchee/deoplete-go'
+depends = ['deoplete.nvim']
+if = "has('nvim')"
+on_ft = 'go'
+build = 'make'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+############################################
+# Vim
+############################################
 [[plugins]]
 repo = 'Shougo/neco-vim'
 on_ft = 'vim'
 
+############################################
+# TOML
+############################################
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
+############################################
+# Markdown
+############################################
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
@@ -216,18 +255,20 @@ hook_source = '''
   nnoremap <silent> [previm]r :call previm#refresh()<CR>
 '''
 
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-
-[[plugins]]
-repo = 'hynek/vim-python-pep8-indent'
-on_ft = 'python'
-
+############################################
+# JavaScript
+############################################
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
 on_ft = 'javascript'
 
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = 'vue'
+
+############################################
+# JSON
+############################################
 [[plugins]]
 repo = 'elzr/vim-json'
 on_ft = 'json'
@@ -236,45 +277,30 @@ hook_source = '''
   let g:vim_json_syntax_conceal = 0
 '''
 
+############################################
+# CSS
+############################################
 [[plugins]]
 repo = 'hail2u/vim-css3-syntax'
 on_ft = 'css'
 
-[[plugins]]
-repo = 'vim-ruby/vim-ruby'
-on_ft = 'ruby'
-hook_source = '''
-  let g:ruby_indent_access_modifier_style = 'indent'
-  let g:ruby_indent_block_style = 'do'
-'''
-
-[[plugins]]
-repo = 'tpope/vim-endwise'
-on_ft = 'ruby'
-
-[[plugins]]
-repo = 'vim-scripts/ruby-matchit'
-on_ft = 'ruby'
-
+############################################
+# Fish
+############################################
 [[plugins]]
 repo = 'dag/vim-fish'
 on_ft = 'fish'
 
-[[plugins]]
-repo = 'posva/vim-vue'
-on_ft = 'vue'
-
+############################################
+# Elixir
+############################################
 [[plugins]]
 repo = 'elixir-lang/vim-elixir'
 on_ft = 'elixir'
 
+############################################
+# Terraform
+############################################
 [[plugins]]
 repo = 'hashivim/vim-terraform'
 on_ft = 'terraform'
-
-[[plugins]]
-repo = 'slim-template/vim-slim'
-on_ft = 'slim'
-
-[[plugins]]
-repo = 'Shougo/neopairs.vim'

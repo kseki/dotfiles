@@ -1,6 +1,5 @@
 set autoread
 set backspace=indent,eol,start
-set clipboard=unnamed,unnamedplus
 set expandtab
 set helpheight=999
 set hidden
@@ -29,10 +28,8 @@ set title
 set whichwrap=b,s,h,l,<,>,[,]
 set wrapscan
 set inccommand=split
-" set spell
-" set spelllang=en,cjk
 
-set updatetime=2000
+set updatetime=500
 
 " カーソルラインの表示
 augroup vimrc-auto-cursorline
