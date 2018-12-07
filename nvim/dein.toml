@@ -109,6 +109,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'simeji/winresizer'
+
+[[plugins]]
 repo = 'wakatime/vim-wakatime'
 
 [[plugins]]
