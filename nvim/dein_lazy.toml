@@ -204,6 +204,10 @@ hook_source = '''
 '''
 
 [[plugins]]
+repo = 'ecomba/vim-ruby-refactoring'
+on_ft = 'ruby'
+
+[[plugins]]
 repo = 'tpope/vim-haml'
 on_ft = 'haml'
 
