@@ -22,7 +22,6 @@ let g:loaded_vimballPlugin     = 1
 let g:loaded_zip               = 1
 let g:loaded_zipPlugin         = 1
 
-
 augroup MyAutoCmd
   autocmd!
 augroup END
