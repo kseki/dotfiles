@@ -27,6 +27,17 @@ hook_add = '''
   nnoremap <C-q> :GitGutterUndoHunk<CR>
 '''
 
+[[plugins]]
+repo = 'mattn/gist-vim'
+on_cmd = 'Gist'
+depends = ['webapi-vim']
+hook_add = '''
+  let g:gist_post_private = 1
+'''
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
 ############################################
 # Filer
 ############################################
@@ -63,7 +74,7 @@ hook_source = '''
   set wildmode=list:longest,list:full
   set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
   let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-  let $FZF_DEFAULT_OPTS = '--height 40% --layout=reverse --border'
+  let $FZF_DEFAULT_OPTS = "--height 50% --layout=reverse --border --inline-info --preview 'head -100 {}'"
 
   " The Silver Searcher
   if executable('ag')
@@ -90,7 +101,7 @@ hook_source = '''
   nnoremap <Space>b :Buffers<CR>
   nnoremap <Space>t :Tags<CR>
   nnoremap <space>x :Commands<CR>
-  nnoremap <Space>l :Lines<Space>
+  nnoremap <Space>l :BLines<Space>
 
   " Mapping selecting mappings
   nmap <leader><tab> <plug>(fzf-maps-n)
@@ -185,8 +196,8 @@ repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 
 [[plugins]]
-repo = 'vim-scripts/ruby-matchit'
-on_ft = 'ruby'
+repo = 'tpope/vim-haml'
+on_ft = 'haml'
 
 [[plugins]]
 repo = 'slim-template/vim-slim'
@@ -282,6 +293,10 @@ hook_source = '''
 ############################################
 [[plugins]]
 repo = 'hail2u/vim-css3-syntax'
+on_ft = 'css'
+
+[[plugins]]
+repo = 'ap/vim-css-color'
 on_ft = 'css'
 
 ############################################
