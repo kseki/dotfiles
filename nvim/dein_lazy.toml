@@ -191,9 +191,17 @@ hook_source = '''
   let g:monster#completion#rcodetools#backend = "async_rct_complete"
   let g:monster#completion#backend = 'solargraph'
 '''
+
 [[plugins]]
 repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
+
+[[plugins]]
+repo = 'jgdavey/vim-blockle'
+on_ft = 'ruby'
+hook_source = '''
+  let g:blockle_mapping = '<Leader>rb'
+'''
 
 [[plugins]]
 repo = 'tpope/vim-haml'
