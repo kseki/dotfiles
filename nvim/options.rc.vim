@@ -1,32 +1,41 @@
+set number                       " 行番号表示
+set numberwidth=5                " 行番号の列数
+set ruler                        " カーソル位置を表示
+set showcmd                      " 入力コマンド表示
+
+set autoindent                   " 自動インデント
+
+set tabstop=2                    " タブ幅の設定
+set softtabstop=2
+set shiftwidth=2
+set expandtab                    " タブの代わりにスペースにする
+set smarttab                     " 行頭でタブを入力するとインデントを合わせる
+set shiftround
+
+set ignorecase
+set smartcase
+set wrapscan
+set incsearch
+set inccommand=split
+set history=5000
+
 set autoread
 set backspace=indent,eol,start
-set expandtab
 set helpheight=999
 set hidden
-set history=1000
-set ignorecase
-set incsearch
 set list
 set matchtime=1
 set mouse=a
 set noswapfile
 set nowrap
-set number
-set numberwidth=5
 set pumheight=15
-set ruler
 set scrolloff=999
-set shiftwidth=2
-set showcmd
 set showmatch
-set smartcase
 set smartindent
 set splitbelow
 set splitright
-set tabstop=2
 set title
 set whichwrap=b,s,h,l,<,>,[,]
-set wrapscan
 set inccommand=split
 
 set updatetime=500

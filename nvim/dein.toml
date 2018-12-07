@@ -1,3 +1,6 @@
+#-------------------------------------------
+# Plugin manager
+#-------------------------------------------
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_add = '''
@@ -5,62 +8,18 @@ hook_add = '''
   nnoremap <silent> <Space>U :call dein#update()<CR>
 '''
 
+#-------------------------------------------
+# Display
+#-------------------------------------------
 [[plugins]]
 repo = 'dracula/vim'
 hook_add = '''
+  let g:dracula_italic = 0
   au MyAutoCmd VimEnter * nested colorscheme dracula
 '''
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-
-#[[plugins]]
-#repo = 'neomake/neomake'
-#if = 'has("nvim")'
-#hook_add = '''
-#  autocmd! BufWritePost * Neomake
-#
-#  let g:neomake_open_list = 2
-#  let g:neomake_error_sign = {'text': 'E>', 'texthl': 'Error'}
-#  let g:neomake_warning_sign = {'text': 'W>', 'texthl': 'WarningMsg',}
-#  let g:neomake_info_sign = {'text': 'I>', 'texthl': 'PmenuSel'}
-#'''
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-  let g:ale_echo_msg_error_str = 'E'
-  let g:ale_echo_msg_warning_str = 'W'
-  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-  let g:ale_lint_on_save = 1
-  let g:ale_lint_on_text_changed = 0
-
-  " vim-airline
-  let g:airline#extensions#ale#enabled = 1
-'''
-
-
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
-hook_add = '''
-  autocmd BufWritePre * :FixWhitespace
-'''
-
-[[plugins]]
-repo = 'scrooloose/nerdcommenter'
-hook_add = '''
-  let g:NERDSpaceDelims = 1
-'''
-
-[[plugins]]
-repo = 'tpope/vim-rails'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -88,17 +47,68 @@ hook_add = '''
 #repo = 'edkolev/tmuxline.vim'
 #on_cmd = 'Tmuxline'
 
-# [[plugins]]
-# repo = 'kassio/neoterm'
-# if = "has('nvim')"
-# hook_add = '''
-  # let g:neoterm_autoinsert = 1
-  # let g:neoterm_size = 28
+[[plugins]]
+repo = 'simeji/winresizer'
 
-  # nnoremap <silent> <Space>t :Ttoggle<CR>
-  # tnoremap <silent> <ESC> <C-\><C-n>
-# '''
+#-------------------------------------------
+# Asynchronous
+#-------------------------------------------
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+  let g:ale_echo_msg_error_str = 'E'
+  let g:ale_echo_msg_warning_str = 'W'
+  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+  let g:ale_lint_on_save = 1
+  let g:ale_lint_on_text_changed = 0
 
+  " vim-airline
+  let g:airline#extensions#ale#enabled = 1
+'''
+
+#[[plugins]]
+#repo = 'neomake/neomake'
+#if = 'has("nvim")'
+#hook_add = '''
+#  autocmd! BufWritePost * Neomake
+#
+#  let g:neomake_open_list = 2
+#  let g:neomake_error_sign = {'text': 'E>', 'texthl': 'Error'}
+#  let g:neomake_warning_sign = {'text': 'W>', 'texthl': 'WarningMsg',}
+#  let g:neomake_info_sign = {'text': 'I>', 'texthl': 'PmenuSel'}
+#'''
+
+#-------------------------------------------
+# Text object
+#-------------------------------------------
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+#-------------------------------------------
+# Operations
+#-------------------------------------------
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+hook_add = '''
+  let g:NERDSpaceDelims = 1
+'''
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+hook_add = '''
+  autocmd BufWritePre * :FixWhitespace
+'''
+
+#-------------------------------------------
+# Others
+#-------------------------------------------
 [[plugins]]
 repo = 'majutsushi/tagbar'
 hook_add = '''
@@ -107,9 +117,6 @@ hook_add = '''
 
  nnoremap <silent> <F8> :TagbarToggle<CR>
 '''
-
-[[plugins]]
-repo = 'simeji/winresizer'
 
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
