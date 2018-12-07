@@ -43,6 +43,7 @@ repo = 'mattn/webapi-vim'
 #-------------------------------------------
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+on_cmd = ['NERDTreeFocus', 'NERDTreeToggle']
 hook_add = '''
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeChDirMode=2
@@ -58,6 +59,26 @@ hook_add = '''
   nnoremap <silent> <F2> :NERDTreeFocus<CR>
   nnoremap <silent> <F3> :NERDTreeToggle<CR>
 '''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+on_source = 'nerdtree'
+hook_source = '''
+  " loading the plugin
+  let g:webdevicons_enable = 1
+  " adding the flags to NERDTree
+  let g:webdevicons_enable_nerdtree = 1
+  " adding to vim-airline's tabline
+  let g:webdevicons_enable_airline_tabline = 1
+  " adding to vim-airline's statusline
+  let g:webdevicons_enable_airline_statusline = 1
+  " turn on/off file node glyph decorations (not particularly useful)
+  let g:WebDevIconsUnicodeDecorateFileNodes = 1
+  " use double-width(1) or single-width(0) glyphs
+  " only manipulates padding, has no effect on terminal or set(guifont) font
+  let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+'''
+
 
 [[plugins]]
 repo = 'junegunn/fzf'
