@@ -21,10 +21,10 @@ hook_add = '''
 repo = 'airblade/vim-gitgutter'
 on_event = 'VimEnter'
 hook_add = '''
-  nnoremap <C-]> :GitGutterNextHunk<CR>
-  nnoremap <C-[> :GitGutterPrevHunk<CR>
+  nnoremap g] :GitGutterNextHunk<CR>
+  nnoremap g[ :GitGutterPrevHunk<CR>
   nnoremap <C-s> :GitGutterStageHunk<CR>
-  nnoremap <C-r> :GitGutterUndoHunk<CR>
+  nnoremap <C-q> :GitGutterUndoHunk<CR>
 '''
 
 ############################################
@@ -35,7 +35,7 @@ repo = 'scrooloose/nerdtree'
 hook_add = '''
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeChDirMode=2
-  let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+  let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', '\.git$']
   let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
   let g:NERDTreeShowBookmarks=1
   let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
@@ -63,7 +63,7 @@ hook_source = '''
   set wildmode=list:longest,list:full
   set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
   let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-  let $FZF_DEFAULT_OPTS = "--reverse"
+  let $FZF_DEFAULT_OPTS = '--height 40% --layout=reverse --border'
 
   " The Silver Searcher
   if executable('ag')
