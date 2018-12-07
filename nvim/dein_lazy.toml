@@ -110,6 +110,15 @@ hook_source = '''
 '''
 
 [[plugins]]
+repo = 'justinhoward/fzf-neoyank'
+on_source = 'fzf'
+hook_source = '''
+ nnoremap <leader>y :FZFNeoyank<cr>
+ nnoremap <leader>Y :FZFNeoyank " P<cr>
+ vnoremap <leader>y :FZFNeoyankSelection<cr>
+'''
+
+[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
