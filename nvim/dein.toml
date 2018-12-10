@@ -94,6 +94,15 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'tpope/vim-repeat'
 
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+hook_add = '''
+  let g:switch_mapping = "!"
+'''
+
 #-------------------------------------------
 # Operations
 #-------------------------------------------
