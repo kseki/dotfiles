@@ -4,6 +4,8 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_add = '''
+  let g:dein#install_max_processes = 16
+
   nnoremap <silent> <Space>I :call dein#install()<CR>
   nnoremap <silent> <Space>U :call dein#update()<CR>
 '''
@@ -67,18 +69,6 @@ hook_add = '''
   let g:airline#extensions#ale#enabled = 1
 '''
 
-#[[plugins]]
-#repo = 'neomake/neomake'
-#if = 'has("nvim")'
-#hook_add = '''
-#  autocmd! BufWritePost * Neomake
-#
-#  let g:neomake_open_list = 2
-#  let g:neomake_error_sign = {'text': 'E>', 'texthl': 'Error'}
-#  let g:neomake_warning_sign = {'text': 'W>', 'texthl': 'WarningMsg',}
-#  let g:neomake_info_sign = {'text': 'I>', 'texthl': 'PmenuSel'}
-#'''
-
 #-------------------------------------------
 # Text object
 #-------------------------------------------
@@ -121,14 +111,11 @@ hook_add = '''
 [[plugins]]
 repo = 'majutsushi/tagbar'
 hook_add = '''
- let g:airline#extensions#tagbar#enabled = 1
- let g:airline_inactive_collapse = 0
+" let g:airline#extensions#tagbar#enabled = 1
+" let g:airline_inactive_collapse = 0
 
  nnoremap <silent> <F8> :TagbarToggle<CR>
 '''
-
-[[plugins]]
-repo = 'wakatime/vim-wakatime'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'

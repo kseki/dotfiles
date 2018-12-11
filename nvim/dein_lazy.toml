@@ -405,3 +405,10 @@ on_ft = 'elixir'
 [[plugins]]
 repo = 'hashivim/vim-terraform'
 on_ft = 'terraform'
+
+#-------------------------------------------
+# Others
+#-------------------------------------------
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+on_ft = 'terraform'
