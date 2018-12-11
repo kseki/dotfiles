@@ -111,10 +111,7 @@ hook_add = '''
 [[plugins]]
 repo = 'majutsushi/tagbar'
 hook_add = '''
-" let g:airline#extensions#tagbar#enabled = 1
-" let g:airline_inactive_collapse = 0
-
- nnoremap <silent> <F8> :TagbarToggle<CR>
+  nnoremap <silent> <F8> :TagbarToggle<CR>
 '''
 
 [[plugins]]
