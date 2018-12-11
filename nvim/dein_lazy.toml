@@ -1,4 +1,14 @@
 #-------------------------------------------
+# Window
+#-------------------------------------------
+[[plugins]]
+repo = 'simeji/winresizer'
+on_cmd ='WinResizerStartResize'
+hook_source = '''
+  let g:winresizer_vert_resize=1
+'''
+
+#-------------------------------------------
 # Git
 #-------------------------------------------
 [[plugins]]
@@ -180,7 +190,6 @@ hook_source = '''
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
-if = "has('nvim')"
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_complete_start_length = 1
@@ -202,6 +211,16 @@ hook_source = '''
         \}
 '''
 on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+if = "!has('nvim')"
+on_source = ['deoplete.nvim']
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+if = "!has('nvim')"
+on_source = ['deoplete.nvim']
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -232,7 +251,7 @@ on_source = ['deoplete.nvim']
 repo = 'osyo-manga/vim-monster'
 on_ft = 'ruby'
 hook_source = '''
-  let g:monster#completion#rcodetools#backend = "async_rct_complete"
+  let g:monster#completion#solargraph#backend = "async_solargraph_suggest"
   let g:monster#completion#backend = 'solargraph'
 '''
 
@@ -318,6 +337,7 @@ repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
 hook_source = '''
   let g:vim_markdown_folding_disabled = 1
+  let g:vim_markdown_conceal = 0
 '''
 
 [[plugins]]

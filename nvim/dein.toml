@@ -50,9 +50,6 @@ hook_add = '''
 #repo = 'edkolev/tmuxline.vim'
 #on_cmd = 'Tmuxline'
 
-[[plugins]]
-repo = 'simeji/winresizer'
-
 #-------------------------------------------
 # Asynchronous
 #-------------------------------------------
