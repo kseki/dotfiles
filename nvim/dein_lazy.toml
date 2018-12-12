@@ -411,4 +411,4 @@ on_ft = 'terraform'
 #-------------------------------------------
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
-on_ft = 'terraform'
+on_ft = 'VimEnter'
