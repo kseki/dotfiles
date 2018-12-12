@@ -54,6 +54,6 @@ nnoremap <silent> <Space>op :<C-u>set paste! paste?<CR>
 if has('nvim')
   nnoremap @t :tabe<CR>:terminal<CR>
 
-  tnoremap <C-q> <C-\><C-n>:q<CR>
+  tnoremap <ESC><ESC> <C-\><C-n>:q<CR>
   tnoremap <ESC> <C-\><C-n>
 endif
