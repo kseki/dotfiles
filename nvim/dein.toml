@@ -17,7 +17,7 @@ hook_add = '''
 repo = 'dracula/vim'
 hook_add = '''
   let g:dracula_italic = 0
-  au MyAutoCmd VimEnter * nested colorscheme dracula
+  autocmd MyAutoCmd VimEnter * nested colorscheme dracula
 '''
 
 [[plugins]]
