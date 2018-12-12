@@ -70,8 +70,16 @@ endif
 filetype plugin indent on
 syntax on
 
-au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
-autocmd FileType coffee    setlocal sw=2 sts=2 ts=2 et
+augroup FileTypeSetting
+  autocmd!
+  autocmd BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+  autocmd FileType coffee    setlocal sw=2 sts=2 ts=2 et
+
+  autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
+  autocmd BufNewFile,BufRead Guardfile  set filetype=ruby
+  autocmd BufNewFile,BufRead .pryrc     set filetype=ruby
+augroup END
+
 
 source ~/.dotfiles/nvim/options.rc.vim
 
