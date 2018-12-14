@@ -75,9 +75,11 @@ augroup FileTypeSetting
   autocmd BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
   autocmd FileType coffee    setlocal sw=2 sts=2 ts=2 et
 
-  autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
-  autocmd BufNewFile,BufRead Guardfile  set filetype=ruby
-  autocmd BufNewFile,BufRead .pryrc     set filetype=ruby
+  autocmd BufNewFile,BufRead *.jbuilder   set filetype=ruby
+  autocmd BufNewFile,BufRead Guardfile    set filetype=ruby
+  autocmd BufNewFile,BufRead .pryrc       set filetype=ruby
+  autocmd BufNewFile,BufRead .eslintrc    set filetype=json
+  autocmd BufNewFile,BufRead .stylelintrc set filetype=json
 augroup END
 
 
