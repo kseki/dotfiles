@@ -155,7 +155,7 @@ repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
-on_ft = ['vim', 'html', 'toml']
+on_ft = ['vim', 'toml']
 hook_add = '''
  let g:precious_enable_switch_CursorMoved = { '*': 0, 'help': 1 }
  let g:precious_enable_switchers = {
@@ -358,6 +358,7 @@ hook_source = '''
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
 on_ft = 'javascript'
+build = 'npm install --global tern'
 
 [[plugins]]
 repo = 'posva/vim-vue'
@@ -373,6 +374,13 @@ hook_source = '''
   set conceallevel=0
   let g:vim_json_syntax_conceal = 0
 '''
+
+#-------------------------------------------
+# HTML
+#-------------------------------------------
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'eruby']
 
 #-------------------------------------------
 # CSS
