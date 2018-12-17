@@ -53,7 +53,7 @@ repo = 'mattn/webapi-vim'
 #-------------------------------------------
 [[plugins]]
 repo = 'scrooloose/nerdtree'
-on_cmd = ['NERDTreeFocus', 'NERDTreeToggle']
+on_cmd = ['NERDTreeFind', 'NERDTreeToggle']
 hook_add = '''
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeChDirMode=2
@@ -66,7 +66,7 @@ hook_add = '''
 
   set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
-  nnoremap <silent> <F2> :NERDTreeFocus<CR>
+  nnoremap <silent> <F2> :NERDTreeFind<CR>
   nnoremap <silent> <F3> :NERDTreeToggle<CR>
 '''
 
