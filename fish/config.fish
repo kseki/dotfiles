@@ -26,4 +26,4 @@ function history-merge --on-event fish_preexec
 end
 
 # anyenv
-. ~/.config/fish/anyenv.fish
+set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths
