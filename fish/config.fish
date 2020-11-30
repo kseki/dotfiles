@@ -1,6 +1,8 @@
-set --export EDITOR vim
+set --export EDITOR nvim
 set --export MANPATH /usr/share/man $MANPATH
 set --export TERM 'xterm-256color'
+set --export XDG_BASE_HOME '~/.config'
+set --export ANDROID_SDK_ROOT /Users/kota/Library/Android/sdk
 
 # vi mode
 set -U fish_key_bindings fish_vi_key_bindings
@@ -17,7 +19,12 @@ if test uname = 'Linux'
   alias pbcopy 'xsel --clipboard --input'
   alias open 'gnome-www-browser'
 end
+
+# FZF
 alias gco 'git branch | fzf | xargs git checkout'
+alias gbr 'git branch | fzf -m | xargs git branch -d'
+
+set -U FZF_LEGACY_KEYBINDINGS 0
 
 # 端末間でヒストリーを共有
 function history-merge --on-event fish_preexec
@@ -26,5 +33,7 @@ function history-merge --on-event fish_preexec
 end
 
 # anyenv
-set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths
-status --is-interactive;source (anyenv init -|psub)
+# set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths
+# status --is-interactive; and source (anyenv init -|psub)
+set -x PATH $HOME/.anyenv/bin $PATH
+eval (anyenv init - | source)

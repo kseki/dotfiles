@@ -105,11 +105,11 @@ hook_source = '''
   set wildmode=list:longest,list:full
   set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
   let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-  let $FZF_DEFAULT_OPTS = "--height 50% --layout=reverse --border --inline-info --preview 'head -100 {}'"
+  "let $FZF_DEFAULT_OPTS = "--height 50% --layout=reverse --border --inline-info --preview 'head -100 {}'"
 
   " The Silver Searcher
   if executable('ag')
-    let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+    let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore vendor/bundle -g ""'
     set grepprg=ag\ --nogroup\ --nocolor
 
     nnoremap <Space>a :Ag<Space>
@@ -165,6 +165,12 @@ hook_add = '''
     \ "toml" : {
     \   "setfiletype" : 1
     \ },
+    \ "html" : {
+    \   "setfiletype" : 1
+    \ },
+    \ "haml" : {
+    \   "setfiletype" : 0
+    \ },
     \}
  autocmd MyAutoCmd InsertEnter * :PreciousSwitch
  autocmd MyAutoCmd InsertLeave * :PreciousReset"}
@@ -192,7 +198,7 @@ repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_start_length = 1
+  call deoplete#custom#option('min_pattern_length', 1)
   inoremap <expr><tab> pumvisible() ? "\<C-n>" :
         \ neosnippet#expandable_or_jumpable() ?
         \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
@@ -204,11 +210,6 @@ hook_source = '''
         \ 'converter_auto_delimiter',
         \ ])
   call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
-
-  let g:deoplete#omni#input_patterns = {}
-  let g:deoplete#sources#omni#input_patterns = {
-        \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-        \}
 '''
 on_event = 'InsertEnter'
 
@@ -245,7 +246,7 @@ repo = 'ujihisa/neco-look'
 on_source = ['deoplete.nvim']
 
 #-------------------------------------------
-# Ruby
+# uplus/deoplete-solargraphRuby
 #-------------------------------------------
 [[plugins]]
 repo = 'osyo-manga/vim-monster'
@@ -253,7 +254,17 @@ on_ft = 'ruby'
 hook_source = '''
   let g:monster#completion#solargraph#backend = "async_solargraph_suggest"
   let g:monster#completion#backend = 'solargraph'
+  let g:deoplete#sources#omni#input_patterns = {
+    \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+    \}
 '''
+
+# [[plugins]]
+# repo = 'uplus/deoplete-solargraph'
+# on_ft = 'ruby'
+[[plugins]]
+repo = 'keith/swift.vim'
+on_ft = 'swift'
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
@@ -281,6 +292,14 @@ on_ft = 'slim'
 [[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = ['ruby', 'eruby', 'slim', 'haml']
+
+[[plugins]]
+repo = 'jvanja/vim-bootstrap4-snippets'
+on_ft = ['erb', 'slim', 'haml']
+
+[[plugins]]
+repo = 'alvan/vim-closetag'
+on_ft = ['erb', 'html']
 
 #-------------------------------------------
 # Coffee Script

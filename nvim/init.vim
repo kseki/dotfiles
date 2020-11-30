@@ -1,5 +1,11 @@
 scriptencoding utf-8
 
+set shell=/usr/local/bin/fish
+
+set encoding=utf-8
+set ttimeout
+set ttimeoutlen=50
+
 " disable default plugins
 let g:loaded_2html_plugin      = 1
 let g:loaded_LogiPat           = 1
