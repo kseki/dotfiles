@@ -86,6 +86,8 @@ augroup FileTypeSetting
   autocmd BufNewFile,BufRead .pryrc       set filetype=ruby
   autocmd BufNewFile,BufRead .eslintrc    set filetype=json
   autocmd BufNewFile,BufRead .stylelintrc set filetype=json
+  " set filetypes as typescriptreact
+  autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript
 augroup END
 
 

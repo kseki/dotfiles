@@ -22,9 +22,9 @@ hook_add = '''
   nnoremap [fugitive]s :<C-u>Gstatus<CR>
   nnoremap [fugitive]l :<C-u>Glog<CR>
   nnoremap [fugitive]a :<C-u>Gwrite<CR>
-  nnoremap [fugitive]c :<C-u>Gcommit<CR>
+  nnoremap [fugitive]c :<C-u>Git commit<CR>
   nnoremap [fugitive]C :<C-u>Git commit --amend<CR>
-  nnoremap [fugitive]b :<C-u>Gblame<CR>
+  nnoremap [fugitive]b :<C-u>Git blame<CR>
 '''
 
 [[plugins]]
@@ -118,7 +118,7 @@ hook_source = '''
 
   " ripgrep
   if executable('rg')
-    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!{node_modules/*,.git/*}"'
     set grepprg=rg\ --vimgrep
     command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
@@ -351,13 +351,9 @@ on_ft = 'toml'
 #-------------------------------------------
 # Markdown
 #-------------------------------------------
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
+[[plugin]]
+repo = 'gabrielelana/vim-markdown'
 on_ft = 'markdown'
-hook_source = '''
-  let g:vim_markdown_folding_disabled = 1
-  let g:vim_markdown_conceal = 0
-'''
 
 [[plugins]]
 repo = 'kannokanno/previm'
@@ -382,6 +378,14 @@ build = 'npm install --global tern'
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = 'vue'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = 'typescript'
+
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+on_ft = 'typescript'
 
 #-------------------------------------------
 # JSON
@@ -432,6 +436,13 @@ on_ft = 'elixir'
 [[plugins]]
 repo = 'hashivim/vim-terraform'
 on_ft = 'terraform'
+
+#-------------------------------------------
+# Objective-c
+#-------------------------------------------
+[[plugins]]
+repo = 'b4winckler/vim-objc'
+on_ft = 'c'
 
 #-------------------------------------------
 # Others
