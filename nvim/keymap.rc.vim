@@ -48,6 +48,14 @@ nnoremap <Leader>s. :<C-u>source $MYVIMRC<CR>
 nnoremap <Leader>m  :<C-u>marks<CR>
 nnoremap <Leader>r  :<C-u>registers<CR>
 
+" Surrounding words
+nnoremap <Leader>s" ciw""<Esc>P
+nnoremap <Leader>s' ciw''<Esc>P
+nnoremap <Leader>s` ciw``<Esc>P
+nnoremap <Leader>s( ciw()<Esc>P
+nnoremap <Leader>s{ ciw{}<Esc>P
+nnoremap <Leader>s[ ciw[]<Esc>P
+
 " Help
 nnoremap <silent> <Space>h :help <C-r><C-w><CR>
 
