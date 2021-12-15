@@ -1,0 +1,13 @@
+*~
+*.swp
+*.bak
+*.old
+tmp
+log
+old
+.vim/bundle
+.vim/dict
+.git
+.svn
+node_modules
+vendor/bundle

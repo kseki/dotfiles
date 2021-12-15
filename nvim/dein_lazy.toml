@@ -109,7 +109,7 @@ hook_source = '''
 
   " The Silver Searcher
   if executable('ag')
-    let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git --ignore vendor/bundle -g ""'
+    let $FZF_DEFAULT_COMMAND = 'ag --path-to-ignore ~/.agignore --hidden -g ""'
     set grepprg=ag\ --nogroup\ --nocolor
 
     nnoremap <Space>a :Ag<Space>
