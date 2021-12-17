@@ -8,15 +8,15 @@ if hash "git"; then
 
 elif hash "curl" || hash "wget"; then
   tarball "https://github.com/kota718/dotfiles/archive/master.tar.gz"
-  
+
   if hash "curl"; then
     curl -L "&tarball"
 
   elif hash "wget"; then
-    wget -o - "$tarball" 
-  
+    wget -o - "$tarball"
+
   fi | tar xv -
-  
+
   mv -f dotfiles-master "$DOTPATH"
 
 else
