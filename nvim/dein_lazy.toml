@@ -410,11 +410,11 @@ on_ft = ['html', 'eruby']
 #-------------------------------------------
 [[plugins]]
 repo = 'hail2u/vim-css3-syntax'
-on_ft = 'css'
+on_ft = ['css', 'scss']
 
 [[plugins]]
 repo = 'ap/vim-css-color'
-on_ft = 'css'
+on_ft = ['css', 'scss']
 
 #-------------------------------------------
 # Fish
