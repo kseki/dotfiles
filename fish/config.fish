@@ -1,8 +1,15 @@
 set --export EDITOR nvim
 set --export MANPATH /usr/share/man $MANPATH
-set --export TERM 'xterm-256color'
+set --export TERM 'screen-256color'
 set --export XDG_BASE_HOME '~/.config'
-set --export ANDROID_SDK_ROOT /Users/kota/Library/Android/sdk
+
+set --export ANDROID_HOME $HOME/Library/Android/sdk
+set --export JAVA_HOME $HOME/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+set --export PATH $ANDROID_HOME/platform-tools $PATH
+set --export PATH $ANDROID_HOME/tools $PATH
+set --export PATH $ANDROID_HOME/tools/bin $PATH
+set --export PATH $ANDROID_HOME/emulator $PATH
+
 
 # vi mode
 set -U fish_key_bindings fish_vi_key_bindings

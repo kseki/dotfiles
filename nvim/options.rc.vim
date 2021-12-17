@@ -37,7 +37,7 @@ set splitright
 set title
 set whichwrap=b,s,h,l,<,>,[,]
 set inccommand=split
-set completeopt=menuone,noinsert
+"set completeopt=menuone,noinsert
 
 set updatetime=500
 

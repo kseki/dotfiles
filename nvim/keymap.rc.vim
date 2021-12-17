@@ -16,7 +16,7 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 " 補完選択
-inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+"inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
 inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
 

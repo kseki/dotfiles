@@ -74,8 +74,8 @@ hook_add = '''
 #-------------------------------------------
 # Text object
 #-------------------------------------------
-#[[plugins]]
-#repo = 'cohama/lexima.vim'
+[[plugins]]
+repo = 'cohama/lexima.vim'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
