@@ -403,7 +403,7 @@ hook_source = '''
 #-------------------------------------------
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'eruby']
+on_ft = ['html', 'eruby', 'haml']
 
 #-------------------------------------------
 # CSS
