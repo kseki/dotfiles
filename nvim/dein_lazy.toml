@@ -132,7 +132,7 @@ hook_source = '''
   nnoremap <Space>b :Buffers<CR>
   nnoremap <Space>t :Tags<CR>
   nnoremap <space>x :Commands<CR>
-  nnoremap <Space>l :BLines<Space>
+  " nnoremap <Space>l :BLines<Space>
 
   " Mapping selecting mappings
   nmap <leader><tab> <plug>(fzf-maps-n)
