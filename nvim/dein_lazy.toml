@@ -508,10 +508,3 @@ on_ft = 'terraform'
 [[plugins]]
 repo = 'b4winckler/vim-objc'
 on_ft = 'c'
-
-#-------------------------------------------
-# Others
-#-------------------------------------------
-[[plugins]]
-repo = 'wakatime/vim-wakatime'
-on_ft = 'VimEnter'

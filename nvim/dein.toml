@@ -122,3 +122,6 @@ repo = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
