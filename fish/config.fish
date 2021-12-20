@@ -27,6 +27,10 @@ if test uname = 'Linux'
   alias open 'gnome-www-browser'
 end
 
+if [ -x (which opendiff) ]
+  alias diff='opendiff'
+end
+
 # FZF
 alias gco 'git branch | fzf | xargs git checkout'
 alias gbr 'git branch | fzf -m | xargs git branch -d'
