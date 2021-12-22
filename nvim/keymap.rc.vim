@@ -56,6 +56,9 @@ nnoremap <Leader>s( ciw()<Esc>P
 nnoremap <Leader>s{ ciw{}<Esc>P
 nnoremap <Leader>s[ ciw[]<Esc>P
 
+" Print current date
+inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
+
 " Help
 nnoremap <silent> <Space>h :help <C-r><C-w><CR>
 
