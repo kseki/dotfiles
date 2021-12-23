@@ -101,12 +101,6 @@ hook_add = '''
   let g:NERDSpaceDelims = 1
 '''
 
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
-hook_add = '''
-  autocmd BufWritePre * :FixWhitespace
-'''
-
 #-------------------------------------------
 # Others
 #-------------------------------------------

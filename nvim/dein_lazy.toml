@@ -3,14 +3,25 @@
 #-------------------------------------------
 [[plugins]]
 repo = 'simeji/winresizer'
-on_cmd ='WinResizerStartResize'
+on_event = 'BufRead'
 hook_source = '''
-  let g:winresizer_vert_resize=1
+  let g:winresizer_start_key = '<C-T>'
+  let g:winresizer_vert_resize=5
 '''
 
 #-------------------------------------------
 # Text object
 #-------------------------------------------
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+on_event = 'BufWinEnter'
+hook_source = '''
+  let g:extra_whitespace_ignored_filetypes = ['markdown']
+'''
+hook_add = '''
+  autocmd BufWritePre * if index(extra_whitespace_ignored_filetypes, &ft) < 0 | :FixWhitespace
+'''
+
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 on_event = 'VimEnter'
