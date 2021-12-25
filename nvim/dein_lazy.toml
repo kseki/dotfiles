@@ -94,12 +94,10 @@ hook_add = '''
   nnoremap [fugitive] <Nop>
   nmap <Leader>g [fugitive]
 
-  nnoremap [fugitive]d :<C-u>Gdiff<CR>
-  nnoremap [fugitive]s :<C-u>Gstatus<CR>
-  nnoremap [fugitive]l :<C-u>Glog<CR>
-  nnoremap [fugitive]a :<C-u>Gwrite<CR>
+  nnoremap [fugitive]d :<C-u>Git diff<CR>
+  nnoremap [fugitive]s :<C-u>Git<CR>
+  nnoremap [fugitive]l :<C-u>Git log<CR>
   nnoremap [fugitive]c :<C-u>Git commit<CR>
-  nnoremap [fugitive]C :<C-u>Git commit --amend<CR>
   nnoremap [fugitive]b :<C-u>Git blame<CR>
 '''
 
