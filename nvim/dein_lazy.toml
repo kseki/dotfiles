@@ -16,7 +16,7 @@ hook_source = '''
 repo = 'bronson/vim-trailing-whitespace'
 on_event = 'BufWinEnter'
 hook_source = '''
-  let g:extra_whitespace_ignored_filetypes = ['markdown']
+  let g:extra_whitespace_ignored_filetypes = ['markdown', 'git']
 '''
 hook_add = '''
   autocmd BufWritePre * if index(extra_whitespace_ignored_filetypes, &ft) < 0 | :FixWhitespace
