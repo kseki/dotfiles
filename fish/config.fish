@@ -1,7 +1,9 @@
+set --export LANG 'ja_JP.UTF-8'
 set --export EDITOR nvim
 set --export MANPATH /usr/share/man $MANPATH
 set --export TERM 'screen-256color'
 set --export XDG_BASE_HOME '~/.config'
+set --export PGDATA /usr/local/var/postgres
 
 set --export ANDROID_HOME $HOME/Library/Android/sdk
 set --export JAVA_HOME $HOME/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
