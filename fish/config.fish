@@ -46,3 +46,6 @@ end
 # status --is-interactive; and source (anyenv init -|psub)
 set -x PATH $HOME/.anyenv/bin $PATH
 eval (anyenv init - | source)
+
+# Github cli
+eval (gh completion -s fish| source)
