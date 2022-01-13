@@ -41,11 +41,7 @@ function history-merge --on-event fish_preexec
   history --merge
 end
 
-# anyenv
-# set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths
-# status --is-interactive; and source (anyenv init -|psub)
-set -x PATH $HOME/.anyenv/bin $PATH
-eval (anyenv init - | source)
-
 # Github cli
 eval (gh completion -s fish| source)
+# asdf
+source (brew --prefix asdf)/asdf.fish

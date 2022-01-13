@@ -34,8 +34,8 @@ augroup END
 
 let mapleader = "\<Space>"
 
-let g:python3_host_prog = $HOME. '/.anyenv/envs/pyenv/shims/python3'
-let g:python_host_prog = $HOME. '/.anyenv/envs/pyenv/shims/python'
+let g:python3_host_prog = $HOME. '/.asdf/shims/python3'
+let g:python_host_prog = $HOME. '/.asdf/shims/python2'
 
 " プラグインが実際にインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')
