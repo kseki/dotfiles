@@ -41,6 +41,9 @@ hook_add = '''
   let g:airline_inactive_collapse = 1
 
   let g:airline#extensions#tagbar#enabled = 0
+  let airline#extensions#ale#error_symbol = 'E:'
+  let airline#extensions#ale#warning_symbol = 'W:'
+
 '''
 
 #[[plugins]]
@@ -64,11 +67,15 @@ hook_add = '''
   let g:ale_echo_msg_error_str = 'E'
   let g:ale_echo_msg_warning_str = 'W'
   let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+  let g:ale_disable_lsp = 1
   let g:ale_lint_on_save = 1
-  let g:ale_lint_on_text_changed = 0
+  let g:ale_lint_on_text_changed = 1
 
   " vim-airline
   let g:airline#extensions#ale#enabled = 1
+
+  nmap <silent> <Up> <Plug>(ale_previous_wrap)
+  nmap <silent> <Down> <Plug>(ale_next_wrap)
 '''
 
 #-------------------------------------------

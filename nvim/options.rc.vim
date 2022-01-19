@@ -1,3 +1,4 @@
+set encoding=utf-8
 set number                       " 行番号表示
 set numberwidth=5                " 行番号の列数
 set ruler                        " カーソル位置を表示
@@ -23,6 +24,8 @@ set autoread
 set backspace=indent,eol,start
 set helpheight=999
 set hidden
+set nobackup
+set nowritebackup
 set list
 set matchtime=1
 set mouse=a
@@ -39,7 +42,9 @@ set whichwrap=b,s,h,l,<,>,[,]
 set inccommand=split
 "set completeopt=menuone,noinsert
 
-set updatetime=500
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
 
 " カーソルラインの表示
 augroup vimrc-auto-cursorline
