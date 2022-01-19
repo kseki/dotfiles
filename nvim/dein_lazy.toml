@@ -264,39 +264,6 @@ hook_source = '''
   let g:peekaboo_window = 'vert bo 80new'
 '''
 
-#-------------------------------------------
-# Completions
-#-------------------------------------------
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-  call deoplete#custom#option('min_pattern_length', 1)
-  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-  call deoplete#custom#source('_', 'converters', [
-        \ 'converter_remove_paren',
-        \ 'converter_remove_overlap',
-        \ 'converter_truncate_abbr',
-        \ 'converter_truncate_menu',
-        \ 'converter_auto_delimiter',
-        \ ])
-  call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
-'''
-on_event = 'InsertEnter'
-
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-if = "!has('nvim')"
-on_source = ['deoplete.nvim']
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-if = "!has('nvim')"
-on_source = ['deoplete.nvim']
-
 [[plugins]]
 repo = 'Shougo/neosnippet'
 hook_source = '''
@@ -309,36 +276,61 @@ hook_source = '''
     set conceallevel=2 concealcursor=niv
   endif
 '''
-on_source = ['deoplete.nvim']
+on_source = ['coc.nvim']
 depends = ['neosnippet-snippets']
 
+ [[plugins]]
+ repo = 'Shougo/neosnippet-snippets'
+#
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
-repo = 'ujihisa/neco-look'
-on_source = ['deoplete.nvim']
-
-#-------------------------------------------
-# uplus/deoplete-solargraphRuby
-#-------------------------------------------
-[[plugins]]
-repo = 'osyo-manga/vim-monster'
-on_ft = 'ruby'
+repo = 'neoclide/coc.nvim'
+merge = 0
+rev = 'release'
+on_event = 'VimEnter'
 hook_source = '''
-  let g:monster#completion#solargraph#backend = "async_solargraph_suggest"
-  let g:monster#completion#backend = 'solargraph'
-  let g:deoplete#sources#omni#input_patterns = {
-    \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
-    \}
+  let g:coc_global_extensions = [
+        \ 'coc-solargraph',
+        \ 'coc-css',
+        \ 'coc-html',
+        \ 'coc-json',
+        \ 'coc-yaml',
+        \ 'coc-dictionary',
+        \ 'coc-word',
+        \ 'coc-neosnippet',
+        \ 'coc-fzf-preview',
+        \ 'coc-fish'
+        \ ]
 '''
+hook_add = '''
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-# [[plugins]]
-# repo = 'uplus/deoplete-solargraph'
-# on_ft = 'ruby'
-[[plugins]]
-repo = 'keith/swift.vim'
-on_ft = 'swift'
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+
+  " Use K to show documentation in preview window.
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+      call CocActionAsync('doHover')
+    else
+      execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
+  endfunction
+'''
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
@@ -375,56 +367,6 @@ on_ft = ['erb', 'slim', 'haml']
 repo = 'alvan/vim-closetag'
 on_ft = ['erb', 'html']
 
-#-------------------------------------------
-# Coffee Script
-#-------------------------------------------
-[[plugins]]
-repo = 'kchmck/vim-coffee-script'
-on_ft = ['coffee']
-
-#-------------------------------------------
-# Python
-#-------------------------------------------
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-depends = ['deoplete.nvim']
-if = "has('nvim')"
-on_ft = 'python'
-
-[[plugins]]
-repo = 'hynek/vim-python-pep8-indent'
-on_ft = 'python'
-
-#-------------------------------------------
-# Go
-#-------------------------------------------
-[[plugins]]
-repo = 'zchee/deoplete-go'
-depends = ['deoplete.nvim']
-on_ft = 'go'
-build = 'make'
-
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-
-#-------------------------------------------
-# Vim
-#-------------------------------------------
-[[plugins]]
-repo = 'Shougo/neco-vim'
-on_ft = 'vim'
-
-#-------------------------------------------
-# TOML
-#-------------------------------------------
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
-#-------------------------------------------
-# Markdown
-#-------------------------------------------
 [[plugin]]
 repo = 'gabrielelana/vim-markdown'
 on_ft = 'markdown'
@@ -442,37 +384,6 @@ hook_source = '''
 '''
 
 #-------------------------------------------
-# JavaScript
-#-------------------------------------------
-[[plugins]]
-repo = 'carlitux/deoplete-ternjs'
-on_ft = 'javascript'
-build = 'npm install --global tern'
-
-[[plugins]]
-repo = 'posva/vim-vue'
-on_ft = 'vue'
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = 'typescript'
-
-[[plugins]]
-repo = 'peitalin/vim-jsx-typescript'
-on_ft = 'typescript'
-
-#-------------------------------------------
-# JSON
-#-------------------------------------------
-[[plugins]]
-repo = 'elzr/vim-json'
-on_ft = 'json'
-hook_source = '''
-  set conceallevel=0
-  let g:vim_json_syntax_conceal = 0
-'''
-
-#-------------------------------------------
 # HTML
 #-------------------------------------------
 [[plugins]]
@@ -483,10 +394,6 @@ on_ft = ['html', 'eruby', 'haml']
 # CSS
 #-------------------------------------------
 [[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-on_ft = ['css', 'scss']
-
-[[plugins]]
 repo = 'ap/vim-css-color'
 on_ft = ['css', 'scss']
 
@@ -496,24 +403,3 @@ on_ft = ['css', 'scss']
 [[plugins]]
 repo = 'dag/vim-fish'
 on_ft = 'fish'
-
-#-------------------------------------------
-# Elixir
-#-------------------------------------------
-[[plugins]]
-repo = 'elixir-lang/vim-elixir'
-on_ft = 'elixir'
-
-#-------------------------------------------
-# Terraform
-#-------------------------------------------
-[[plugins]]
-repo = 'hashivim/vim-terraform'
-on_ft = 'terraform'
-
-#-------------------------------------------
-# Objective-c
-#-------------------------------------------
-[[plugins]]
-repo = 'b4winckler/vim-objc'
-on_ft = 'c'
