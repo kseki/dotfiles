@@ -7,4 +7,5 @@
 tags
 *.swp
 *.swo
-
+.tool-versions
+.local.vimrc

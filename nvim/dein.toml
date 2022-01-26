@@ -10,6 +10,9 @@ hook_add = '''
   nnoremap <silent> <Space>U :call dein#update()<CR>
 '''
 
+[[plugins]]
+repo = 'thinca/vim-localrc'
+
 #-------------------------------------------
 # Display
 #-------------------------------------------
