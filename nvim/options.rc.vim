@@ -46,6 +46,10 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 
+if has('nvim')
+  set termguicolors
+endif
+
 " カーソルラインの表示
 augroup vimrc-auto-cursorline
   autocmd!
