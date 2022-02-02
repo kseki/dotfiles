@@ -20,7 +20,14 @@ repo = 'thinca/vim-localrc'
 repo = 'dracula/vim'
 hook_add = '''
   let g:dracula_italic = 0
-  autocmd MyAutoCmd VimEnter * nested colorscheme dracula
+
+  autocmd MyAutoCmd VimEnter * nested call s:SetupColors()
+  function! s:SetupColors()
+    colorscheme dracula
+    highlight! link ALEWarningSign DiffChange
+    highlight! link ALEErrorSign Error
+  endfunction
+
 '''
 
 [[plugins]]
@@ -67,6 +74,9 @@ hook_add = '''
 repo = 'w0rp/ale'
 hook_add = '''
   let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+  let g:ale_sign_error = '❌'
+  let g:ale_sign_warning = '⚠'
+
   let g:ale_echo_msg_error_str = 'E'
   let g:ale_echo_msg_warning_str = 'W'
   let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
