@@ -1,11 +1,22 @@
 [user]
-	name = kota718
+  name = kseki
 	email = kota.yt@gmail.com
+[pull]
+  rebase = false
+[init]
+  defaultBranch = main
+  templatedir = ~/.git_template/
+[core]
+  editor = nvim
+  excludesFile = ~/.gitignore_global
+[diff]
+  tool = nvim
+[difftool]
+  prompt = false
+[ghq]
+  root = ~/src
 [color]
 	ui = auto
-[core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
 [alias]
 	delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 	st = status
