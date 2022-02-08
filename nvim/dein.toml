@@ -71,7 +71,7 @@ hook_add = '''
 # Asynchronous
 #-------------------------------------------
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'dense-analysis/ale'
 hook_add = '''
   let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
   let g:ale_sign_error = '❌'
