@@ -58,6 +58,3 @@ eval (gh completion -s fish| source)
 
 # asdf
 source (brew --prefix asdf)/asdf.fish
-
-#starship
-starship init fish | source
