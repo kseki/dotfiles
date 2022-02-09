@@ -32,7 +32,7 @@ end
 # FZF
 set --export FZF_FIND_FILE_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 set --export FZF_PREVIEW_FILE_COMMAND 'bat --color=always --style=numbers --line-range=:100 {}'
-set --export --universal FZF_DEFAULT_OPTS
+set --export FZF_DEFAULT_OPTS
 set --append FZF_DEFAULT_OPTS '--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9'
 set --append FZF_DEFAULT_OPTS '--color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9'
 set --append FZF_DEFAULT_OPTS '--color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6'
