@@ -5,6 +5,7 @@
 repo = 'Shougo/dein.vim'
 hook_add = '''
   let g:dein#install_max_processes = 16
+  let g:dein#install_message_type = 'echo'
 
   nnoremap <silent> <Space>I :call dein#install()<CR>
   nnoremap <silent> <Space>U :call dein#update()<CR>
