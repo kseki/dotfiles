@@ -1,10 +1,15 @@
 set encoding=utf-8
+set guifont=Cica:h16
+set printfont=Cica:h12
+set ambiwidth=double
+
 set number                       " 行番号表示
 set numberwidth=5                " 行番号の列数
 set ruler                        " カーソル位置を表示
 set showcmd                      " 入力コマンド表示
 
 set autoindent                   " 自動インデント
+set autowrite
 
 set tabstop=2                    " タブ幅の設定
 set softtabstop=2
@@ -40,7 +45,7 @@ set splitright
 set title
 set whichwrap=b,s,h,l,<,>,[,]
 set inccommand=split
-"set completeopt=menuone,noinsert
+set completeopt=menuone,noinsert
 
 set cmdheight=2
 set updatetime=300
@@ -49,6 +54,11 @@ set shortmess+=c
 if has('nvim')
   set termguicolors
 endif
+
+" Abbreviations (短縮入力)
+iabbrev udpate update
+iabbrev destory destroy
+iabbrev recieve receive
 
 " カーソルラインの表示
 augroup vimrc-auto-cursorline

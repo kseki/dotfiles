@@ -4,11 +4,12 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 hook_add = '''
-  let g:dein#install_max_processes = 16
-  let g:dein#install_message_type = 'echo'
+let g:dein#install_max_processes = 16
+let g:dein#install_message_type = 'echo'
 
-  nnoremap <silent> <Space>I :call dein#install()<CR>
-  nnoremap <silent> <Space>U :call dein#update()<CR>
+nnoremap <silent> <Space>I :call dein#install()<CR>
+nnoremap <silent> <Space>U :call dein#update()<CR>
+nnoremap <Space>R :call dein#recache_runtimepath()<CR>
 '''
 
 [[plugins]]
@@ -17,119 +18,82 @@ repo = 'thinca/vim-localrc'
 #-------------------------------------------
 # Display
 #-------------------------------------------
-[[plugins]]
-repo = 'dracula/vim'
-hook_add = '''
-  let g:dracula_italic = 0
-
-  autocmd MyAutoCmd VimEnter * nested call s:SetupColors()
-  function! s:SetupColors()
-    colorscheme dracula
-    highlight! link ALEWarningSign DiffChange
-    highlight! link ALEErrorSign Error
-  endfunction
-
-'''
+# [[plugins]]
+# repo = 'dracula/vim'
+# hook_add = '''
+#   let g:dracula_italic = 0
+#
+#   autocmd MyAutoCmd VimEnter * nested call s:SetupColors()
+#   function! s:SetupColors()
+#     colorscheme dracula
+#     highlight! link ALEWarningSign DiffChange
+#     highlight! link ALEErrorSign Error
+#   endfunction
+#
+# '''
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 hook_add = '''
-  let g:indentLine_bufTypeExclude = ['help', 'terminal']
+let g:indentLine_bufTypeExclude = ['help', 'terminal']
 '''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
-  " タブラインの表示
-  let g:airline#extensions#tabline#enabled = 1
-  " （タブが一個の場合）バッファのリストをタブラインに表示する機能をオフ
-  let g:airline#extensions#tabline#show_buffers = 0
-  " 0でそのタブで開いてるウィンドウ数、1で左のタブから連番
-  let g:airline#extensions#tabline#tab_nr_type = 1
-  " パワーラインフォントの使用
-  let g:airline_powerline_fonts = 1
-  " 複数ウィンドウのときもステータスラインを分割しない
-  let g:airline_inactive_collapse = 1
+" タブラインの表示
+let g:airline#extensions#tabline#enabled = 1
+" （タブが一個の場合）バッファのリストをタブラインに表示する機能をオフ
+let g:airline#extensions#tabline#show_buffers = 0
+" 0でそのタブで開いてるウィンドウ数、1で左のタブから連番
+let g:airline#extensions#tabline#tab_nr_type = 1
+" パワーラインフォントの使用
+let g:airline_powerline_fonts = 1
+" 複数ウィンドウのときもステータスラインを分割しない
+let g:airline_inactive_collapse = 1
 
-  let g:airline#extensions#tagbar#enabled = 0
-  let airline#extensions#ale#error_symbol = 'E:'
-  let airline#extensions#ale#warning_symbol = 'W:'
-
+let g:airline#extensions#tagbar#enabled = 0
+let airline#extensions#ale#error_symbol = 'E:'
+let airline#extensions#ale#warning_symbol = 'W:'
 '''
 
-#[[plugins]]
-#repo = 'vim-airline/vim-airline-themes'
-#depends = 'vim-airline'
-#hook_add = '''
-#  let g:airline_theme = 'dracula'
-#'''
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+depends = ['fern.vim']
+add_hook = '''
+augroup vimrc_glyph_palette
+  autocmd!
+  autocmd FileType fern call glyph_palette#apply()
+augroup END
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+hook_add = '''
+let g:fern#default_hidden=1
+
+nnoremap <silent> <F3> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+autocmd FileType fern set nonumber signcolumn=no
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+hook_add = '''
+let g:fern#renderer = 'nerdfont'
+'''
 
 #[[plugins]]
 #repo = 'edkolev/tmuxline.vim'
 #on_cmd = 'Tmuxline'
 
 #-------------------------------------------
-# Asynchronous
-#-------------------------------------------
-[[plugins]]
-repo = 'dense-analysis/ale'
-hook_add = '''
-  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-  let g:ale_sign_error = '❌'
-  let g:ale_sign_warning = '⚠'
-
-  let g:ale_echo_msg_error_str = 'E'
-  let g:ale_echo_msg_warning_str = 'W'
-  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-  let g:ale_disable_lsp = 1
-  let g:ale_lint_on_save = 1
-  let g:ale_lint_on_text_changed = 1
-
-  " vim-airline
-  let g:airline#extensions#ale#enabled = 1
-
-  nmap <silent> <Up> <Plug>(ale_previous_wrap)
-  nmap <silent> <Down> <Plug>(ale_next_wrap)
-'''
-
-#-------------------------------------------
-# Text object
-#-------------------------------------------
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'tpope/vim-repeat'
-
-[[plugins]]
-repo = 'terryma/vim-multiple-cursors'
-
-[[plugins]]
-repo = 'AndrewRadev/switch.vim'
-hook_add = '''
-  let g:switch_mapping = "!"
-'''
-
-#-------------------------------------------
-# Operations
-#-------------------------------------------
-[[plugins]]
-repo = 'scrooloose/nerdcommenter'
-hook_add = '''
-  let g:NERDSpaceDelims = 1
-'''
-
-#-------------------------------------------
 # Others
 #-------------------------------------------
 [[plugins]]
-repo = 'majutsushi/tagbar'
-hook_add = '''
-  nnoremap <silent> <F8> :TagbarToggle<CR>
-'''
+repo = 'tpope/vim-repeat'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'

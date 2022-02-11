@@ -1,0 +1,66 @@
+[[plugins]]
+repo = 'ap/vim-css-color'
+on_ft = ['css', 'scss']
+
+[[plugins]]
+repo = 'dag/vim-fish'
+on_ft = 'fish'
+
+[[plugins]]
+repo = 'jvanja/vim-bootstrap4-snippets'
+on_ft = ['erb', 'slim', 'haml']
+
+[[plugins]]
+repo = 'tpope/vim-haml'
+on_ft = 'haml'
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = 'slim'
+
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = ['coffee']
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'jgdavey/vim-blockle'
+on_ft = 'ruby'
+hook_source = '''
+  let g:blockle_mapping = '<Leader>rb'
+'''
+
+[[plugins]]
+repo = 'ecomba/vim-ruby-refactoring'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = ['ruby', 'eruby', 'slim', 'haml']
+
+[[plugins]]
+repo = 'alvan/vim-closetag'
+on_ft = ['erb', 'html']
+
+[[plugin]]
+repo = 'gabrielelana/vim-markdown'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = 'markdown'
+hook_source = '''
+  let g:previm_open_cmd = 'open'
+
+  nnoremap [previm] <Nop>
+  nmap <Leader>p [previm]
+  nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
+  nnoremap <silent> [previm]r :call previm#refresh()<CR>
+'''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'eruby', 'haml']

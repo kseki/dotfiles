@@ -10,37 +10,33 @@ hook_source = '''
 '''
 
 #-------------------------------------------
-# Terminal
-#-------------------------------------------
-[[plugins]]
-repo = 'kassio/neoterm'
-on_event = 'BufWinEnter'
-hook_source = '''
-  let g:neoterm_autoinsert = 1
-	let g:neoterm_autoscroll = 1
-  let g:neoterm_default_mod = 'botright split'
-'''
-hook_add = '''
-  nnoremap <c-t><c-t> :Ttoggle<CR>
-  tnoremap <c-t><c-t> <C-\><C-n>:Ttoggle<CR>
-  tnoremap <F10> <C-\><C-n>:Tclose!<CR>
-'''
-
-[[plugins]]
-repo = 'uji/neoterm-rspec.vim'
-on_ft = 'ruby'
-depends = ['neoterm']
-hook_source = '''
- " Add to `.local.vimrc`. default: 'bin/rspec'
- "let g:neoterm_rspec_cmd = 'bin/rspec'
-'''
-hook_add = '''
-  nnoremap <F6> :TermRSpecLine<CR>
-'''
-
-#-------------------------------------------
 # Text object
 #-------------------------------------------
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_event = 'BufRead'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+on_event = 'BufRead'
+
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
+on_event = 'BufRead'
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+hook_add = '''
+  let g:switch_mapping = "!"
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+on_event = 'BufRead'
+hook_add = '''
+  let g:NERDSpaceDelims = 1
+'''
+
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 on_event = 'BufWinEnter'
@@ -50,6 +46,10 @@ hook_source = '''
 hook_add = '''
   autocmd BufWritePre * if index(extra_whitespace_ignored_filetypes, &ft) < 0 | :FixWhitespace
 '''
+
+[[plugins]]
+repo = 'thinca/vim-qfreplace'
+on_event = 'VimEnter'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
@@ -140,57 +140,64 @@ hook_add = '''
   nnoremap <C-q> :GitGutterUndoHunk<CR>
 '''
 
-[[plugins]]
-repo = 'mattn/gist-vim'
-on_cmd = 'Gist'
-depends = ['webapi-vim']
-hook_add = '''
-  let g:gist_post_private = 1
-'''
-
-[[plugins]]
-repo = 'mattn/webapi-vim'
-
 #-------------------------------------------
 # Filer
 #-------------------------------------------
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-on_cmd = ['NERDTreeFind', 'NERDTreeToggle']
-hook_add = '''
-  let g:NERDTreeShowHidden = 1
-  let g:NERDTreeChDirMode=2
-  let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', '\.git$']
-  let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-  let g:NERDTreeShowBookmarks=1
-  let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-  let g:NERDTreeWinSize = 50
-  let g:NERDTreeQuitOnOpen = 1
 
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
-  nnoremap <silent> <F2> :NERDTreeFind<CR>
-  nnoremap <silent> <F3> :NERDTreeToggle<CR>
-'''
+#[[plugins]]
+#repo = 'LumaKernel/fern-mapping-reload-all.vim'
+#depends = ['fern.vim']
+#hook_add = '''
+#  function s:init_fern_mapping_reload_all()
+#    nmap <buffer> R <Plug>(fern-action-reload:all)
+#  endfunction
+#
+#  augroup my-fern-mapping-reload-all
+#    autocmd!
+#    autocmd FileType fern call s:init_fern_mapping_reload_all()
+#  augroup END
+#'''
 
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-on_source = 'nerdtree'
-hook_source = '''
-  " loading the plugin
-  let g:webdevicons_enable = 1
-  " adding the flags to NERDTree
-  let g:webdevicons_enable_nerdtree = 1
-  " adding to vim-airline's tabline
-  let g:webdevicons_enable_airline_tabline = 1
-  " adding to vim-airline's statusline
-  let g:webdevicons_enable_airline_statusline = 1
-  " turn on/off file node glyph decorations (not particularly useful)
-  let g:WebDevIconsUnicodeDecorateFileNodes = 1
-  " use double-width(1) or single-width(0) glyphs
-  " only manipulates padding, has no effect on terminal or set(guifont) font
-  let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
-'''
+
+# [[plugins]]
+# repo = 'scrooloose/nerdtree'
+# on_cmd = ['NERDTreeFind', 'NERDTreeToggle']
+# hook_add = '''
+#   let g:NERDTreeShowHidden = 1
+#   let g:NERDTreeChDirMode = 2
+#   let g:NERDTreeIgnore = ['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', '\.git$']
+#   let g:NERDTreeSortOrder = ['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+#   let g:NERDTreeShowBookmarks = 1
+#   let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+#   let g:NERDTreeWinSize = 50
+#   let g:NERDTreeQuitOnOpen = 1
+#   let g:NERDTreeLimitedSyntax = 1
+#
+#   set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+#
+#   nnoremap <silent> <F2> :NERDTreeFind<CR>
+#   nnoremap <silent> <F3> :NERDTreeToggle<CR>
+# '''
+
+# [[plugins]]
+# repo = 'ryanoasis/vim-devicons'
+# on_source = 'nerdtree'
+# hook_source = '''
+#   " loading the plugin
+#   let g:webdevicons_enable = 1
+#   " adding the flags to NERDTree
+#   let g:webdevicons_enable_nerdtree = 1
+#   " adding to vim-airline's tabline
+#   let g:webdevicons_enable_airline_tabline = 1
+#   " adding to vim-airline's statusline
+#   let g:webdevicons_enable_airline_statusline = 1
+#   " turn on/off file node glyph decorations (not particularly useful)
+#   let g:WebDevIconsUnicodeDecorateFileNodes = 1
+#   " use double-width(1) or single-width(0) glyphs
+#   " only manipulates padding, has no effect on terminal or set(guifont) font
+#   let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+# '''
 
 
 [[plugins]]
@@ -307,9 +314,9 @@ hook_source = '''
 on_source = ['coc.nvim']
 depends = ['neosnippet-snippets']
 
- [[plugins]]
- repo = 'Shougo/neosnippet-snippets'
-#
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 merge = 0
@@ -360,81 +367,27 @@ hook_add = '''
   endfunction
 '''
 
+#-------------------------------------------
+# Asynchronous
+#-------------------------------------------
 [[plugins]]
-repo = 'tpope/vim-endwise'
-on_ft = 'ruby'
+repo = 'dense-analysis/ale'
+on_event = 'BufRead'
+hook_add = '''
+  let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+  let g:ale_sign_error = '❌'
+  let g:ale_sign_warning = '⚠'
 
-[[plugins]]
-repo = 'jgdavey/vim-blockle'
-on_ft = 'ruby'
-hook_source = '''
-  let g:blockle_mapping = '<Leader>rb'
+  let g:ale_echo_msg_error_str = 'E'
+  let g:ale_echo_msg_warning_str = 'W'
+  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+  let g:ale_disable_lsp = 1
+  let g:ale_lint_on_save = 1
+  let g:ale_lint_on_text_changed = 0
+
+  " vim-airline
+  let g:airline#extensions#ale#enabled = 1
+
+  nmap <silent> <Up> <Plug>(ale_previous_wrap)
+  nmap <silent> <Down> <Plug>(ale_next_wrap)
 '''
-
-[[plugins]]
-repo = 'ecomba/vim-ruby-refactoring'
-on_ft = 'ruby'
-
-[[plugins]]
-repo = 'tpope/vim-haml'
-on_ft = 'haml'
-
-[[plugins]]
-repo = 'slim-template/vim-slim'
-on_ft = 'slim'
-
-[[plugins]]
-repo = 'tpope/vim-rails'
-on_ft = ['ruby', 'eruby', 'slim', 'haml']
-
-[[plugins]]
-repo = 'jvanja/vim-bootstrap4-snippets'
-on_ft = ['erb', 'slim', 'haml']
-
-[[plugins]]
-repo = 'alvan/vim-closetag'
-on_ft = ['erb', 'html']
-
-[[plugin]]
-repo = 'gabrielelana/vim-markdown'
-on_ft = 'markdown'
-
-[[plugins]]
-repo = 'kannokanno/previm'
-on_ft = 'markdown'
-hook_source = '''
-  let g:previm_open_cmd = 'open'
-
-  nnoremap [previm] <Nop>
-  nmap <Leader>p [previm]
-  nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
-  nnoremap <silent> [previm]r :call previm#refresh()<CR>
-'''
-
-#-------------------------------------------
-# HTML
-#-------------------------------------------
-[[plugins]]
-repo = 'kchmck/vim-coffee-script'
-on_ft = ['coffee']
-
-#-------------------------------------------
-# HTML
-#-------------------------------------------
-[[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['html', 'eruby', 'haml']
-
-#-------------------------------------------
-# CSS
-#-------------------------------------------
-[[plugins]]
-repo = 'ap/vim-css-color'
-on_ft = ['css', 'scss']
-
-#-------------------------------------------
-# Fish
-#-------------------------------------------
-[[plugins]]
-repo = 'dag/vim-fish'
-on_ft = 'fish'
