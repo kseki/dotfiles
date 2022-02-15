@@ -9,6 +9,15 @@ hook_source = '''
   let g:winresizer_vert_resize=5
 '''
 
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_event = 'BufRead'
+hook_add = '''
+  let g:netrw_nogx = 1 " disable netrw's gx mapping.
+  nmap gx <Plug>(openbrowser-smart-search)
+  vmap gx <Plug>(openbrowser-smart-search)
+'''
+
 #-------------------------------------------
 # Text object
 #-------------------------------------------
