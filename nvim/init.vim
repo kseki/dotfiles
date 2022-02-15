@@ -32,10 +32,6 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-if &compatible
-  set nocompatible
-endif
-
 let mapleader = "\<Space>"
 
 let g:python3_host_prog = $HOME. '/.asdf/shims/python3'
