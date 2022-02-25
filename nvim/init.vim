@@ -98,3 +98,7 @@ source ~/.dotfiles/nvim/options.rc.vim
 
 source ~/.dotfiles/nvim/keymap.rc.vim
 
+command! FocusRemove call FocusRemoveFunc()
+function! FocusRemoveFunc() abort
+  :%s/, focus: true//g
+endfunction
