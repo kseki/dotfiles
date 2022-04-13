@@ -314,6 +314,11 @@ on_event = 'BufRead'
 hook_source = '''
   let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
   let g:UltiSnipsEditSplit = 'tabdo'
+
+  augroup UtliSnipsFileTypeSetting
+    autocmd!
+    autocmd BufRead,BufNewFile *_spec.rb UltiSnipsAddFiletypes rspec.ruby
+  augroup END
 '''
 
 [[plugins]]
