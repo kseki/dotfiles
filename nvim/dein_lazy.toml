@@ -309,22 +309,16 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet'
+repo = 'SirVer/ultisnips'
+on_event = 'BufRead'
 hook_source = '''
-  let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/honza/vim-snippets/snippets/'
-
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
+  let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
+  let g:UltiSnipsExpandTrigger = "<C-j>"
 '''
-on_source = ['coc.nvim']
-depends = ['neosnippet-snippets']
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'honza/vim-snippets'
+on_event = 'VimEnter'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -340,7 +334,7 @@ hook_source = '''
         \ 'coc-yaml',
         \ 'coc-dictionary',
         \ 'coc-word',
-        \ 'coc-neosnippet',
+        \ 'coc-snippets',
         \ 'coc-fzf-preview',
         \ 'coc-fish',
         \ ]
