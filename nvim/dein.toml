@@ -37,24 +37,38 @@ repo = 'Yggdroot/indentLine'
 hook_add = '''
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
 '''
-
 [[plugins]]
-repo = 'vim-airline/vim-airline'
+repo = 'itchyny/lightline.vim'
 hook_add = '''
-" タブラインの表示
-let g:airline#extensions#tabline#enabled = 1
-" （タブが一個の場合）バッファのリストをタブラインに表示する機能をオフ
-let g:airline#extensions#tabline#show_buffers = 0
-" 0でそのタブで開いてるウィンドウ数、1で左のタブから連番
-let g:airline#extensions#tabline#tab_nr_type = 1
-" パワーラインフォントの使用
-let g:airline_powerline_fonts = 1
-" 複数ウィンドウのときもステータスラインを分割しない
-let g:airline_inactive_collapse = 1
+  let g:lightline = {
+        \ 'colorscheme': 'dracula_pro',
+        \ 'active': {
+        \   'left': [
+        \     ['mode', 'paste'],
+        \     ['gitbranch', 'readonly', 'filename', 'modified'],
+        \     ['ale'],
+        \   ]
+        \ },
+        \ 'component_function': {
+        \   'gitbranch': 'fugitive#head',
+        \   'ale': 'ALEStatus',
+        \ },
+        \ 'tabline': {
+        \   'left': [ [ 'tabs' ] ],
+        \   'right': [ [ 'close' ] ]
+        \ },
+        \}
+        " \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2"  },
+        " \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3"  }
+        " \ 'separator': { 'left': '', 'right': ''  },
+        " \ 'subseparator': { 'left': '', 'right': ''  }
 
-let g:airline#extensions#tagbar#enabled = 0
-let airline#extensions#ale#error_symbol = 'E:'
-let airline#extensions#ale#warning_symbol = 'W:'
+  function! ALEStatus() abort
+    let l:count = ale#statusline#Count(bufnr(''))
+    let l:errors = l:count.error + l:count.style_error
+    let l:warnings = l:count.warning + l:count.style_warning
+    return l:count.total == 0 ? 'ALE: OK' : 'ALE: E:' . l:errors . ' ' . 'W:' . l:warnings
+  endfunction
 '''
 
 [[plugins]]
