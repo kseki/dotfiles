@@ -313,7 +313,7 @@ repo = 'SirVer/ultisnips'
 on_event = 'BufRead'
 hook_source = '''
   let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
-  let g:UltiSnipsExpandTrigger = "<C-j>"
+  let g:UltiSnipsEditSplit = 'tabdo'
 '''
 
 [[plugins]]
@@ -340,17 +340,6 @@ hook_source = '''
         \ ]
 '''
 hook_add = '''
-  inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
-
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
@@ -368,6 +357,17 @@ hook_add = '''
       execute '!' . &keywordprg . " " . expand('<cword>')
     endif
   endfunction
+
+
+  " coc-snippets
+  imap <C-l> <Plug>(coc-snippets-expand)
+  vmap <C-j> <Plug>(coc-snippets-select)
+
+  let g:coc_snippet_next = '<c-j>'
+  let g:coc_snippet_prev = '<c-k>'
+
+  imap <C-j> <Plug>(coc-snippets-expand-jump)
+  xmap <leader>x  <Plug>(coc-convert-snippet)
 '''
 
 #-------------------------------------------
