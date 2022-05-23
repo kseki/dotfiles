@@ -50,7 +50,7 @@ hook_add = '''
         \   ]
         \ },
         \ 'component_function': {
-        \   'gitbranch': 'fugitive#head',
+        \   'gitbranch': 'fugitiveHead()',
         \   'ale': 'ALEStatus',
         \ },
         \ 'tabline': {
