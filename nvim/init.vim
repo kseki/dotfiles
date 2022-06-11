@@ -91,6 +91,9 @@ augroup FileTypeSetting
   autocmd BufNewFile,BufRead .stylelintrc set filetype=json
   " set filetypes as typescriptreact
   autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript
+
+  autocmd BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
+  autocmd BufNewFile,BufRead *.turbo_stream.erb set filetype=eruby.html
 augroup END
 
 
