@@ -400,9 +400,24 @@ hook_add = '''
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 0
 
-  " vim-airline
-  let g:airline#extensions#ale#enabled = 1
-
   nmap <silent> <Up> <Plug>(ale_previous_wrap)
   nmap <silent> <Down> <Plug>(ale_next_wrap)
 '''
+
+#-------------------------------------------
+# Sessions
+#-------------------------------------------
+[[plugins]]
+repo = 'kseki/session.vim'
+on_event = 'VimEnter'
+
+#-------------------------------------------
+# Others
+#-------------------------------------------
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_event = 'VimEnter'
+
+[[plugins]]
+repo = 'k0kubun/vim-open-github'
+on_event = 'VimEnter'
