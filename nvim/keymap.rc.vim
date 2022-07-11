@@ -19,6 +19,9 @@ nnoremap <Up> <C-w>k
 nnoremap <Left> <C-w>h
 nnoremap <Right> <C-w>l
 
+nnoremap + <C-a>
+nnoremap - <C-x>
+
 nnoremap <silent> <ESC><ESC> :nohlsearch<CR>
 
 nnoremap <Leader>q :<C-u>q<CR>
