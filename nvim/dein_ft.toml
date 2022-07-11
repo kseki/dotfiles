@@ -86,3 +86,7 @@ hook_source = '''
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'eruby', 'haml']
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = ['terraform']
