@@ -3,6 +3,7 @@
 	email = kota.yt@gmail.com
 [pull]
   rebase = false
+	ff = only
 [init]
   defaultBranch = main
   templatedir = ~/.git_template/
@@ -22,5 +23,9 @@
 	st = status
 	co = checkout
 	cm = commit
+	skip = update-index --skip-worktree
+	unskip = update-index --no-skip-worktree
 [gc]
 	auto = 0
+[merge]
+	ff = false
