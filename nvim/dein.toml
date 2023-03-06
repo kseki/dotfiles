@@ -78,6 +78,8 @@ repo = 'lambdalisue/nerdfont.vim'
 repo = 'lambdalisue/glyph-palette.vim'
 depends = ['fern.vim']
 add_hook = '''
+let g:fern_disable_startup_warnings = 1
+
 augroup vimrc_glyph_palette
   autocmd!
   autocmd FileType fern call glyph_palette#apply()
@@ -88,6 +90,7 @@ augroup END
 repo = 'lambdalisue/fern.vim'
 hook_add = '''
 let g:fern#default_hidden=1
+let g:fern_disable_startup_warnings = 1
 
 nnoremap <silent> <F3> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 autocmd FileType fern set nonumber signcolumn=no
@@ -99,9 +102,16 @@ hook_add = '''
 let g:fern#renderer = 'nerdfont'
 '''
 
-#[[plugins]]
-#repo = 'edkolev/tmuxline.vim'
-#on_cmd = 'Tmuxline'
+[[plugins]]
+repo = 'edkolev/tmuxline.vim'
+hook_add = '''
+let g:tmuxline_separators = {
+    \ 'left' : '\ue0b4',
+    \ 'left_alt': '\ue0b5',
+    \ 'right' : '\ue0b6',
+    \ 'right_alt' : '\ue0b7',
+    \ 'space' : ' '}
+'''
 
 #-------------------------------------------
 # Others

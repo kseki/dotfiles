@@ -7,6 +7,10 @@ snippet cha
 change(${1}, ${2::count}).by(${3:1})
 endsnippet
 
+snippet rmc
+receive_message_chain(${1})
+endsnippet
+
 # Capybara
 snippet cli
 click_link '${1}'
@@ -29,6 +33,30 @@ snippet ivav
 it { expect(${1}) allow_value(${2}).for(:${3}) }
 endsnippet
 
+snippet itsav
+it { is_expected.to allow_value(${2}).for(:${3}) }
+endsnippet
+
 snippet ivp
 it { expect(${1}).to validate_presence_of(:${2}) }
+endsnippet
+
+snippet itsvp
+it { is_expected.to validate_presence_of(:${1}) }
+endsnippet
+
+snippet itvn
+it { expect(${1}).to validate_numericality_of(:${2}).only_integer.is_greater_than(${3}) }
+endsnippet
+
+snippet itsvn
+it { is_expected.to validate_numericality_of(:${1}).only_integer.is_greater_than(${2}) }
+endsnippet
+
+snippet isvl
+it { expect(${1}).to validate_length_of(:${2}).is_at_most(${3}) }
+endsnippet
+
+snippet itsvl
+it { is_expected.to validate_length_of(:${1}).is_at_most(${2}) }
 endsnippet

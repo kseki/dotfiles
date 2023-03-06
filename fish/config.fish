@@ -1,5 +1,5 @@
 set fish_greeting
-set --export LANG 'ja_JP.UTF-8'
+set --export LANG 'en_US.UTF-8'
 set --export EDITOR nvim
 set --export MANPATH /usr/share/man $MANPATH
 set --export XDG_BASE_HOME '~/.config'
@@ -21,7 +21,7 @@ set -U fish_key_bindings fish_vi_key_bindings
 set --export PATH ~/.local/bin $PATH
 
 # bat
-set --export BAT_THEME 'Dracula'
+set --export BAT_THEME 'Dracula Pro'
 
 # alias
 if test uname = 'Linux'
@@ -31,7 +31,7 @@ end
 
 # FZF
 set --export FZF_FIND_FILE_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-set --export FZF_PREVIEW_FILE_COMMAND 'bat --color=always --style=numbers --line-range=:100 {}'
+set --export FZF_PREVIEW_FILE_COMMAND 'bat --theme=dracula --color=always --style=numbers --line-range=:100 {}'
 set --export FZF_DEFAULT_OPTS
 set --append FZF_DEFAULT_OPTS '--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9'
 set --append FZF_DEFAULT_OPTS '--color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9'
@@ -57,4 +57,12 @@ end
 eval (gh completion -s fish| source)
 
 # asdf
-source (brew --prefix asdf)/asdf.fish
+source (brew --prefix asdf)/libexec/asdf.fish
+source ~/.asdf/installs/python/3.10.1/lib/python3.10/site-packages/powerline/bindings/fish/powerline-setup.fish
+
+# deno
+deno completions fish > ~/.config/fish/completions/deno.fish
+
+function fish_user_key_bindings
+  bind \cs gco
+end

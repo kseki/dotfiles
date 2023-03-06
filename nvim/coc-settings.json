@@ -1,3 +1,15 @@
 {
-  "snippets.ultisnips.directories":["UltiSnips"," ~/.vim/UltiSnips/"]
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+    " ~/.vim/UltiSnips/"
+  ],
+  "cSpell.userWords": [
+    "MELP",
+    "rubocop",
+    "innodb",
+    "ipafont",
+    "kseki",
+    "libmysqlclient",
+    "mysqladmin"
+  ]
 }

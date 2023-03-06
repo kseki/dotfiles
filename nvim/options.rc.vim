@@ -45,7 +45,6 @@ set splitright
 set title
 set whichwrap=b,s,h,l,<,>,[,]
 set inccommand=split
-set completeopt=menuone,noinsert
 
 set cmdheight=2
 set updatetime=300
@@ -53,12 +52,21 @@ set shortmess+=c
 
 if has('nvim')
   set termguicolors
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
+
 " Abbreviations (短縮入力)
-iabbrev udpate update
+iabbrev complate complete
 iabbrev destory destroy
+iabbrev opne open
 iabbrev recieve receive
+iabbrev udpate update
+iabbrev edn end
+
+iab co controller
+iab bp binding.pry
 
 " カーソルラインの表示
 augroup vimrc-auto-cursorline
