@@ -1,5 +1,5 @@
 [user]
-  name = kseki
+  name = Kota Seki
 	email = kota.yt@gmail.com
 [pull]
   rebase = false
@@ -10,7 +10,11 @@
 [core]
   editor = nvim
   excludesFile = ~/.gitignore_global
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
 [diff]
+  colorMoved = default
   tool = nvim
 [difftool]
   prompt = false
@@ -29,3 +33,7 @@
 	auto = 0
 [merge]
 	ff = false
+  conflictstyle = diff3
+[delta]
+  navigate = true
+  side-by-side = true

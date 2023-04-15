@@ -1,16 +1,17 @@
 set fish_greeting
-set --export LANG 'en_US.UTF-8'
-set --export EDITOR nvim
-set --export MANPATH /usr/share/man $MANPATH
-set --export XDG_BASE_HOME '~/.config'
-set --export PGDATA /usr/local/var/postgres
+set -x LANG 'en_US.UTF-8'
+set -x EDITOR nvim
+set -x MANPATH /usr/share/man $MANPATH
+set -x XDG_CONFIG_HOME $HOME/.config
 
-set --export ANDROID_HOME $HOME/Library/Android/sdk
-set --export JAVA_HOME $HOME/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-set --export PATH $ANDROID_HOME/platform-tools $PATH
-set --export PATH $ANDROID_HOME/tools $PATH
-set --export PATH $ANDROID_HOME/tools/bin $PATH
-set --export PATH $ANDROID_HOME/emulator $PATH
+set -x PGDATA /usr/local/var/postgres
+
+set -x ANDROID_HOME $HOME/Library/Android/sdk
+set -x JAVA_HOME $HOME/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+set -x PATH $ANDROID_HOME/platform-tools $PATH
+set -x PATH $ANDROID_HOME/tools $PATH
+set -x PATH $ANDROID_HOME/tools/bin $PATH
+set -x PATH $ANDROID_HOME/emulator $PATH
 set termguicolors
 
 
@@ -18,10 +19,10 @@ set termguicolors
 set -U fish_key_bindings fish_vi_key_bindings
 
 # add ~/.local/bin
-set --export PATH ~/.local/bin $PATH
+set -x PATH ~/.local/bin $PATH
 
 # bat
-set --export BAT_THEME 'Dracula Pro'
+set -x BAT_THEME 'Dracula Pro'
 
 # alias
 if test uname = 'Linux'
@@ -30,9 +31,9 @@ if test uname = 'Linux'
 end
 
 # FZF
-set --export FZF_FIND_FILE_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-set --export FZF_PREVIEW_FILE_COMMAND 'bat --theme=dracula --color=always --style=numbers --line-range=:100 {}'
-set --export FZF_DEFAULT_OPTS
+set -x FZF_FIND_FILE_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+set -x FZF_PREVIEW_FILE_COMMAND 'bat --theme=dracula --color=always --style=numbers --line-range=:100 {}'
+set -x FZF_DEFAULT_OPTS
 set --append FZF_DEFAULT_OPTS '--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9'
 set --append FZF_DEFAULT_OPTS '--color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9'
 set --append FZF_DEFAULT_OPTS '--color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6'
