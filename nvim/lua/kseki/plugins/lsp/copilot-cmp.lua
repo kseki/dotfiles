@@ -15,11 +15,11 @@ copilot.setup({
 	suggestion = {
 		auto_trigger = true,
 		keymap = {
-			accept = "<M-y>",
+			accept = "<leader>k",
 			accept_word = false,
 			accept_line = false,
-			next = "<M-j>",
-			prev = "<M-k>",
+			next = "<M-n>",
+			prev = "<M-p>",
 			dismiss = "<M-e>",
 		},
 	},
