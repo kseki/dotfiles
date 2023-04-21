@@ -41,7 +41,7 @@ return packer.startup(function(use)
 	use("vim-scripts/ReplaceWithRegister")
 
 	-- Commenting with gc
-	use("numToStr/Comment.nvim")
+	use({ "numToStr/Comment.nvim", event = "BufRead" })
 
 	-- File explorer
 	use("nvim-tree/nvim-tree.lua")
@@ -53,8 +53,15 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 
 	-- Fuzzy finding
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.1" })
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.1",
+		cmd = "Telescope",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+		},
+	})
 
 	-- Autocompletion
 	use("hrsh7th/nvim-cmp")
@@ -102,9 +109,16 @@ return packer.startup(function(use)
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdateSync",
 		run = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
+		requires = {
+			"windwp/nvim-ts-autotag",
+			"RRethy/nvim-treesitter-endwise",
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"RRethy/nvim-treesitter-textsubjects",
+		},
 	})
 	use({
 		"lukas-reineke/indent-blankline.nvim",
@@ -114,24 +128,23 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- Auto closing
-	use("windwp/nvim-autopairs")
-	use("windwp/nvim-ts-autotag")
-	use("RRethy/nvim-treesitter-endwise")
-
 	-- Git signs plugin
-	use("lewis6991/gitsigns.nvim")
+	use({
+		"lewis6991/gitsigns.nvim",
+		event = "BufRead",
+		config = function()
+			require("kseki.plugins.gitsigns")
+		end,
+	})
+	use({
+		"kdheepak/lazygit.nvim",
+		cmd = "LazyGit",
+	})
 
 	-- Highlighting
 	use({
 		"t9md/vim-quickhl",
 		event = "BufRead",
-		config = function()
-			vim.keymap.set("n", "<Space>m", "<Plug>(quickhl-manual-this)", { noremap = false })
-			vim.keymap.set("x", "<Space>m", "<Plug>(quickhl-manual-this)", { noremap = false })
-			vim.keymap.set("n", "<Space>M", "<Plug>(quickhl-manual-reset)", { noremap = false })
-			vim.keymap.set("x", "<Space>M", "<Plug>(quickhl-manual-reset)", { noremap = false })
-		end,
 	})
 
 	-- Open browser
@@ -139,22 +152,20 @@ return packer.startup(function(use)
 		"tyru/open-browser-github.vim",
 		event = "BufRead",
 		requires = "tyru/open-browser.vim",
-		config = function()
-			vim.keymap.set("n", "<Leader>o", "<Plug>(openbrowser-open)")
-			vim.keymap.set("v", "<Leader>os", "<Plug>(openbrowser-smart-search)")
-		end,
 	})
 
 	use({
 		"iamcco/markdown-preview.nvim",
-		ft = { "markdown" },
 		run = "cd app && npm install",
+		cmd = "MarkdownPreview",
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
-		config = function()
-			vim.keymap.set("n", "<Leader>op", "<cmd>MarkdownPreview<CR>")
-		end,
+	})
+
+	use({
+		"wakatime/vim-wakatime",
+		event = "VimEnter",
 	})
 
 	if packer_bootstrap then
