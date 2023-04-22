@@ -164,6 +164,14 @@ return packer.startup(function(use)
 	})
 
 	use({
+		"norcalli/nvim-colorizer.lua",
+		event = "BufRead",
+		config = function()
+			require("kseki.plugins.colorizer")
+		end,
+	})
+
+	use({
 		"wakatime/vim-wakatime",
 		event = "VimEnter",
 	})
