@@ -1,6 +1,7 @@
 local opt = vim.opt -- For conciseness
 
 opt.autoread = true
+opt.encoding = "utf-8"
 
 -- Line numbers
 opt.relativenumber = true
@@ -11,8 +12,10 @@ opt.numberwidth = 5
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
+opt.smarttab = true
 opt.autoindent = true
 opt.smartindent = true
+opt.shiftround = true
 
 -- Line wrapping
 opt.wrap = false
@@ -21,6 +24,7 @@ opt.wrap = false
 opt.hlsearch = true
 opt.ignorecase = true
 opt.smartcase = true
+opt.wrapscan = true
 
 -- Cursor line
 opt.cursorline = true
