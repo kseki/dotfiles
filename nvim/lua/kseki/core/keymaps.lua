@@ -1,55 +1,56 @@
-vim.g.mapleader = " "
+vim.g.mapleader = "<Space>"
 
 local keymap = vim.keymap -- For conciseness
+local opts = { noremap = true, silent = true }
 
 -- General keymaps
 
 keymap.set("i", "jk", "<ESC>")
 
-keymap.set("n", "<Esc><Esc>", "<cmd><C-u>noh<CR>")
+keymap.set("n", "<Esc><Esc>", ":<C-u>nohlsearch<CR>", opts)
 
-keymap.set("n", "x", '"_x')
+keymap.set("n", "<Leader>q", ":<C-u>q<CR>", opts)
+keymap.set("n", "<Leader>qa", ":<C-u>qa<CR>", opts)
+keymap.set("n", "<Leader>w", ":<C-u>w<CR>", opts)
+keymap.set("n", "<Leader>wq", ":<C-u>wq<CR>", opts)
 
-keymap.set("n", "<Leader>+", "<C-a>")
-keymap.set("n", "<Leader>-", "<C-x>")
+keymap.set("n", "x", '"_x', opts)
 
-keymap.set("n", "<Leader>sv", "<C-w>v")
-keymap.set("n", "<Leader>sh", "<C-w>s")
-keymap.set("n", "<Leader>se", "<C-w>=")
-keymap.set("n", "<Leader>sx", "<cmd>close<CR>")
+keymap.set("n", "+", "<C-a>", opts)
+keymap.set("n", "-", "<C-x>", opts)
 
-keymap.set("n", "<Leader>to", "<cmd>tabnew<CR>")
-keymap.set("n", "<Leader>tx", "<cmd>tabclose<CR>")
-keymap.set("n", "<Leader>tn", "<cmd>tabnext<CR>")
-keymap.set("n", "<Leader>tp", "<cmd>tabprevious<CR>")
+keymap.set("n", "to", ":<C-u>tabnew<CR>", opts)
+keymap.set("n", "tx", ":<C-u>tabclose<CR>", opts)
+keymap.set("n", "tn", ":<C-u>tabnext<CR>", opts)
+keymap.set("n", "tp", ":<C-u>tabprevious<CR>", opts)
 
 -- Plugin keymaps
 
--- vim-maximizer
-keymap.set("n", "<Leader>sm", "<cmd>MaximizerToggle<CR>")
+-- vim-maximizevsv
+keymap.set("n", "<Leader>sm", ":<C-u>MaximizerToggle<CR>", opts)
 
 -- nvim-tree
-keymap.set("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>")
-keymap.set("n", "<Leader>ee", "<cmd>NvimTreeFindFileToggle<CR>")
+keymap.set("n", "<Leader>e", ":<C-u>NvimTreeToggle<CR>", opts)
+keymap.set("n", "<Leader>ee", ":<C-u>NvimTreeFindFileToggle<CR>", opts)
 
 -- telescope
-keymap.set("n", "<Leader>f", "<cmd>Telescope find_files<CR>")
-keymap.set("n", "<Leader>s", "<cmd>Telescope git_status<CR>")
-keymap.set("n", "<Leader>a", "<cmd>Telescope live_grep<CR>")
-keymap.set("n", "<Leader>aw", "<cmd>Telescope grep_string<CR>")
-keymap.set("n", "<Leader>r", "<cmd>Telescope registers<CR>")
-keymap.set("n", "<Leader>b", "<cmd>Telescope buffers<CR>")
-keymap.set("n", "<Leader>c", "<cmd>Telescope commands<CR>")
-keymap.set("n", "<Leader>h", "<cmd>Telescope help_tags<CR>")
+keymap.set("n", "<Leader>f", ":<C-u>Telescope find_files<CR>", opts)
+keymap.set("n", "<Leader>s", ":<C-u>Telescope git_status<CR>", opts)
+keymap.set("n", "<Leader>a", ":<C-u>Telescope live_grep<CR>", opts)
+keymap.set("n", "<Leader>aw", ":<C-u>Telescope grep_string<CR>", opts)
+keymap.set("n", "<Leader>r", ":<C-u>Telescope registers<CR>", opts)
+keymap.set("n", "<Leader>b", ":<C-u>Telescope buffers<CR>", opts)
+keymap.set("n", "<Leader>c", ":<C-u>Telescope commands<CR>", opts)
+keymap.set("n", "<Leader>h", ":<C-u>Telescope help_tags<CR>", opts)
 keymap.set("i", "<C-r>", function()
 	require("telescope.builtin").registers(require("telescope.themes").get_cursor())
-end)
+end, opts)
 
 -- lazygit
-keymap.set("n", "<Leader>gg", ":LazyGit<CR>")
+keymap.set("n", "<Leader>gg", ":<C-u>LazyGit<CR>", opts)
 
 -- markdown-preview
-keymap.set("n", "<Leader>op", "<cmd>MarkdownPreview<CR>")
+keymap.set("n", "<Leader>op", ":<C-u>MarkdownPreview<CR>", opts)
 
 -- vim-quickhl
 keymap.set("n", "<Space>m", "<Plug>(quickhl-manual-this)", { noremap = false })
@@ -58,9 +59,9 @@ keymap.set("n", "<Space>M", "<Plug>(quickhl-manual-reset)", { noremap = false })
 keymap.set("x", "<Space>M", "<Plug>(quickhl-manual-reset)", { noremap = false })
 
 -- open-browser
-keymap.set("n", "<Leader>o", "<Plug>(openbrowser-open)")
-keymap.set("v", "<Leader>os", "<Plug>(openbrowser-smart-search)")
+keymap.set("n", "<Leader>o", "<Plug>(openbrowser-open)", opts)
+keymap.set("v", "<Leader>os", "<Plug>(openbrowser-smart-search)", opts)
 
 -- open-browser-github
-keymap.set("n", "<Leader>og", "<cmd>OpenGithubFile<CR>")
-keymap.set("v", "<Leader>og", "<cmd>OpenGithubFile<CR>")
+keymap.set("n", "<Leader>og", "<cmd>OpenGithubFile<CR>", opts)
+keymap.set("v", "<Leader>og", "<cmd>OpenGithubFile<CR>", opts)
