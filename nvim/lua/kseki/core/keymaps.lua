@@ -1,4 +1,4 @@
-vim.g.mapleader = "<Space>"
+vim.g.mapleader = " "
 
 local keymap = vim.keymap -- For conciseness
 local opts = { noremap = true, silent = true }
