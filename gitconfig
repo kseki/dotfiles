@@ -37,3 +37,5 @@
 [delta]
   navigate = true
   side-by-side = true
+[fetch]
+	prune = true
