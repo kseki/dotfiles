@@ -46,6 +46,8 @@ keymap.set("i", "<C-r>", function()
 	require("telescope.builtin").registers(require("telescope.themes").get_cursor())
 end, opts)
 
+keymap.set("n", "<Leader>i", ":<C-u>Telescope gh issues<CR>", opts)
+keymap.set("n", "<Leader>p", ":<C-u>Telescope gh pull_request<CR>", opts)
 -- lazygit
 keymap.set("n", "<Leader>gg", ":<C-u>LazyGit<CR>", opts)
 
