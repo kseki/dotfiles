@@ -34,7 +34,7 @@ keymap.set("n", "<Leader>e", ":<C-u>NvimTreeToggle<CR>", opts)
 keymap.set("n", "<Leader>ee", ":<C-u>NvimTreeFindFileToggle<CR>", opts)
 
 -- telescope
-keymap.set("n", "<Leader>f", ":<C-u>Telescope find_files<CR>", opts)
+keymap.set("n", "<Leader>f", ":<C-u>Telescope find_files hidden=true<CR>", opts)
 keymap.set("n", "<Leader>s", ":<C-u>Telescope git_status<CR>", opts)
 keymap.set("n", "<Leader>a", ":<C-u>Telescope live_grep<CR>", opts)
 keymap.set("n", "<Leader>aw", ":<C-u>Telescope grep_string<CR>", opts)
@@ -48,6 +48,7 @@ end, opts)
 
 keymap.set("n", "<Leader>i", ":<C-u>Telescope gh issues<CR>", opts)
 keymap.set("n", "<Leader>p", ":<C-u>Telescope gh pull_request<CR>", opts)
+
 -- lazygit
 keymap.set("n", "<Leader>gg", ":<C-u>LazyGit<CR>", opts)
 
