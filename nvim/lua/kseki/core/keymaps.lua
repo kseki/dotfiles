@@ -65,3 +65,6 @@ keymap.set("v", "<Leader>os", "<Plug>(openbrowser-smart-search)", opts)
 -- open-browser-github
 keymap.set("n", "<Leader>og", "<cmd>OpenGithubFile<CR>", opts)
 keymap.set("v", "<Leader>og", "<cmd>OpenGithubFile<CR>", opts)
+
+-- tabline
+keymap.set("n", "<Leader>tr", "<cmd>TablineTabRename ", opts)
