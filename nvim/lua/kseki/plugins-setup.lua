@@ -50,7 +50,10 @@ return packer.startup(function(use)
 	use("nvim-tree/nvim-web-devicons")
 
 	-- Statusline
-	use("nvim-lualine/lualine.nvim")
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = "kdheepak/tabline.nvim",
+	})
 
 	-- Fuzzy finding
 	use({
