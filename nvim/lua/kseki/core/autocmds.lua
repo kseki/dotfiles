@@ -41,3 +41,9 @@ autocmd({ "BufReadPost" }, {
 		vim.api.nvim_exec('silent! normal! g`"zv', false)
 	end,
 })
+
+-- set wrap for markdown files
+autocmd("BufRead", {
+	pattern = "*.md",
+	command = "setlocal wrap",
+})
