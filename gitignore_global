@@ -1,7 +1,7 @@
 .DS_Store
 .idea
 vendor/bundle/
-bandle_bin/
+bundle_bin/
 .ruby-version
 .node-version
 tags
@@ -10,3 +10,5 @@ tags
 .tool-versions
 .local.vimrc
 .git/
+
+.local/
