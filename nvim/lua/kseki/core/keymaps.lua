@@ -33,6 +33,10 @@ keymap.set("n", "<Leader>sm", ":<C-u>MaximizerToggle<CR>", opts)
 keymap.set("n", "<Leader>e", ":<C-u>NvimTreeToggle<CR>", opts)
 keymap.set("n", "<Leader>ee", ":<C-u>NvimTreeFindFileToggle<CR>", opts)
 
+-- comment-nvim
+keymap.set("n", "gc", "<Plug>(comment_toggle_linewise)", opts)
+keymap.set("x", "gc", "<Plug>(comment_toggle_linewise_visual)", opts)
+
 -- telescope
 keymap.set("n", "<Leader>f", ":<C-u>Telescope find_files hidden=true<CR>", opts)
 keymap.set("n", "<Leader>s", ":<C-u>Telescope git_status<CR>", opts)
