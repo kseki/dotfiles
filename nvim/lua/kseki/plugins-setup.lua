@@ -27,6 +27,22 @@ end
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
+	-- local config
+	use({
+		"klen/nvim-config-local",
+		config = function()
+			require("config-local").setup({
+				-- Default configuration (optional)
+				config_files = { ".local/nvim/init.lua" }, -- Config file patterns to load (lua supported)
+				hashfile = vim.fn.stdpath("data") .. "/config-local", -- Where the plugin keeps files data
+				autocommands_create = true, -- Create autocommands (VimEnter, DirectoryChanged)
+				commands_create = true, -- Create commands (ConfigSource, ConfigEdit, ConfigTrust, ConfigIgnore)
+				silent = false, -- Disable plugin messages (Config loaded/ignored)
+				lookup_parents = false, -- Lookup config files in parent directories
+			})
+		end,
+	})
+
 	-- lua functions that many plugins use
 	use("nvim-lua/plenary.nvim")
 
@@ -64,7 +80,11 @@ return packer.startup(function(use)
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 			{ "nvim-telescope/telescope-github.nvim" },
+			{ "otavioschwanck/telescope-alternate" },
 		},
+		config = function()
+			require("kseki.plugins.telescope")
+		end,
 	})
 
 	-- Autocompletion
