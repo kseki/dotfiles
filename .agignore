@@ -11,3 +11,4 @@ old
 .svn
 node_modules
 vendor/bundle
+test
