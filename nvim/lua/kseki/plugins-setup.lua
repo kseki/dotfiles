@@ -187,6 +187,18 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- DeepL
+	use({
+		"gw31415/deepl-commands.nvim",
+		event = "BufRead",
+		requires = {
+			"gw31415/deepl.vim",
+		},
+		config = function()
+			require("deepl-commands").setup({})
+		end,
+	})
+
 	use({
 		"norcalli/nvim-colorizer.lua",
 		event = "BufRead",
