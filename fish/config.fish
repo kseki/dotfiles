@@ -12,6 +12,9 @@ set -x PATH $ANDROID_HOME/platform-tools $PATH
 set -x PATH $ANDROID_HOME/tools $PATH
 set -x PATH $ANDROID_HOME/tools/bin $PATH
 set -x PATH $ANDROID_HOME/emulator $PATH
+
+set -x PATH /usr/local/sbin $PATH
+
 set termguicolors
 
 
@@ -63,6 +66,9 @@ source ~/.asdf/installs/python/3.10.1/lib/python3.10/site-packages/powerline/bin
 
 # deno
 deno completions fish > ~/.config/fish/completions/deno.fish
+
+# google cloud sdk
+source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"
 
 function fish_user_key_bindings
   bind \cs gco
