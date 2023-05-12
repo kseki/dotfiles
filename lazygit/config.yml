@@ -4,3 +4,14 @@ git:
     pager: delta --dark --paging=never
 gui:
   showIcons: true
+
+customCommands:
+  - key: "E"
+    prompts:
+      - type: "input"
+        title: "Epmty commit message"
+        initialValue: ""
+    command: "git commit --allow-empty -m {{index .PromptResponses 0 | quote}}"
+    context: "files"
+    description: "create empty commit"
+    loadingText: "creating empty commit"
