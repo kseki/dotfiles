@@ -144,6 +144,7 @@ return packer.startup(function(use)
 			"RRethy/nvim-treesitter-textsubjects",
 		},
 	})
+	use("windwp/nvim-autopairs")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		event = "BufRead",
