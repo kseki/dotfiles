@@ -50,6 +50,9 @@ keymap.set("i", "<C-r>", function()
 	require("telescope.builtin").registers(require("telescope.themes").get_cursor())
 end, opts)
 
+-- telescope-alternate
+keymap.set("n", "<Leader>l", ":<C-u>Telescope telescope-alternate alternate_file<CR>", opts)
+
 keymap.set("n", "<Leader>i", ":<C-u>Telescope gh issues<CR>", opts)
 keymap.set("n", "<Leader>p", ":<C-u>Telescope gh pull_request<CR>", opts)
 

@@ -3,6 +3,7 @@ local opt = vim.opt -- For conciseness
 opt.autoread = true
 opt.encoding = "utf-8"
 opt.ttimeoutlen = 10
+opt.shell = "/bin/zsh"
 
 -- Line numbers
 opt.relativenumber = true
