@@ -47,3 +47,9 @@ autocmd("BufRead", {
 	pattern = "*.md",
 	command = "setlocal wrap",
 })
+
+-- Create a directory if one does not exist when saving a file
+autocmd("BufWritePre", {
+	pattern = "*",
+	command = "call mkdir(expand('%:p:h'), 'p')",
+})
