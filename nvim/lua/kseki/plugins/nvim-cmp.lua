@@ -65,3 +65,10 @@ cmp.setup({
 		}),
 	},
 })
+
+-- nvim-autopairs
+-- https://github.com/windwp/nvim-autopairs#you-need-to-add-mapping-cr-on-nvim-cmp-setupcheck-readmemd-on-nvim-cmp-repo
+local autopair_status, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+if autopair_status then
+	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+end
