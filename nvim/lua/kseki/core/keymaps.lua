@@ -24,6 +24,9 @@ keymap.set("n", "tx", ":<C-u>tabclose<CR>", opts)
 keymap.set("n", "tn", ":<C-u>tabnext<CR>", opts)
 keymap.set("n", "tp", ":<C-u>tabprevious<CR>", opts)
 
+keymap.set("n", "L", "$", opts)
+keymap.set("n", "H", "^", opts)
+
 -- Plugin keymaps
 
 -- vim-maximizevsv
