@@ -54,3 +54,13 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 telescope.load_extension("telescope-alternate")
+
+-- autocmd User TelescopePreviewerLoaded setlocal wrap
+vim.cmd([[
+  autocmd User TelescopePreviewerLoaded setlocal wrap
+]])
+
+vim.cmd([[
+  highlight TelescopeNormal guibg=#232831
+  highlight TelescopeBorder guifg=#abb1bb
+]])
