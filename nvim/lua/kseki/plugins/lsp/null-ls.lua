@@ -29,6 +29,7 @@ null_ls.setup({
 							return client.name == "null-ls"
 						end,
 						bufnr = bufnr,
+						prefer_local = ".local/bin",
 					})
 				end,
 			})
