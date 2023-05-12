@@ -25,7 +25,7 @@ set -U fish_key_bindings fish_vi_key_bindings
 set -x PATH ~/.local/bin $PATH
 
 # bat
-set -x BAT_THEME 'Dracula Pro'
+set -x BAT_THEME 'Dracula'
 
 # alias
 if test uname = 'Linux'
