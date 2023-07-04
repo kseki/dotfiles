@@ -19,8 +19,9 @@ keymap.set("n", "x", '"_x', opts)
 keymap.set("n", "+", "<C-a>", opts)
 keymap.set("n", "-", "<C-x>", opts)
 
-keymap.set("n", "to", ":<C-u>tabnew<CR>", opts)
+-- Tabs (see tabline)
 keymap.set("n", "tx", ":<C-u>tabclose<CR>", opts)
+-- keymap.set("n", "to", ":<C-u>tabnew<CR>", opts)
 keymap.set("n", "tn", ":<C-u>tabnext<CR>", opts)
 keymap.set("n", "tp", ":<C-u>tabprevious<CR>", opts)
 
@@ -83,4 +84,5 @@ keymap.set("n", "<Leader>og", "<cmd>OpenGithubFile<CR>", opts)
 keymap.set("v", "<Leader>og", "OpenGithubFile<CR>", opts)
 
 -- tabline
+keymap.set("n", "to", ":<C-u>TablineTabNew<CR>", opts)
 keymap.set("n", "<Leader>tr", "<cmd>TablineTabRename ", opts)
