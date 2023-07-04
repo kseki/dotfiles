@@ -27,6 +27,9 @@ keymap.set("n", "tp", ":<C-u>tabprevious<CR>", opts)
 keymap.set("n", "L", "$", opts)
 keymap.set("n", "H", "^", opts)
 
+-- Copy file path to clipboard
+keymap.set("n", "cp", "<CMD>let @* = expand('%')<CR>")
+
 -- Plugin keymaps
 
 -- vim-maximizevsv
@@ -77,7 +80,7 @@ keymap.set("v", "<Leader>os", "<Plug>(openbrowser-smart-search)", opts)
 
 -- open-browser-github
 keymap.set("n", "<Leader>og", "<cmd>OpenGithubFile<CR>", opts)
-keymap.set("v", "<Leader>og", "<cmd>OpenGithubFile<CR>", opts)
+keymap.set("v", "<Leader>og", "OpenGithubFile<CR>", opts)
 
 -- tabline
 keymap.set("n", "<Leader>tr", "<cmd>TablineTabRename ", opts)
