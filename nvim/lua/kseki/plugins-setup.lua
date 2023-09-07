@@ -208,6 +208,15 @@ return packer.startup(function(use)
 		end,
 	})
 
+
+	use({
+		"vinnymeller/swagger-preview.nvim",
+		run = "npm install -g swagger-ui-watcher",
+		cmd = "SwaggerPreview",
+		config = function()
+			require("kseki.plugins.swagger-preview")
+		end,
+	})
 	use({
 		"wakatime/vim-wakatime",
 		event = "VimEnter",
