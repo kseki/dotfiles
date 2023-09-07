@@ -23,7 +23,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
 	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 	keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-	keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+	keymap.set("n", "<leader>dd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 	keymap.set("n", "d[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 	keymap.set("n", "d]", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
@@ -49,6 +49,47 @@ lspconfig["solargraph"].setup({
 })
 
 lspconfig["rubocop"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["emmet_ls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = {
+		"astro",
+		"css",
+		"eruby",
+		"haml",
+		"html",
+		"htmldjango",
+		"javascriptreact",
+		"less",
+		"pug",
+		"sass",
+		"scss",
+		"svelte",
+		"typescriptreact",
+		"vue",
+	},
+})
+
+lspconfig["sourcekit"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["pylsp"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["tsserver"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["eslint"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })

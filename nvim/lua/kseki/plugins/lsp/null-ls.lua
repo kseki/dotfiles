@@ -9,11 +9,16 @@ local diagnostics = null_ls.builtins.diagnostics
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
+	debug = true,
 	sources = {
 		formatting.prettier,
 		formatting.stylua,
 		formatting.rubocop,
-		diagnostics.rubocop,
+		diagnostics.rubocop.with({
+			cwd = function(params)
+				return "/opt/melp"
+			end,
+		}),
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
