@@ -55,6 +55,14 @@ return packer.startup(function(use)
 	use({ "tpope/vim-surround", event = "BufRead" })
 	use({ "tpope/vim-repeat", after = { "vim-surround" } })
 	use("vim-scripts/ReplaceWithRegister")
+	use({
+		"smoka7/hop.nvim",
+		tag = "*", -- optional but strongly recommended
+		config = function()
+			-- you can configure Hop the way you like here; see :h hop-config
+			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+		end,
+	})
 
 	-- Commenting with gc
 	use({ "numToStr/Comment.nvim", event = "BufRead" })
@@ -70,11 +78,18 @@ return packer.startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = "kdheepak/tabline.nvim",
 	})
+	use({
+		plugin = "romgrk/barbar.nvim",
+		config = function()
+			require("barbar").setup({})
+		end,
+		requires = { "nvim-tree/nvim-web-devicons", "lewis6991/gitsigns" },
+	})
 
 	-- Fuzzy finding
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.1",
+		tag = "0.1.2",
 		cmd = "Telescope",
 		requires = {
 			{ "nvim-lua/plenary.nvim" },
@@ -115,7 +130,13 @@ return packer.startup(function(use)
 	-- Configuring lsp servers
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/cmp-nvim-lsp")
-	use({ "glepnir/lspsaga.nvim", branch = "main" })
+	use({
+		"nvimdev/lspsaga.nvim",
+		after = "nvim-lspconfig",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+	})
 	use("onsails/lspkind.nvim")
 
 	-- Formatting & Linting
@@ -150,6 +171,31 @@ return packer.startup(function(use)
 		event = "BufRead",
 		config = function()
 			require("kseki.plugins.indent-blankline")
+		end,
+	})
+	use({
+		"AckslD/nvim-revJ.lua",
+		requires = {
+			"kana/vim-textobj-user",
+			"sgur/vim-textobj-parameter",
+		},
+		config = function()
+			require("revj").setup({
+				keymaps = {
+					operator = "<Leader>J", -- for operator (+motion)
+					line = "<Leader>j", -- for formatting current line
+					visual = "<Leader>j", -- for formatting visual selection
+				},
+			})
+		end,
+	})
+
+	-- Outline view
+	use({
+		"simrat39/symbols-outline.nvim",
+		event = "BufRead",
+		config = function()
+			require("kseki.plugins.symbols-outline")
 		end,
 	})
 
@@ -191,7 +237,7 @@ return packer.startup(function(use)
 	-- DeepL
 	use({
 		"gw31415/deepl-commands.nvim",
-		event = "BufRead",
+		cmd = { "DeepL", "DeepLTarget" },
 		requires = {
 			"gw31415/deepl.vim",
 		},
@@ -208,6 +254,22 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- Languages
+	use({
+		"kchmck/vim-coffee-script",
+		ft = "coffee",
+	})
+
+	use({
+		"vinnymeller/swagger-preview.nvim",
+		run = "npm install -g swagger-ui-watcher",
+		cmd = "SwaggerPreview",
+		config = function()
+			require("kseki.plugins.swagger-preview")
+		end,
+	})
+
+	-- Dashboard for developers
 	use({
 		"wakatime/vim-wakatime",
 		event = "VimEnter",
