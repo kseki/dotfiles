@@ -57,10 +57,10 @@ return packer.startup(function(use)
 	use("vim-scripts/ReplaceWithRegister")
 	use({
 		"smoka7/hop.nvim",
-		tag = "*", -- optional but strongly recommended
+		tag = "*",
+		event = "VimEnter",
 		config = function()
-			-- you can configure Hop the way you like here; see :h hop-config
-			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+			require("kseki.plugins.hope")
 		end,
 	})
 
@@ -68,7 +68,12 @@ return packer.startup(function(use)
 	use({ "numToStr/Comment.nvim", event = "BufRead" })
 
 	-- File explorer
-	use("nvim-tree/nvim-tree.lua")
+	use({
+		"nvim-tree/nvim-tree.lua",
+		config = function()
+			require("kseki.plugins.nvim-tree")
+		end,
+	})
 
 	-- Icon
 	use("nvim-tree/nvim-web-devicons")
@@ -89,13 +94,14 @@ return packer.startup(function(use)
 	-- Fuzzy finding
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.2",
+		tag = "0.1.x",
 		cmd = "Telescope",
 		requires = {
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 			{ "nvim-telescope/telescope-github.nvim" },
 			{ "otavioschwanck/telescope-alternate" },
+			{ "nvim-tree/nvim-web-devicons" },
 		},
 		config = function()
 			require("kseki.plugins.telescope")
@@ -117,9 +123,26 @@ return packer.startup(function(use)
 			require("kseki.plugins.lsp.copilot-cmp")
 		end,
 	})
+	use({
+		"CopilotC-Nvim/CopilotChat.nvim",
+		branch = "canary",
+		event = "BufRead",
+		depends = {
+			"Telescope.nvim",
+			"plenary.nvim",
+		},
+		config = function()
+			require("kseki.plugins.copilot-chat")
+		end,
+	})
 
 	-- Snippets
-	use("L3MON4D3/LuaSnip")
+	use({
+		"L3MON4D3/LuaSnip",
+		tag = "v2.*",
+		run = "make install_jsregexp",
+		config = function() end,
+	})
 	use("saadparwaiz1/cmp_luasnip")
 	use("rafamadriz/friendly-snippets")
 
@@ -154,9 +177,9 @@ return packer.startup(function(use)
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdateSync",
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
+		run = ":TSUpdate",
+		config = function()
+			require("kseki.plugins.treesitter")
 		end,
 		requires = {
 			"windwp/nvim-ts-autotag",
@@ -242,7 +265,10 @@ return packer.startup(function(use)
 			"gw31415/deepl.vim",
 		},
 		config = function()
-			require("deepl-commands").setup({})
+			require("deepl-commands").setup({
+				default_target = "JA",
+			})
+			vmi.g.deepl_timeout = 5
 		end,
 	})
 

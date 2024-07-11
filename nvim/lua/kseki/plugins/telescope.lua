@@ -25,13 +25,8 @@ end
 
 telescope.setup({
 	defualts = {
-		color_devicons = true,
 		mappings = {
 			i = {
-				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-				["<esc>"] = actions.close,
-			},
-			n = {
 				["<esc>"] = actions.close,
 			},
 			file_ignore_patterns = {

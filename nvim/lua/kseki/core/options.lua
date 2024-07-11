@@ -30,6 +30,7 @@ opt.wrapscan = true
 
 -- Cursor line
 opt.cursorline = true
+opt.scrolloff = 999
 
 -- Appearance
 opt.termguicolors = true

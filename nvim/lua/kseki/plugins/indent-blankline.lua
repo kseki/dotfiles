@@ -3,7 +3,6 @@ if not ibl_status then
 	return
 end
 
-vim.opt.termguicolors = true
 vim.opt.list = true
 vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")

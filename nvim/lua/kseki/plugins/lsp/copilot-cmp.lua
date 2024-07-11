@@ -10,8 +10,8 @@ end
 
 copilot.setup({
 	-- 現在cmpでは複数行を表示できないのでコメントアウト
-	-- suggestion = { enabled = false },
-	-- panel = { enabled = false },
+	suggestion = { enabled = false },
+	panel = { enabled = false },
 	--suggestion = {
 	--	enabled = true,
 	--	auto_trigger = true,

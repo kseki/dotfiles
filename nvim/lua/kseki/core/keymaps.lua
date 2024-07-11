@@ -28,6 +28,8 @@ keymap.set("n", "tp", ":<C-u>tabprevious<CR>", opts)
 keymap.set("n", "L", "$", opts)
 keymap.set("n", "H", "^", opts)
 
+-- Copy to clipboard
+keymap.set("v", "<leader>y", '"+y')
 -- Copy file path to clipboard
 keymap.set("n", "cp", "<CMD>let @* = expand('%')<CR>")
 
@@ -37,15 +39,15 @@ keymap.set("n", "cp", "<CMD>let @* = expand('%')<CR>")
 keymap.set("n", "<Leader>sm", ":<C-u>MaximizerToggle<CR>", opts)
 
 -- nvim-tree
-keymap.set("n", "<Leader>e", ":<C-u>NvimTreeToggle<CR>", opts)
-keymap.set("n", "<Leader>ee", ":<C-u>NvimTreeFindFileToggle<CR>", opts)
+keymap.set("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", opts)
+keymap.set("n", "<Leader>ee", "<cmd>NvimTreeFindFileToggle<CR>", opts)
 
 -- comment-nvim
 keymap.set("n", "gc", "<Plug>(comment_toggle_linewise)", opts)
 keymap.set("x", "gc", "<Plug>(comment_toggle_linewise_visual)", opts)
 
 -- telescope
-keymap.set("n", "<Leader>f", ":<C-u>Telescope find_files hidden=true<CR>", opts)
+keymap.set("n", "<Leader>f", "<cmd>Telescope find_files hidden=true<CR>", opts)
 keymap.set("n", "<Leader>s", ":<C-u>Telescope git_status<CR>", opts)
 keymap.set("n", "<Leader>a", ":<C-u>Telescope live_grep<CR>", opts)
 keymap.set("n", "<Leader>aw", ":<C-u>Telescope grep_string<CR>", opts)
@@ -70,7 +72,7 @@ keymap.set("n", "<Leader>gg", ":<C-u>LazyGit<CR>", opts)
 keymap.set("n", "<Leader>op", ":<C-u>MarkdownPreview<CR>", opts)
 
 -- vim-quickhl
-keymap.set("n", "<Space>m", "<Plug>(quickhl-manual-this)", { noremap = false })
+keymap.set("n", "<Space>m", "<Plug>(quickhl-manual-this)", {})
 keymap.set("x", "<Space>m", "<Plug>(quickhl-manual-this)", { noremap = false })
 keymap.set("n", "<Space>M", "<Plug>(quickhl-manual-reset)", { noremap = false })
 keymap.set("x", "<Space>M", "<Plug>(quickhl-manual-reset)", { noremap = false })
