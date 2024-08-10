@@ -52,3 +52,54 @@ lspconfig["rubocop"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+
+lspconfig["emmet_ls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = {
+		"astro",
+		"css",
+		"eruby",
+		"haml",
+		"html",
+		"htmldjango",
+		"javascriptreact",
+		"less",
+		"pug",
+		"sass",
+		"scss",
+		"svelte",
+		"typescriptreact",
+		"vue",
+	},
+})
+
+lspconfig["sourcekit"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["pylsp"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["tsserver"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["eslint"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["dart"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["terraformls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})

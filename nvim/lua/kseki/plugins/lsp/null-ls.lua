@@ -13,7 +13,15 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.stylua,
 		formatting.rubocop,
-		diagnostics.rubocop,
+		diagnostics.yamllint.with({
+			command = "yamllint",
+			args = { "--format", "parsable", "-", "-c", ".yamllint" },
+		}),
+		diagnostics.rubocop.with({
+			cwd = function(params)
+				return "/opt/melp"
+			end,
+		}),
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)

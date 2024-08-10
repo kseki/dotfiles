@@ -4,7 +4,10 @@ if not status then
 end
 
 treesitter.setup({
-	highlight = { enable = true },
+	highlight = {
+		enable = true,
+		disable = { "vimdoc" },
+	},
 	endwise = { enable = true },
 	indent = { enable = true },
 	autotag = { enable = true },

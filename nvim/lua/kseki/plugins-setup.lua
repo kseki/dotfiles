@@ -55,12 +55,25 @@ return packer.startup(function(use)
 	use({ "tpope/vim-surround", event = "BufRead" })
 	use({ "tpope/vim-repeat", after = { "vim-surround" } })
 	use("vim-scripts/ReplaceWithRegister")
+	use({
+		"smoka7/hop.nvim",
+		tag = "*",
+		event = "VimEnter",
+		config = function()
+			require("kseki.plugins.hope")
+		end,
+	})
 
 	-- Commenting with gc
 	use({ "numToStr/Comment.nvim", event = "BufRead" })
 
 	-- File explorer
-	use("nvim-tree/nvim-tree.lua")
+	use({
+		"nvim-tree/nvim-tree.lua",
+		config = function()
+			require("kseki.plugins.nvim-tree")
+		end,
+	})
 
 	-- Icon
 	use("nvim-tree/nvim-web-devicons")
@@ -70,17 +83,25 @@ return packer.startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = "kdheepak/tabline.nvim",
 	})
+	use({
+		plugin = "romgrk/barbar.nvim",
+		config = function()
+			require("barbar").setup({})
+		end,
+		requires = { "nvim-tree/nvim-web-devicons", "lewis6991/gitsigns" },
+	})
 
 	-- Fuzzy finding
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.1",
+		tag = "0.1.x",
 		cmd = "Telescope",
 		requires = {
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 			{ "nvim-telescope/telescope-github.nvim" },
 			{ "otavioschwanck/telescope-alternate" },
+			{ "nvim-tree/nvim-web-devicons" },
 		},
 		config = function()
 			require("kseki.plugins.telescope")
@@ -102,9 +123,26 @@ return packer.startup(function(use)
 			require("kseki.plugins.lsp.copilot-cmp")
 		end,
 	})
+	use({
+		"CopilotC-Nvim/CopilotChat.nvim",
+		branch = "canary",
+		event = "BufRead",
+		depends = {
+			"Telescope.nvim",
+			"plenary.nvim",
+		},
+		config = function()
+			require("kseki.plugins.copilot-chat")
+		end,
+	})
 
 	-- Snippets
-	use("L3MON4D3/LuaSnip")
+	use({
+		"L3MON4D3/LuaSnip",
+		tag = "v2.*",
+		run = "make install_jsregexp",
+		config = function() end,
+	})
 	use("saadparwaiz1/cmp_luasnip")
 	use("rafamadriz/friendly-snippets")
 
@@ -115,7 +153,13 @@ return packer.startup(function(use)
 	-- Configuring lsp servers
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/cmp-nvim-lsp")
-	use({ "glepnir/lspsaga.nvim", branch = "main" })
+	use({
+		"nvimdev/lspsaga.nvim",
+		after = "nvim-lspconfig",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+	})
 	use("onsails/lspkind.nvim")
 
 	-- Formatting & Linting
@@ -133,9 +177,9 @@ return packer.startup(function(use)
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdateSync",
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
+		run = ":TSUpdate",
+		config = function()
+			require("kseki.plugins.treesitter")
 		end,
 		requires = {
 			"windwp/nvim-ts-autotag",
@@ -150,6 +194,31 @@ return packer.startup(function(use)
 		event = "BufRead",
 		config = function()
 			require("kseki.plugins.indent-blankline")
+		end,
+	})
+	use({
+		"AckslD/nvim-revJ.lua",
+		requires = {
+			"kana/vim-textobj-user",
+			"sgur/vim-textobj-parameter",
+		},
+		config = function()
+			require("revj").setup({
+				keymaps = {
+					operator = "<Leader>J", -- for operator (+motion)
+					line = "<Leader>j", -- for formatting current line
+					visual = "<Leader>j", -- for formatting visual selection
+				},
+			})
+		end,
+	})
+
+	-- Outline view
+	use({
+		"simrat39/symbols-outline.nvim",
+		event = "BufRead",
+		config = function()
+			require("kseki.plugins.symbols-outline")
 		end,
 	})
 
@@ -191,12 +260,15 @@ return packer.startup(function(use)
 	-- DeepL
 	use({
 		"gw31415/deepl-commands.nvim",
-		event = "BufRead",
+		cmd = { "DeepL", "DeepLTarget" },
 		requires = {
 			"gw31415/deepl.vim",
 		},
 		config = function()
-			require("deepl-commands").setup({})
+			require("deepl-commands").setup({
+				default_target = "JA",
+			})
+			vmi.g.deepl_timeout = 5
 		end,
 	})
 
@@ -208,6 +280,22 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- Languages
+	use({
+		"kchmck/vim-coffee-script",
+		ft = "coffee",
+	})
+
+	use({
+		"vinnymeller/swagger-preview.nvim",
+		run = "npm install -g swagger-ui-watcher",
+		cmd = "SwaggerPreview",
+		config = function()
+			require("kseki.plugins.swagger-preview")
+		end,
+	})
+
+	-- Dashboard for developers
 	use({
 		"wakatime/vim-wakatime",
 		event = "VimEnter",

@@ -10,19 +10,23 @@ end
 
 copilot.setup({
 	-- 現在cmpでは複数行を表示できないのでコメントアウト
-	-- suggestion = { enabled = false },
-	-- panel = { enabled = false },
-	suggestion = {
-		auto_trigger = true,
-		keymap = {
-			accept = "<leader>k",
-			accept_word = false,
-			accept_line = false,
-			next = "<M-n>",
-			prev = "<M-p>",
-			dismiss = "<M-e>",
-		},
-	},
+	suggestion = { enabled = false },
+	panel = { enabled = false },
+	--suggestion = {
+	--	enabled = true,
+	--	auto_trigger = true,
+	--	keymap = {
+	--		accept = "<leader>k",
+	--		accept_word = false,
+	--		accept_line = false,
+	--		next = "<M-n>",
+	--		prev = "<M-p>",
+	--		dismiss = "<M-e>",
+	--	},
+	--},
 })
 
--- copilot_cmp.setup()
+copilot_cmp.setup({
+	event = { "InsertEnter", "LspAttach" },
+	fix_pairs = true,
+})

@@ -2,24 +2,32 @@ local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 
 -- File type settings
-autocmd("BufNewFile, BufRead", {
-	pattern = {
-		"*.jbuilder",
-		"Guardfile",
-		"Rakefile",
-		"Vagrantfile",
-		"Gemfile",
-		".pryrc",
-		"*.thor",
-	},
-	command = "set filetype = ruby",
-})
-autocmd("BufNewFile, BufRead", {
+-- autocmd({"BufNewFile", "BufRead", "BufReadPre"}, {
+-- 	pattern = {
+-- 		"*.jbuilder",
+-- 		"Guardfile",
+-- 		"Rakefile",
+-- 		"Vagrantfile",
+-- 		"Gemfile",
+-- 		".pryrc",
+-- 		"*.thor",
+-- 	},
+-- 	command = "set filetype = ruby",
+-- })
+
+autocmd({ "BufNewFile", "BufRead", "BufReadPre" }, {
 	pattern = {
 		".eslintrc",
 		".stylelintrc",
 	},
-	command = "set filetype = ruby",
+	command = "set filetype=ruby",
+})
+
+autocmd({ "BufNewFile", "BufRead", "BufReadPre" }, {
+	pattern = {
+		".yamllint",
+	},
+	command = "set filetype=yaml",
 })
 
 -- Remove whitespace on save

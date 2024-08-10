@@ -15,6 +15,7 @@ end
 
 -- load friendly-snippets
 require("luasnip/loaders/from_vscode").lazy_load()
+require("kseki.plugins.luasnip")
 
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
@@ -38,7 +39,7 @@ cmp.setup({
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<Tab>"] = cmp.mapping.complete(),
+		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 		["<C-k>"] = cmp.mapping(function(fallback)
@@ -50,7 +51,7 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 	sources = cmp.config.sources({
-		-- { name = "copilot", max_item_count = 3, group_index = 2 }, -- GitHub Copilot
+		{ name = "copilot", max_item_count = 3, group_index = 2 }, -- GitHub Copilot
 		{ name = "luasnip" }, -- snippet
 		{ name = "buffer" }, -- text within current buffer
 		{ name = "path" }, -- file system paths

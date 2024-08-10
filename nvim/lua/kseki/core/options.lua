@@ -30,6 +30,7 @@ opt.wrapscan = true
 
 -- Cursor line
 opt.cursorline = true
+opt.scrolloff = 999
 
 -- Appearance
 opt.termguicolors = true
@@ -38,9 +39,6 @@ opt.signcolumn = "yes"
 
 -- Backspace
 opt.backspace = "indent,eol,start"
-
--- Clipboard
-opt.clipboard:append("unnamedplus")
 
 --  Split windows
 opt.splitright = true

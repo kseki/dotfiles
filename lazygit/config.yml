@@ -15,3 +15,10 @@ customCommands:
     context: "files"
     description: "create empty commit"
     loadingText: "creating empty commit"
+
+  - key: "C"
+    command: "git cz c"
+    description: "commit with commitizen"
+    context: "files"
+    loadingText: "opening commitizen commit tool"
+    subprocess: true
