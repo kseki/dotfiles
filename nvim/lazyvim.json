@@ -1,7 +1,9 @@
 {
   "extras": [
     "lazyvim.plugins.extras.coding.copilot",
-    "lazyvim.plugins.extras.editor.aerial"
+    "lazyvim.plugins.extras.coding.copilot-chat",
+    "lazyvim.plugins.extras.editor.aerial",
+    "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
   "news": {
     "NEWS.md": "6520"

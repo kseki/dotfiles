@@ -2,32 +2,12 @@ return {
   "hrsh7th/nvim-cmp",
   dependencies = {
     "hrsh7th/cmp-cmdline",
-    {
-      "zbirenbaum/copilot-cmp",
-      dependencies = {
-        {
-          "zbirenbaum/copilot.lua",
-          opts = {
-            suggestion = { enabled = false },
-            panel = { enabled = false },
-          },
-        },
-      },
-      opts = {
-        fix_pairs = true,
-      },
-    },
-    {
-      "garymjr/nvim-snippets",
-      opts = {
-        search_path = {
-          "~/.config/nvim/snippets",
-        },
-      },
-    },
   },
   opts = function(_, opts)
-    table.insert(opts.sources, 1, { name = "copilot" })
+    local auto_select = false
+    opts.completion = {
+      completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
+    }
 
     vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 

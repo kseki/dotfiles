@@ -1,5 +1,5 @@
-return {
-  "norcalli/nvim-colorizer.lua",
-  event = "BufRead",
-  opts = { "*" },
-}
+-- return {
+--   "norcalli/nvim-colorizer.lua",
+--   event = "BufRead",
+--   opts = { "*" },
+-- }
