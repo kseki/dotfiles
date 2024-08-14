@@ -1,6 +1,3 @@
---- `prompts` 関数は、選択されたコードに対してさまざまなプロンプトを提供します。
---- @param select table 選択されたコードに関連する情報を含むテーブル
---- @return table プロンプトのリストを含むテーブル
 local function prompts(select)
   return {
     Explain = {
@@ -59,7 +56,7 @@ return {
     return {
       auto_insert_mode = true,
       show_help = true,
-      question_header = "  kseki ",
+      question_header = "  User ",
       answer_header = "  Copilot ",
       selection = function(source)
         return select.visual(source) or select.buffer(source)
@@ -74,9 +71,7 @@ return {
       sources = {
         { name = "copilot" },
         { name = "snippets" },
-        { name = "nvim_lsp" },
         { name = "buffer" },
-        { name = "path" },
       },
     })
 
@@ -84,7 +79,7 @@ return {
   end,
   keys = {
     {
-      "<leader>cch",
+      "<leader>hh",
       function()
         local actions = require("CopilotChat.actions")
         require("CopilotChat.integrations.telescope").pick(actions.help_actions())
@@ -92,7 +87,7 @@ return {
       desc = "CopilotChat - Help actions",
     },
     {
-      "<leader>ccp",
+      "<leader>hp",
       function()
         local actions = require("CopilotChat.actions")
         require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
