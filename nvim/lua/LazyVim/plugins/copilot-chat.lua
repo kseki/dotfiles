@@ -1,4 +1,4 @@
-local function prompts(select)
+local function generate_prompts(select)
   return {
     Explain = {
       prompt = "/COPILOT_EXPLAIN アクティブな選択範囲の説明を段落形式で書いてください。日本語で返答ください。",
@@ -54,6 +54,7 @@ return {
   opts = function()
     local select = require("CopilotChat.select")
     return {
+      model = "gpt-4o",
       auto_insert_mode = true,
       show_help = true,
       question_header = "  User ",
@@ -61,7 +62,7 @@ return {
       selection = function(source)
         return select.visual(source) or select.buffer(source)
       end,
-      prompts = prompts(select),
+      prompts = generate_prompts(select),
     }
   end,
   config = function(_, opts)
@@ -79,7 +80,7 @@ return {
   end,
   keys = {
     {
-      "<leader>hh",
+      "<leader>ha",
       function()
         local actions = require("CopilotChat.actions")
         require("CopilotChat.integrations.telescope").pick(actions.help_actions())
@@ -94,5 +95,18 @@ return {
       end,
       desc = "CopilotChat - Prompt actions",
     },
+    {
+      "<leader>hi",
+      function()
+        local input = vim.fn.input("Ask Copilot: ")
+        if input ~= "" then
+          vim.cmd("CopilotChat " .. input)
+        end
+      end,
+      desc = "CopilotChat - Ask input",
+    },
+    { "<leader>hd", "<cmd>CopilotChatDebugInfo<CR>", desc = "CopilotChat - Debug info" },
+    { "<leader>hl", "<cmd>CopilotChatReset<CR>", desc = "CopilotChat - Clear buffer and chat history" },
+    { "<leader>hv", "<cmd>CopilotChatToggle<CR>", desc = "CopilotChat - Toggle Vsplit" },
   },
 }
