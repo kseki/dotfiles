@@ -17,7 +17,6 @@ set -x PATH /usr/local/sbin $PATH
 
 set termguicolors
 
-
 # vi mode
 set -U fish_key_bindings fish_vi_key_bindings
 
@@ -60,15 +59,25 @@ end
 # Github cli
 eval (gh completion -s fish| source)
 
-# asdf
-source (brew --prefix asdf)/libexec/asdf.fish
-source ~/.asdf/installs/python/3.10.1/lib/python3.10/site-packages/powerline/bindings/fish/powerline-setup.fish
+# For MacOS
+if test (uname -s) = "Darwin"
+  # asdf
+  source (brew --prefix asdf)/libexec/asdf.fish
+  source ~/.asdf/installs/python/3.10.1/lib/python3.10/site-packages/powerline/bindings/fish/powerline-setup.fish
 
-# deno
-deno completions fish > ~/.config/fish/completions/deno.fish
+  # google cloud sdk
+  source (brew --prefix)/share/google-cloud-sdk/path.fish.inc
 
-# google cloud sdk
-source "$(brew --prefix)/share/google-cloud-sdk/path.fish.inc"
+  # deno
+  deno completions fish > ~/.config/fish/completions/deno.fish
+end
+
+# For Linux
+if test (uname -s) = "Linux"
+  # asdf
+  source ~/.asdf/asdf.fish
+end
+
 
 function fish_user_key_bindings
   bind \cs gco
