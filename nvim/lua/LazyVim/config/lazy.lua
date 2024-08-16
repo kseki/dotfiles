@@ -51,3 +51,7 @@ require("lazy").setup({
     },
   },
 })
+
+require("LazyVim.config.autocmds")
+require("LazyVim.config.keymaps")
+require("LazyVim.config.options")
