@@ -24,12 +24,12 @@ set -U fish_key_bindings fish_vi_key_bindings
 set -x PATH ~/.local/bin $PATH
 
 # bat
-set -x BAT_THEME 'Dracula'
+set -x BAT_THEME Dracula
 
 # alias
-if test uname = 'Linux'
-  alias pbcopy 'xsel --clipboard --input'
-  alias open 'gnome-www-browser'
+if test uname = Linux
+    alias pbcopy 'xsel --clipboard --input'
+    alias open gnome-www-browser
 end
 
 # FZF
@@ -42,7 +42,7 @@ set --append FZF_DEFAULT_OPTS '--color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79
 set --append FZF_DEFAULT_OPTS '--color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 set --append FZF_DEFAULT_OPTS '--height 50%'
 set --append FZF_DEFAULT_OPTS '--layout=reverse'
-set --append FZF_DEFAULT_OPTS '--border'
+set --append FZF_DEFAULT_OPTS --border
 
 
 alias gco 'git branch | fzf | xargs git checkout'
@@ -52,33 +52,28 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 
 # 端末間でヒストリーを共有
 function history-merge --on-event fish_preexec
-  history --save
-  history --merge
+    history --save
+    history --merge
 end
 
 # Github cli
 eval (gh completion -s fish| source)
 
 # For MacOS
-if test (uname -s) = "Darwin"
-  # asdf
-  source (brew --prefix asdf)/libexec/asdf.fish
-  source ~/.asdf/installs/python/3.10.1/lib/python3.10/site-packages/powerline/bindings/fish/powerline-setup.fish
+if test (uname -s) = Darwin
+    # asdf
+    source (brew --prefix asdf)/libexec/asdf.fish
+    source ~/.asdf/installs/python/3.10.1/lib/python3.10/site-packages/powerline/bindings/fish/powerline-setup.fish
 
-  # google cloud sdk
-  source (brew --prefix)/share/google-cloud-sdk/path.fish.inc
+    # google cloud sdk
+    source (brew --prefix)/share/google-cloud-sdk/path.fish.inc
 
-  # deno
-  deno completions fish > ~/.config/fish/completions/deno.fish
+    # deno
+    deno completions fish >~/.config/fish/completions/deno.fish
 end
 
 # For Linux
-if test (uname -s) = "Linux"
-  # asdf
-  source ~/.asdf/asdf.fish
-end
-
-
-function fish_user_key_bindings
-  bind \cs gco
+if test (uname -s) = Linux
+    # asdf
+    source ~/.asdf/asdf.fish
 end
