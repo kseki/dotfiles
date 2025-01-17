@@ -1,26 +1,25 @@
-local opt = vim.opt -- For conciseness
+local opt = vim.opt
 
 opt.autoread = true
 opt.encoding = "utf-8"
-opt.ttimeoutlen = 10
 opt.shell = "/bin/zsh"
+opt.termguicolors = true
 
 -- Line numbers
 opt.relativenumber = true
 opt.number = true
 opt.numberwidth = 5
 
+opt.wrap = false
+
 -- Tab & Indentation
-opt.tabstop = 2
+opt.tabstop = 4
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.smarttab = true
 opt.autoindent = true
 opt.smartindent = true
 opt.shiftround = true
-
--- Line wrapping
-opt.wrap = false
 
 -- Search settings
 opt.hlsearch = true
@@ -37,14 +36,11 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 
--- Backspace
-opt.backspace = "indent,eol,start"
-
 --  Split windows
 opt.splitright = true
 opt.splitbelow = true
 
 -- Statusline
-opt.laststatus = 2
+opt.laststatus = 3
 
 opt.iskeyword:append("-")

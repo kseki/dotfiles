@@ -14,4 +14,5 @@
 -- require("kseki.plugins.lsp.null-ls")
 -- require("kseki.plugins.treesitter")
 
-require("LazyVim.config.lazy")
+require("kseki2.config.lazy")
+
