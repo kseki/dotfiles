@@ -20,5 +20,6 @@ return {
 	},
 	keys = { 
 		{"<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree toggle" },
+        {"<leader>er", "<cmd>Neotree reveal<cr>", desc = "NeoTree reveal" },
 	}
 }
