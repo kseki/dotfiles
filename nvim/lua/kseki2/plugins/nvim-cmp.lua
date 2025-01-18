@@ -1,5 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
+	event = "InsertEnter",
 	dependencies = {
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-buffer",
@@ -19,8 +20,8 @@ return {
 		},
 	},
 	config = function()
-        -- for cmp
-        vim.opt.completeopt = "menu,menuone,noselect"
+		-- for cmp
+		vim.opt.completeopt = "menu,menuone,noselect"
 		-- for spell
 		vim.opt.spell = true
 		vim.opt.spelllang = { "en_us" }

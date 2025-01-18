@@ -2,6 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		event = { "BufRead", "BufNewFile" },
 		dependencies = {
 			"RRethy/nvim-treesitter-endwise",
 			"RRethy/nvim-treesitter-textsubjects",
