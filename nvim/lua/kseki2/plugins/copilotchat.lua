@@ -48,7 +48,7 @@ local function generate_prompts(select)
     CommitStaged = {
       prompt = "#git:staged\n\n" .. commit_staged_prompt,
       callback = function(response, _)
-        local commit_message = response:match("```gitcommit(.-)```")
+        local commit_message = response:match("```gitcommit\n(.-)```")
         if commit_message then
           vim.fn.setreg("+", commit_message, "c")
         end
