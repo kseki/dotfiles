@@ -19,6 +19,8 @@ return {
 		},
 	},
 	config = function()
+        -- for cmp
+        vim.opt.completeopt = "menu,menuone,noselect"
 		-- for spell
 		vim.opt.spell = true
 		vim.opt.spelllang = { "en_us" }
