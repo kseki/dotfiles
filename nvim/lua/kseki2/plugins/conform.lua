@@ -1,16 +1,22 @@
 return {
 	"stevearc/conform.nvim",
+	evnet = "BufferEnter",
 	config = function()
+		local js_formatters = { { "biome" } }
+
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
+				javascript = js_formatters,
+				javascriptreact = js_formatters,
+				typescript = js_formatters,
+				typescriptreact = js_formatters,
 			},
-		})
-
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			callback = function(args)
-				require("conform").format({ bufnr = args.buf, timeout_ms = 3000, async = true })
-			end,
+			format_on_save = {
+				timeout_ms = 2000,
+				lsp_fallback = true,
+				quiet = false,
+			},
 		})
 	end,
 }
