@@ -1,4 +1,4 @@
--- https://github.com/nvim-neo-tree/neo-tree.nvim 
+-- https://github.com/nvim-neo-tree/neo-tree.nvim
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
@@ -13,13 +13,13 @@ return {
 				hide_dotfiles = false,
 				hide_by_name = {
 					"node_modules",
-					".git"
+					".git",
 				},
 			},
 		},
 	},
-	keys = { 
-		{"<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree toggle" },
-        {"<leader>er", "<cmd>Neotree reveal<cr>", desc = "NeoTree reveal" },
-	}
+	keys = {
+		{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree toggle" },
+		{ "<leader>er", "<cmd>Neotree reveal<cr>", desc = "NeoTree reveal" },
+	},
 }

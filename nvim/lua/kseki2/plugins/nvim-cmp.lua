@@ -14,20 +14,20 @@ return {
 				opts = {
 					suggestion = { enabled = false },
 					panel = { enabled = false },
-				}
-			}
+				},
+			},
 		},
 	},
-	config = function ()
+	config = function()
 		-- for spell
 		vim.opt.spell = true
 		vim.opt.spelllang = { "en_us" }
 		-- for copilot
-		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
-		local cmp = require('cmp')
-		local lspkind = require('lspkind')
-		local copilot_cmp = require('copilot_cmp')
+		local cmp = require("cmp")
+		local lspkind = require("lspkind")
+		local copilot_cmp = require("copilot_cmp")
 
 		copilot_cmp.setup({
 			fix_pairs = true,
@@ -41,7 +41,7 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "copilot" },
-				{ name = 'nvim_lsp' },
+				{ name = "nvim_lsp" },
 				{
 					name = "spell",
 					option = {
@@ -83,8 +83,8 @@ return {
 			sources = cmp.config.sources({
 				{ name = "path" },
 			}, {
-					{ name = "cmdline" },
-				}),
+				{ name = "cmdline" },
+			}),
 			matching = {
 				disallow_fuzzy_matching = true,
 				disallow_fullfuzzy_matching = true,
@@ -94,5 +94,5 @@ return {
 				disallow_symbol_nonprefix_matching = false,
 			},
 		})
-	end
+	end,
 }

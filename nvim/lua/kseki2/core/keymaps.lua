@@ -12,4 +12,3 @@ keymap.set("n", "x", '"_x', opts)
 
 keymap.set("n", "+", "<C-a>", opts)
 keymap.set("n", "-", "<C-x>", opts)
-
