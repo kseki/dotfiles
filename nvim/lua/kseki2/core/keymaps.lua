@@ -12,3 +12,9 @@ keymap.set("n", "x", '"_x', opts)
 
 keymap.set("n", "+", "<C-a>", opts)
 keymap.set("n", "-", "<C-x>", opts)
+
+-- Tabs
+keymap.set("n", "tx", ":<C-u>tabclose<CR>", opts)
+keymap.set("n", "to", ":<C-u>tabnew<CR>", opts)
+keymap.set("n", "tn", ":<C-u>tabnext<CR>", opts)
+keymap.set("n", "tp", ":<C-u>tabprevious<CR>", opts)
