@@ -1,8 +1,0 @@
-{
-  "Keymap directive for lazy.nvim": {
-    "prefix": [
-      "keys"
-    ],
-    "body": "keys: { ${1} }"
-  }
-}
