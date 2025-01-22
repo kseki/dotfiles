@@ -2,7 +2,7 @@ return {
 	"stevearc/conform.nvim",
 	evnet = "BufferEnter",
 	config = function()
-		local js_formatters = { { "biome" } }
+		local js_formatters = { "biome", "prettier", stop_after_first = true }
 
 		require("conform").setup({
 			formatters_by_ft = {
