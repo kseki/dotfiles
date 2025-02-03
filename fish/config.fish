@@ -24,7 +24,7 @@ set -U fish_key_bindings fish_vi_key_bindings
 set -x PATH ~/.local/bin $PATH
 
 # bat
-set -x BAT_THEME Dracula
+set -x BAT_THEME Nord
 
 # alias
 if test uname = Linux
@@ -34,12 +34,12 @@ end
 
 # FZF
 set -x FZF_FIND_FILE_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-set -x FZF_PREVIEW_FILE_COMMAND 'bat --theme=dracula --color=always --style=numbers --line-range=:100 {}'
+set -x FZF_PREVIEW_FILE_COMMAND 'bat --theme=Nord --color=always --style=numbers --line-range=:100 {}'
 set -x FZF_DEFAULT_OPTS
-set --append FZF_DEFAULT_OPTS '--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9'
-set --append FZF_DEFAULT_OPTS '--color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9'
-set --append FZF_DEFAULT_OPTS '--color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6'
-set --append FZF_DEFAULT_OPTS '--color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+set --append FZF_DEFAULT_OPTS '--color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1'
+set --append FZF_DEFAULT_OPTS '--color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1'
+set --append FZF_DEFAULT_OPTS '--color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac'
+set --append FZF_DEFAULT_OPTS '--color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b'
 set --append FZF_DEFAULT_OPTS '--height 50%'
 set --append FZF_DEFAULT_OPTS '--layout=reverse'
 set --append FZF_DEFAULT_OPTS --border
