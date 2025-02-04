@@ -48,8 +48,6 @@ return {
 		{ "saadparwaiz1/cmp_luasnip" },
 	},
 	config = function()
-		-- for cmp
-		vim.opt.completeopt = "menu,menuone,noselect"
 		-- for spell
 		vim.opt.spell = true
 		vim.opt.spelllang = { "en_us" }
@@ -66,14 +64,33 @@ return {
 		})
 
 		cmp.setup({
+			completion = {
+				completeopt = "menu,menuone,noinsert,noselect",
+			},
 			snippet = {
 				expand = function(args)
 					require("luasnip").lsp_expand(args.body)
 				end,
 			},
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
 			mapping = cmp.mapping.preset.insert({
-				["<C-p>"] = cmp.mapping.select_prev_item(),
-				["<C-n>"] = cmp.mapping.select_next_item(),
+				["<C-p>"] = function(fallback)
+					if cmp.visible() then
+						cmp.select_prev_item()
+					else
+						fallback()
+					end
+				end,
+				["<C-n>"] = function(fallback)
+					if cmp.visible() then
+						cmp.select_next_item()
+					else
+						fallback()
+					end
+				end,
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 				["<C-k>"] = cmp.mapping(function(fallback)
 					if luasnip.expand_or_jumpable() then
@@ -87,16 +104,7 @@ return {
 				{ name = "copilot" },
 				{ name = "luasnip", option = { use_show_condition = false } },
 				{ name = "nvim_lsp" },
-				{
-					name = "spell",
-					option = {
-						keep_all_entries = false,
-						enable_in_context = function()
-							return true
-						end,
-						preselect_correct_word = true,
-					},
-				},
+			}, {
 				{ name = "buffer" },
 				{ name = "path" },
 			}),
