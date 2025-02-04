@@ -55,4 +55,7 @@ return {
 			-- option = {}, -- setup modules' option,
 		})
 	end,
+	keys = {
+		{ "<leader>tr", ":Tabby rename_tab ", desc = "Rename tab" },
+	},
 }
