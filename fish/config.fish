@@ -15,6 +15,9 @@ set -x PATH $ANDROID_HOME/emulator $PATH
 
 set -x PATH /usr/local/sbin $PATH
 
+# Homebrew Ruby gems
+set -x PATH /opt/homebrew/lib/ruby/gems/4.0.0/bin $PATH
+
 set termguicolors
 
 # vi mode
@@ -25,6 +28,9 @@ set -x PATH ~/.local/bin $PATH
 
 # bat
 set -x BAT_THEME Nord
+
+# Claude code
+set -x CLAUDE_ORG "kseki"
 
 # alias
 if test uname = Linux
@@ -48,7 +54,9 @@ set --append FZF_DEFAULT_OPTS --border
 alias gco 'git branch | fzf | xargs git checkout'
 alias gbr 'git branch | fzf -m | xargs git branch -d'
 
-set -U FZF_LEGACY_KEYBINDINGS 0
+if command -q fzf
+    fzf --fish | source
+end
 
 # 端末間でヒストリーを共有
 function history-merge --on-event fish_preexec
@@ -75,13 +83,19 @@ if test (uname -s) = Darwin
     end
     set --erase _asdf_shims
 
-    source ~/.asdf/installs/python/3.10.1/lib/python3.10/site-packages/powerline/bindings/fish/powerline-setup.fish
+    if test -f ~/.asdf/installs/python/3.10.1/lib/python3.10/site-packages/powerline/bindings/fish/powerline-setup.fish
+        source ~/.asdf/installs/python/3.10.1/lib/python3.10/site-packages/powerline/bindings/fish/powerline-setup.fish
+    end
 
     # google cloud sdk
-    source (brew --prefix)/share/google-cloud-sdk/path.fish.inc
+    if test -f (brew --prefix)/share/google-cloud-sdk/path.fish.inc
+        source (brew --prefix)/share/google-cloud-sdk/path.fish.inc
+    end
 
     # deno
-    deno completions fish >~/.config/fish/completions/deno.fish
+    if command -q deno
+        deno completions fish >~/.config/fish/completions/deno.fish
+    end
 end
 
 # For Linux

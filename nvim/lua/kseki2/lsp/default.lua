@@ -1,12 +1,10 @@
 local function default_config(server)
-	local lspconfig = require("lspconfig")
-	local util = require("kseki2.libs._set_lsp")
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	local util = require("kseki2.libs._set_lsp")
 
-	lspconfig[server].setup({
+	vim.lsp.config(server, {
 		on_attach = util.on_attach,
 		capabilities = capabilities,
-		flags = util.flags,
 	})
 end
 

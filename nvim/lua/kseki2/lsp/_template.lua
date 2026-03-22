@@ -1,11 +1,10 @@
 if vim.fn.exepath("lsp_name") ~= "" then
-	local lspconfig = require("lspconfig")
 	local util = require("kseki2.libs._set_lsp")
+	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-	lspconfig.template.setup({
+	vim.lsp.config("template", {
 		on_attach = util.on_attach,
-		capabilities = util.capabilities,
-		flags = util.flags,
+		capabilities = capabilities,
 	})
 else
 	vim.notify("lsp install command", vim.log.levels.WARN, { title = "servername" })

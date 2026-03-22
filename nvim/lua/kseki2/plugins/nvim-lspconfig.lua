@@ -36,6 +36,8 @@ return {
 				conf_lsp(lsp)
 			end
 
+			vim.lsp.enable(servers)
+
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 				pattern = "*",
 				command = [[ lua vim.diagnostic.open_float(nil, {focus=false}) ]],

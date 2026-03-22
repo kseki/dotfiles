@@ -5,39 +5,9 @@ return {
 		event = { "BufRead", "BufNewFile" },
 		dependencies = {
 			"RRethy/nvim-treesitter-endwise",
-			"RRethy/nvim-treesitter-textsubjects",
 		},
 		config = function()
-			local configs = require("nvim-treesitter.configs")
-
-			configs.setup({
-				ensure_installed = {
-					"lua",
-					"vim",
-					"vimdoc",
-					"query",
-					"javascript",
-					"html",
-					"go",
-					"terraform",
-				},
-				sync_install = false,
-				highlight = { enable = true },
-				indent = { enable = true },
-				endwise = { enable = true },
-				textsubjects = {
-					enable = true,
-					prev_selection = ",", -- (Optional) keymap to select the previous selection
-					keymaps = {
-						["."] = "textsubjects-smart",
-						[";"] = "textsubjects-container-outer",
-						["i;"] = {
-							"textsubjects-container-inner",
-							desc = "Select inside containers (classes, functions, etc.)",
-						},
-					},
-				},
-			})
+			require("nvim-treesitter").setup({})
 		end,
 	},
 	{
