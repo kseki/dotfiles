@@ -1,3 +1,4 @@
+brew "deno"
 brew "fish"
 brew "fzf"
 brew "gh"
