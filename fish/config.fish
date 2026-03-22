@@ -30,7 +30,7 @@ set -x PATH ~/.local/bin $PATH
 set -x BAT_THEME Nord
 
 # Claude code
-set -x CLAUDE_ORG "kseki" 
+set -x CLAUDE_ORG "kseki"
 
 # alias
 if test uname = Linux
@@ -54,7 +54,9 @@ set --append FZF_DEFAULT_OPTS --border
 alias gco 'git branch | fzf | xargs git checkout'
 alias gbr 'git branch | fzf -m | xargs git branch -d'
 
-fzf --fish | source
+if command -q fzf
+    fzf --fish | source
+end
 
 # 端末間でヒストリーを共有
 function history-merge --on-event fish_preexec
