@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# WARNING: このスクリプトは古く、現在正しく動作しません。
+
 DOTPATH=~/.dotfiles
 GITHUB_URL=git@github.com:kota718/dotfiles.git
 
