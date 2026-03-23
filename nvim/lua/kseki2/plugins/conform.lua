@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	evnet = "BufferEnter",
+	event = "BufEnter",
 	config = function()
 		local js_formatters = { "biome-check", "prettier", stop_after_first = true }
 
