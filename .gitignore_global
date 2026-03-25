@@ -1,0 +1,29 @@
+# === OS ===
+.DS_Store
+
+# === Editor / IDE ===
+.idea/
+.vscode/
+*.swp
+*.swo
+tags
+
+# === Language version managers ===
+.ruby-version
+.node-version
+.tool-versions
+
+# === Dependencies ===
+vendor/bundle/
+bundle_bin/
+
+# === Local config ===
+.local/
+.local.vimrc
+.envrc.local
+.env.local
+
+# === Claude Code ===
+.claude/
+.claude_output
+CLAUDE.md
