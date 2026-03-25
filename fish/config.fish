@@ -103,3 +103,10 @@ if test (uname -s) = Linux
     # asdf
     source ~/.asdf/asdf.fish
 end
+
+# ghq + fzf: Ctrl+G で ghq repo に cd
+function cd-repo
+    cd (ghq list -p | fzf)
+end
+bind -M default ctrl+g cd-repo
+bind -M insert ctrl+g cd-repo
