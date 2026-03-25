@@ -108,5 +108,7 @@ end
 function cd-repo
     cd (ghq list -p | fzf)
 end
-bind -M default ctrl+g cd-repo
-bind -M insert ctrl+g cd-repo
+function fish_user_key_bindings
+    bind -M default \cg cd-repo
+    bind -M insert \cg cd-repo
+end
