@@ -45,6 +45,7 @@ Zsh with Prezto framework. Vi keybindings (`bindkey -v`). Custom functions in `z
 ## Workflow
 
 - GitHub Flow（mainブランチから直接featureブランチを切り、PRでマージする）を使用する
+- 並列セッション実行時は`git worktree`を使い、作業ディレクトリの干渉を避ける
 
 ## Conventions
 
