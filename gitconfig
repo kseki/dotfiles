@@ -9,7 +9,6 @@
   templatedir = ~/.git_template/
 [core]
   editor = nvim
-  excludesFile = ~/.gitignore_global
   pager = delta
 [interactive]
   diffFilter = delta --color-only
