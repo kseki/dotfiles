@@ -6,7 +6,6 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lsp",
-		"f3fora/cmp-spell",
 		"onsails/lspkind.nvim",
 		{
 			"zbirenbaum/copilot-cmp",
@@ -48,9 +47,6 @@ return {
 		{ "saadparwaiz1/cmp_luasnip" },
 	},
 	config = function()
-		-- for spell
-		vim.opt.spell = true
-		vim.opt.spelllang = { "en_us" }
 		-- for copilot
 		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
