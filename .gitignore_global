@@ -24,6 +24,5 @@ bundle_bin/
 .env.local
 
 # === Claude Code ===
-.claude/
+.claude/settings.local.json
 .claude_output
-CLAUDE.md
