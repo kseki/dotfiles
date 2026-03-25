@@ -60,6 +60,7 @@ end
 return {
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
+		enabled = false, -- Disabled temporarily for Claude Code testing
 		event = "BufRead",
 		dependencies = {
 			{ "zbirenbaum/copilot.lua" },

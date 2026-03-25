@@ -44,3 +44,6 @@ opt.splitbelow = true
 opt.laststatus = 3
 
 opt.iskeyword:append("-")
+
+-- Disable spell check
+opt.spell = false
