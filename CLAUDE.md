@@ -42,6 +42,10 @@ Zsh with Prezto framework. Vi keybindings (`bindkey -v`). Custom functions in `z
 - **tmux** (`tmux.conf`, `tmux/`) — prefix `C-a`, vi copy mode, TPM for plugins, OS-specific configs
 - **yabai** (`yabairc`) + **skhd** (`skhdrc`) — tiling window manager and hotkey daemon
 
+## Workflow
+
+- GitHub Flow（mainブランチから直接featureブランチを切り、PRでマージする）を使用する
+
 ## Conventions
 
 - Commit messages are in Japanese with conventional prefix (feat/chore/fix)
