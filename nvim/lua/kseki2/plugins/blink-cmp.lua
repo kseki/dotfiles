@@ -2,7 +2,24 @@ return {
 	"saghen/blink.cmp",
 	dependencies = {
 		"fang2hou/blink-copilot",
-		"zbirenbaum/copilot.lua",
+		{
+			"zbirenbaum/copilot.lua",
+			opts = {
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+				filetypes = {
+					yaml = true,
+					markdown = true,
+					help = false,
+					gitcommit = false,
+					gitrebase = false,
+					hgcommit = false,
+					svn = false,
+					cvs = false,
+					["."] = false,
+				},
+			},
+		},
 		"rafamadriz/friendly-snippets",
 	},
 	version = "*",
@@ -15,11 +32,11 @@ return {
 			["<C-n>"] = { "select_next", "fallback" },
 		},
 		appearance = {
-			use_nvim_cmp_as_default = false,
 			nerd_font_variant = "mono",
 		},
 		sources = {
 			default = { "copilot", "lsp", "path", "snippets", "buffer" },
+			cmdline = {},
 			providers = {
 				copilot = {
 					name = "copilot",
