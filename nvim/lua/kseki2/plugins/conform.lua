@@ -1,22 +1,22 @@
 return {
-	"stevearc/conform.nvim",
-	event = "BufEnter",
-	config = function()
-		local js_formatters = { "biome-check", "prettier", stop_after_first = true }
+  "stevearc/conform.nvim",
+  event = "BufEnter",
+  config = function()
+    local js_formatters = { "biome-check", "prettier", stop_after_first = true }
 
-		require("conform").setup({
-			formatters_by_ft = {
-				lua = { "stylua" },
-				javascript = js_formatters,
-				javascriptreact = js_formatters,
-				typescript = js_formatters,
-				typescriptreact = js_formatters,
-			},
-			format_on_save = {
-				timeout_ms = 2000,
-				lsp_fallback = true,
-				quiet = false,
-			},
-		})
-	end,
+    require("conform").setup({
+      formatters_by_ft = {
+        lua = { "stylua" },
+        javascript = js_formatters,
+        javascriptreact = js_formatters,
+        typescript = js_formatters,
+        typescriptreact = js_formatters,
+      },
+      format_on_save = {
+        timeout_ms = 2000,
+        lsp_fallback = true,
+        quiet = false,
+      },
+    })
+  end,
 }

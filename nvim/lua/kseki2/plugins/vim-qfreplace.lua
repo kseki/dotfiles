@@ -1,4 +1,4 @@
 return {
-	"thinca/vim-qfreplace",
-	lazy = false,
+  "thinca/vim-qfreplace",
+  lazy = false,
 }
