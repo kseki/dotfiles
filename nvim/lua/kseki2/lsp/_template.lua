@@ -1,6 +1,6 @@
 if vim.fn.exepath("lsp_name") ~= "" then
 	local util = require("kseki2.libs._set_lsp")
-	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 	vim.lsp.config("template", {
 		on_attach = util.on_attach,
