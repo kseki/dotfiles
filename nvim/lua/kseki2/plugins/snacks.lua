@@ -5,7 +5,7 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		dashboard = { enabled = false },
-		explorer = { enabled = false },
+		explorer = { enabled = true },
 		image = { enabled = false },
 		indent = { enabled = true },
 		input = { enabled = true },
@@ -23,5 +23,7 @@ return {
 		{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Find buffer" },
 		{ "<leader>fh", function() Snacks.picker.help() end, desc = "Find help" },
 		{ "<leader>fs", function() Snacks.picker.git_status() end, desc = "Git status" },
+		{ "<leader>e", function() Snacks.explorer() end, desc = "Explorer toggle" },
+		{ "<leader>er", function() Snacks.explorer({ focus = true }) end, desc = "Explorer reveal" },
 	},
 }

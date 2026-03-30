@@ -6,7 +6,7 @@ return {
 		require("lualine").setup({
 			disabled_filetypes = {
 				statusline = {
-					"neo-tree",
+					"snacks_explorer",
 				},
 			},
 		})
