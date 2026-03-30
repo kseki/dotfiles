@@ -6,7 +6,7 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
 
 # Thumbnails
 ._*
@@ -35,3 +35,5 @@ tmux/resurrect/
 nvim/plugin/packer_compiled.lua
 
 lazygit/state.yml
+
+.worktrees/
