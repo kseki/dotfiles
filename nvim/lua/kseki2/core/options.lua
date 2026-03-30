@@ -13,8 +13,8 @@ opt.numberwidth = 5
 opt.wrap = false
 
 -- Tab & Indentation
-opt.shiftwidth = 4
-opt.tabstop = 4
+opt.shiftwidth = 2
+opt.tabstop = 2
 opt.expandtab = true
 opt.smarttab = true
 opt.autoindent = true
@@ -44,4 +44,3 @@ opt.splitbelow = true
 opt.laststatus = 3
 
 opt.iskeyword:append("-")
-
