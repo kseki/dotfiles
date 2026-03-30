@@ -1,5 +1,5 @@
 local function default_config(server)
-	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+	local capabilities = require("blink.cmp").get_lsp_capabilities()
 	local util = require("kseki2.libs._set_lsp")
 
 	vim.lsp.config(server, {
