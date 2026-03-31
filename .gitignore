@@ -33,6 +33,7 @@ tmux/plugins/tpm
 tmux/resurrect/
 
 nvim/plugin/packer_compiled.lua
+nvim.log
 
 lazygit/state.yml
 
