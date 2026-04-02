@@ -4,6 +4,7 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
+    lazygit = { enabled = true },
     dashboard = { enabled = false },
     explorer = { enabled = true },
     picker = {
@@ -67,6 +68,13 @@ return {
         Snacks.explorer()
       end,
       desc = "Explorer toggle",
+    },
+    {
+      "<leader>gg",
+      function()
+        Snacks.lazygit()
+      end,
+      desc = "Lazygit",
     },
     {
       "<leader>er",
