@@ -14,7 +14,9 @@ set -x PATH $ANDROID_HOME/tools/bin $PATH
 set -x PATH $ANDROID_HOME/emulator $PATH
 
 set -x PATH /usr/local/sbin $PATH
-fish_add_path /opt/homebrew/bin
+if test -d /opt/homebrew/bin
+    fish_add_path /opt/homebrew/bin
+end
 
 # Homebrew Ruby gems
 set -x PATH /opt/homebrew/lib/ruby/gems/4.0.0/bin $PATH
@@ -79,12 +81,6 @@ if test (uname -s) = Darwin
     if command -q deno
         deno completions fish >~/.config/fish/completions/deno.fish
     end
-end
-
-# For Linux
-if test (uname -s) = Linux
-    # asdf
-    source ~/.asdf/asdf.fish
 end
 
 # ghq + fzf: Ctrl+G で ghq repo に cd
