@@ -14,6 +14,7 @@ set -x PATH $ANDROID_HOME/tools/bin $PATH
 set -x PATH $ANDROID_HOME/emulator $PATH
 
 set -x PATH /usr/local/sbin $PATH
+fish_add_path /opt/homebrew/bin
 
 # Homebrew Ruby gems
 set -x PATH /opt/homebrew/lib/ruby/gems/4.0.0/bin $PATH
@@ -69,24 +70,6 @@ eval (gh completion -s fish| source)
 
 # For MacOS
 if test (uname -s) = Darwin
-    # ASDF configuration code
-    if test -z $ASDF_DATA_DIR
-        set _asdf_shims "$HOME/.asdf/shims"
-    else
-        set _asdf_shims "$ASDF_DATA_DIR/shims"
-    end
-    
-    # Do not use fish_add_path (added in Fish 3.2) because it
-    # potentially changes the order of items in PATH
-    if not contains $_asdf_shims $PATH
-        set -gx --prepend PATH $_asdf_shims
-    end
-    set --erase _asdf_shims
-
-    if test -f ~/.asdf/installs/python/3.10.1/lib/python3.10/site-packages/powerline/bindings/fish/powerline-setup.fish
-        source ~/.asdf/installs/python/3.10.1/lib/python3.10/site-packages/powerline/bindings/fish/powerline-setup.fish
-    end
-
     # google cloud sdk
     if test -f (brew --prefix)/share/google-cloud-sdk/path.fish.inc
         source (brew --prefix)/share/google-cloud-sdk/path.fish.inc
