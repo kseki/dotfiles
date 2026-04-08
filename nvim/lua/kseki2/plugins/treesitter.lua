@@ -10,6 +10,7 @@ return {
       require("nvim-treesitter").setup({
         ensure_installed = { "go", "gomod", "gosum", "gowork" },
         highlight = { enable = true },
+        endwise = { enable = true },
       })
     end,
   },
