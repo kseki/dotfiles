@@ -10,7 +10,7 @@ opt.relativenumber = true
 opt.number = true
 opt.numberwidth = 5
 
-opt.wrap = false
+opt.wrap = true
 
 -- Tab & Indentation
 opt.shiftwidth = 2
