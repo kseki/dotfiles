@@ -10,6 +10,12 @@ return {
     picker = {
       enabled = true,
       sources = {
+        files = {
+          follow = true,
+        },
+        grep = {
+          follow = true,
+        },
         explorer = {
           hidden = true,
           ignored = true,
