@@ -50,6 +50,7 @@ return {
     },
     completion = {
       accept = { auto_brackets = { enabled = true } },
+      list = { selection = { preselect = false } },
       menu = { border = "rounded" },
       documentation = {
         auto_show = true,
