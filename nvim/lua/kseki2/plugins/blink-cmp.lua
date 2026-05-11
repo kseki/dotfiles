@@ -1,3 +1,12 @@
+local function snippet_search_paths()
+  local paths = { vim.fn.stdpath("config") .. "/snippets" }
+  local project_snippets = vim.fn.getcwd() .. "/.nvim/snippets"
+  if (vim.uv or vim.loop).fs_stat(project_snippets) then
+    table.insert(paths, 1, project_snippets)
+  end
+  return paths
+end
+
 return {
   "saghen/blink.cmp",
   dependencies = {
@@ -42,6 +51,11 @@ return {
           module = "blink-copilot",
           score_offset = 100,
           async = true,
+        },
+        snippets = {
+          opts = {
+            search_paths = snippet_search_paths(),
+          },
         },
       },
     },
