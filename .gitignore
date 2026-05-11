@@ -38,3 +38,5 @@ nvim.log
 lazygit/state.yml
 
 .worktrees/
+
+docs/superpowers/

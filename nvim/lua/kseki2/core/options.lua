@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 opt.autoread = true
+opt.exrc = true
 opt.encoding = "utf-8"
 opt.shell = "/bin/zsh"
 opt.termguicolors = true
